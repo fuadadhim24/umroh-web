@@ -63,7 +63,7 @@
         </div>
     </nav>
     <section class="h-screen 2xl:h-4/5" style="background-image: url('{{ Vite::asset('resources/images/lp-main/section-hero.png') }}');">
-        <div class="mx-auto max-w-screen-2xl">
+        <div class="mx-auto max-w-screen-2xl md:mx-4">
             <div class="grid max-w-screen-xl px-4 md:mx-8 xl:px-0 py-40 lg:mx-20 lg:gap-8 xl:gap-0 lg:py-8 xl:py-0 lg:grid-cols-12 items-center justify-center">
             <div class="mr-auto place-self-center lg:col-span-7 xl:col-span-7 md:mt-12">
                 <h1 class="max-w-2xl mb-8 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-5xl text-white">
@@ -371,6 +371,195 @@
                         <span class="sr-only">Next</span>
                     </span>
                 </button>
+            </div>
+        </div>
+    </section>
+    <section class="hidden sm:flex py-20">
+        <div class="mx-auto w-full max-w-screen-2xl items-center md:mx-8 px-4 lg:mx-20 md:px-8">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Artikel Terbaru
+                </h2>
+                <button type="button"
+                    class="hidden sm:flex text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-4 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">
+                    Selengkapnya
+                </button>
+            </div>
+            <div class="grid grid-flow-col grid-rows-2 gap-3 w-full">
+                <div
+                    class="row-span-3 col-span-5 rounded-3xl shadow-custom transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+                    <div class="mt-4 ml-4 mr-4 rounded-2xl shadow-custom">
+                        <a href="#">
+                            <img class="rounded-t-lg object-cover w-full h-72 rounded-2xl"
+                                src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg" alt="" />
+                        </a>
+                    </div>
+                    <div class="flex justify-between items-center px-4 py-4">
+                        <div>
+                            <p
+                                class="mb-4 inline-flex items-center px-3 py-1 text-lg font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                Edukasi
+                            </p>
+                            <a href="#">
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    Panduan Lengkap Manasik Umroh</h5>
+                            </a>
+                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Langkah-Langkah Penting Sebelum
+                                Berangkat ke Tanah Suci.</p>
+                            <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal: 01 Desember 2025</p>
+    
+                        </div>
+                        <a href="#"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-send-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z" />
+                            </svg>&nbsp;Bagikan Media
+                        </a>
+                    </div>
+    
+                </div>
+                <div
+                    class="col-span-2 rounded-3xl shadow-custom transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+                    <div class="mt-4 ml-4 mr-4 rounded-2xl shadow-custom">
+                        <a href="#">
+                            <img class="rounded-t-lg object-cover w-full h-24 rounded-2xl"
+                                src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg" alt="" />
+                        </a>
+                    </div>
+                    <div class="p-5">
+                        <p
+                            class="mb-1 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
+                            Edukasi
+                        </p>
+                        <a href="#">
+                            <h5 class="text-lg mb-2 font-bold tracking-tight text-gray-900 dark:text-white">
+                                Panduan Lengkap Manasik Umroh</h5>
+                        </a>
+                        <p class="text-sm font-normal text-gray-700 dark:text-gray-400">Langkah-Langkah Penting Sebelum
+                            Berangkat ke Tanah Suci.</p>
+    
+                    </div>
+                </div>
+                <div
+                    class="col-span-2 rounded-3xl shadow-custom transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+                    <div class="mt-4 ml-4 mr-4 rounded-2xl shadow-custom">
+                        <a href="#">
+                            <img class="rounded-t-lg object-cover w-full h-24 rounded-2xl"
+                                src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg" alt="" />
+                        </a>
+                    </div>
+                    <div class="p-5">
+                        <p
+                            class="mb-1 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
+                            Edukasi
+                        </p>
+                        <a href="#">
+                            <h5 class="text-lg mb-2 font-bold tracking-tight text-gray-900 dark:text-white">
+                                Panduan Lengkap Manasik Umroh</h5>
+                        </a>
+                        <p class="text-sm font-normal text-gray-700 dark:text-gray-400">Langkah-Langkah Penting Sebelum
+                            Berangkat ke Tanah Suci.</p>
+    
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+    <section class="justify-center">
+        <div class="mx-auto max-w-screen-2xl items-center md:mx-8 px-4 lg:mx-20 md:px-8">
+            <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Testimoni Jama'ah
+            </h2>
+            <div>
+                <div class="lg:grid lg:grid-flow-col lg:grid-rows-3 lg:gap-3">
+                    <div class="lg:row-span-3 mb-8">
+                        <div class="flex mt-8 mb-4">
+                            <div class="mr-4 w-20 p-2 bg-white h-20 rounded-full overflow-hidden shadow-custom ">
+                                <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+                                    alt="Profile Image" class="w-full rounded-full h-full object-cover">
+                            </div>
+                            <div>
+                                <a href="#">
+                                    <h5 class="text-lg mb-2 font-bold tracking-tight text-gray-900 dark:text-white">
+                                        Ustadz Syamsul</h5>
+                                    <div class="flex items-center space-x-1">
+                                        <!-- Bintang penuh -->
+                                        <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 3.317a1 1 0 011.902 0l1.478 4.555a1 1 0 00.95.69h4.8a1 1 0 01.588 1.81l-3.887 2.829a1 1 0 00-.364 1.118l1.478 4.555a1 1 0 01-1.539 1.118L10 15.767l-3.887 2.829a1 1 0 01-1.539-1.118l1.478-4.555a1 1 0 00-.364-1.118L1.8 9.372a1 1 0 01.588-1.81h4.8a1 1 0 00.95-.69l1.478-4.555z" />
+                                        </svg>
+                                        <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 3.317a1 1 0 011.902 0l1.478 4.555a1 1 0 00.95.69h4.8a1 1 0 01.588 1.81l-3.887 2.829a1 1 0 00-.364 1.118l1.478 4.555a1 1 0 01-1.539 1.118L10 15.767l-3.887 2.829a1 1 0 01-1.539-1.118l1.478-4.555a1 1 0 00-.364-1.118L1.8 9.372a1 1 0 01.588-1.81h4.8a1 1 0 00.95-.69l1.478-4.555z" />
+                                        </svg>
+                                        <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 3.317a1 1 0 011.902 0l1.478 4.555a1 1 0 00.95.69h4.8a1 1 0 01.588 1.81l-3.887 2.829a1 1 0 00-.364 1.118l1.478 4.555a1 1 0 01-1.539 1.118L10 15.767l-3.887 2.829a1 1 0 01-1.539-1.118l1.478-4.555a1 1 0 00-.364-1.118L1.8 9.372a1 1 0 01.588-1.81h4.8a1 1 0 00.95-.69l1.478-4.555z" />
+                                        </svg>
+                                        <!-- Bintang kosong -->
+                                        <svg class="w-6 h-6 text-gray-300" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 3.317a1 1 0 011.902 0l1.478 4.555a1 1 0 00.95.69h4.8a1 1 0 01.588 1.81l-3.887 2.829a1 1 0 00-.364 1.118l1.478 4.555a1 1 0 01-1.539 1.118L10 15.767l-3.887 2.829a1 1 0 01-1.539-1.118l1.478-4.555a1 1 0 00-.364-1.118L1.8 9.372a1 1 0 01.588-1.81h4.8a1 1 0 00.95-.69l1.478-4.555z" />
+                                        </svg>
+                                        <svg class="w-6 h-6 text-gray-300" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 3.317a1 1 0 011.902 0l1.478 4.555a1 1 0 00.95.69h4.8a1 1 0 01.588 1.81l-3.887 2.829a1 1 0 00-.364 1.118l1.478 4.555a1 1 0 01-1.539 1.118L10 15.767l-3.887 2.829a1 1 0 01-1.539-1.118l1.478-4.555a1 1 0 00-.364-1.118L1.8 9.372a1 1 0 01.588-1.81h4.8a1 1 0 00.95-.69l1.478-4.555z" />
+                                        </svg>
+                                    </div>
+    
+                            </div>
+                        </div>
+                        <a href="#" class="mt-8">
+                            <h5 class="text-lg mb-2 font-bold tracking-tight text-gray-900 dark:text-white text-justify">
+                                Alhamdulillah, perjalanan umroh saya bersama El Aqsho Group benar-benar luar biasa. Semua
+                                fasilitas yang disediakan sangat memuaskan, mulai dari akomodasi yang nyaman, makanan halal
+                                yang lezat, hingga bimbingan ibadah yang sangat profesional.
+                            </h5>
+                        </a>
+                    </div>
+                    <div class="lg:row-span-5"><img src="{{ Vite::asset('resources/images/lp-main/testimoni.png') }}"
+                            class="h-full w-full object-cover" alt="Testimoni 1"></div>
+                    <div class="lg:row-span-5 lg:mt-2 mt-4">
+                        <div class="relative overflow-hidden rounded-3xl shadow-custom bg-red-700">
+                            <iframe src="https://www.youtube.com/embed/5L3wKniOnro?autoplay=1" height="300" width="100%"
+                                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    
+    </section>
+    
+    <section class="bg-cover bg-center h-80 mt-14"
+        style="background-image: url('{{ Vite::asset('resources/images/lp-main/section-hero.png') }}')">
+        <div class="flex items-center justify-center h-full px-4">
+            <div class="flex flex-col items-center">
+                <!-- Text div -->
+                <div class="text-center p-6 rounded-lg">
+                    <h2 class="text-2xl font-bold text-white mb-4">Dapatkan Berita Terbaru Umroh Langsung ke WhatsApp Anda
+                    </h2>
+                </div>
+                <!-- Button div -->
+                <div>
+                    <button type="button"
+                        class="text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-4 py-4 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary flex justify-between items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                            class="bi bi-whatsapp" viewBox="0 0 16 16">
+                            <path
+                                d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                        </svg>
+                        &nbsp;Kirim Chat
+                    </button>
+                </div>
             </div>
         </div>
     </section>
