@@ -54,15 +54,15 @@
             </div>
             </div>
             </nav>
-    <section class="bg-red-500 dark:bg-gray-900 bg-cover bg-center h-screen"
+    <section class=" dark:bg-gray-900 bg-cover bg-center h-screen"
         style="background-image: url('{{ Vite::asset('resources/images/lp-main/section-hero.png') }}');">
         <div
-            class="grid max-w-screen-xl px-4 md:px-16 xl:px-4 py-40 mx-auto lg:gap-8 xl:gap-0 lg:py-24 xl:py-8 lg:grid-cols-12 items-center justify-center">
+            class="grid max-w-screen-xl px-4 md:px-16 xl:px-0 py-40 mx-auto lg:gap-8 xl:gap-0 lg:py-24 xl:py-8 lg:grid-cols-12 items-center justify-center">
 
             <div class="mr-auto place-self-center lg:col-span-7 xl:col-span-7 md:mt-12">
                 <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-white">
                     Temukan keajaiban dunia melalui perjalanan Haji dan Umroh yang tak terlupakan.</h1>
-                <p class="max-w-2xl mb-6 font-light text-gray-300 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">From
+                <p class="max-w-2xl mb-6 font-light text-gray-300 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
                     Mulailah merencanakan perjalanan spiritual Anda dengan kami. Klik tombol di bawah ini untuk informasi
                     lebih lanjut untuk pemesanan Haji & Umroh Bersama EL-Aqsho Group.</p>
                 <button type="button"
@@ -86,32 +86,78 @@
                 </div>
         </div>
     </section>
-    <section class="bg-red-500 dark:bg-gray-900 bg-cover bg-center h-screen">
-        <div class="grid max-w-screen-xl px-4 py-32 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-            <div class="mr-auto place-self-center lg:col-span-7">
-                <h1
-                    class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
-                    Payments tool for software companies</h1>
-                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">From
-                    checkout to global sales tax compliance, companies around the world use Flowbite to simplify their
-                    payment stack.</p>
-                <a href="#"
-                    class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                    Get started
-                    <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                </a>
-                <a href="#"
-                    class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                    Speak to Sales
-                </a>
-            </div>
-            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup">
+    <section class="mt-12">
+        <div class="bg-white py-6 sm:py-8 lg:py-12">
+            <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+                <h2 class="mb-8 text-start text-4xl font-extrabold text-gray-800 md:mb-12 lg:text-3xl">Pilihan Paket Haji & Umroh</h2>
+    
+                <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
+                    <!-- product - start -->
+                    <div>
+                        <a href="#"
+                            class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+                                loading="lazy" alt="Photo by Austin Wade"
+                                class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+    
+                            <div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
+                                <span class="text-gray-500">Rp. 35.9 Jt</span>
+                                <span class="text-lg font-bold text-gray-800 lg:text-xl">Umroh Full Ramadhan</span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- product - end -->
+    
+                    <!-- product - start -->
+                    <div>
+                        <a href="#"
+                            class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1603344797033-f0f4f587ab60?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+                                loading="lazy" alt="Photo by engin akyurt"
+                                class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+    
+                            <div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
+                                <span class="text-gray-500">Rp. 35.9 Jt</span>
+                                <span class="text-lg font-bold text-gray-800 lg:text-xl">Haji Furodha</span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- product - end -->
+    
+                    <!-- product - start -->
+                    <div>
+                        <a href="#"
+                            class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1552668693-d0738e00eca8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+                                loading="lazy" alt="Photo by Austin Wade"
+                                class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+    
+                            <div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
+                                <span class="text-gray-500">Rp. 35.9 Jt</span>
+                                <span class="text-lg font-bold text-gray-800 lg:text-xl">Haji Furodha</span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- product - end -->
+                    
+                    <!-- product - start -->
+                    <div>
+                        <a href="#"
+                            class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1560269999-cef6ebd23ad3?auto=format&q=75&fit=crop&w=600&h=700"
+                                loading="lazy" alt="Photo by Austin Wade"
+                                class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+    
+                            <div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
+                                <span class="text-gray-500">Rp. 35.9 Jt</span>
+                                <span class="text-lg font-bold text-gray-800 lg:text-xl">Haji Furodha</span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- product - end -->
+                    <button type="button"
+                    class="text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-4 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Selengkapnya</button>
+                    </div>
             </div>
         </div>
     </section>
