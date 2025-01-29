@@ -4,11 +4,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'node_modules/flowbite/dist/flowbite.min.js'])
 </head>
 
 <body>
-    <nav class="bg-white dark:bg-gray-900 fixed rounded-full mt-4 mb-4 inset-x-0 xl:mx-56 sm:mx-24 md:mx-36 mx-4">
+    <nav class="bg-white dark:bg-gray-900 fixed rounded-full mt-4 mb-4 inset-x-0 xl:mx-56 sm:mx-24 md:mx-36 mx-4 z-50">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="{{ Vite::asset('resources/images/lp-main/al-aqsha-horizontal.png') }}" class="h-8 ml-4"
@@ -93,10 +93,11 @@
         </div>
     </section>
     <section class="mt-8">
-        <div class="bg-white py-6 sm:py-8 lg:py-12 lg:mx-20">
+        <div class="bg-white py-6 sm:py-8 md:mx-8 lg:py-12 lg:mx-20">
             <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-                <div class="flex justify-between items-center mb-12"> <!-- Menggunakan flex dengan justify-between -->
-                    <h2 class="text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Pilihan Paket Haji & Umroh</h2>
+                <div class="flex justify-between items-center mb-8"> <!-- Menggunakan flex dengan justify-between -->
+                    <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Pilihan Paket Haji & Umroh
+                    </h2>
                     <button type="button"
                         class="hidden sm:flex text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-4 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">
                         Selengkapnya
@@ -123,7 +124,7 @@
                     <div>
                         <a href="#"
                             class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-                            <img src="https://images.unsplash.com/photo-1603344797033-f0f4f587ab60?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+                            <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
                                 loading="lazy" alt="Photo by engin akyurt"
                                 class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
     
@@ -155,7 +156,7 @@
                     <div>
                         <a href="#"
                             class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-                            <img src="https://images.unsplash.com/photo-1560269999-cef6ebd23ad3?auto=format&q=75&fit=crop&w=600&h=700"
+                            <img src="https://images.unsplash.com/photo-1552668693-d0738e00eca8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
                                 loading="lazy" alt="Photo by Austin Wade"
                                 class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
     
@@ -172,12 +173,232 @@
             </div>
         </div>
     </section>
-    <section class="mt-8">
-        <div class="mx-auto max-w-screen-2xl">
-
+    {{-- carousel --}}
+    <section class="mt-8 h-screen sm:hidden">
+        <div class="mx-auto max-w-screen-2xl md:mx-8 px-4 lg:mx-20 md:px-8">
+            <div class="mb-8">
+                <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Artikel Terbaru</h2>
+            </div>
+            <div id="carousel-example" class="relative w-full h-screen" data-carousel="slide">
+                <!-- Carousel wrapper -->
+                <div class="relative overflow-hidden rounded-lg md:h-96" style="height: 70vh">
+                    <!-- Increased height here -->
+                    <!-- Item 1 -->
+                    <div id="carousel-item-1" class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <div
+                            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-custom dark:bg-gray-800 dark:border-gray-700">
+                            <a href="#">
+                                <img class="rounded-t-lg" src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg"
+                                    alt="" />
+                            </a>
+                            <div class="p-5">
+                                <p
+                                    class="mb-4 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                    Edukasi
+                                </p>
+                                <a href="#">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                        Panduan Lengkap Manasik Umroh</h5>
+                                </a>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Langkah-Langkah Penting Sebelum Berangkat ke Tanah Suci.</p>
+                                <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal: 01 Desember 2025</p>
+                                <a href="#"
+                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    Baca
+                                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Added h-full and object-cover -->
+                    </div>
+                    <!-- Item 2 -->
+                    <div id="carousel-item-2" class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <div
+                            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-custom dark:bg-gray-800 dark:border-gray-700">
+                            <a href="#">
+                                <img class="rounded-t-lg" src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg"
+                                    alt="" />
+                            </a>
+                            <div class="p-5">
+                                <p
+                                    class="mb-4 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                    Edukasi
+                                </p>
+                                <a href="#">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                        Panduan Lengkap Manasik Umroh</h5>
+                                </a>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Langkah-Langkah Penting Sebelum Berangkat ke Tanah Suci.</p>
+                                <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal: 01 Desember 2025</p>
+                                <a href="#"
+                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    Baca
+                                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Added h-full and object-cover -->
+                    </div>
+                    <!-- Item 3 -->
+                    <div id="carousel-item-3" class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <div
+                            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-custom dark:bg-gray-800 dark:border-gray-700">
+                            <a href="#">
+                                <img class="rounded-t-lg" src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg"
+                                    alt="" />
+                            </a>
+                            <div class="p-5">
+                                <p
+                                    class="mb-4 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                    Edukasi
+                                </p>
+                                <a href="#">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                        Panduan Lengkap Manasik Umroh</h5>
+                                </a>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Langkah-Langkah Penting Sebelum Berangkat ke Tanah Suci.</p>
+                                <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal: 01 Desember 2025</p>
+                                <a href="#"
+                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    Baca
+                                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Added h-full and object-cover -->
+                    </div>
+                    <!-- Item 4 -->
+                    <div id="carousel-item-4" class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <div
+                            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-custom dark:bg-gray-800 dark:border-gray-700">
+                            <a href="#">
+                                <img class="rounded-t-lg" src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg"
+                                    alt="" />
+                            </a>
+                            <div class="p-5">
+                                <p
+                                    class="mb-4 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                    Edukasi
+                                </p>
+                                <a href="#">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                        Panduan Lengkap Manasik Umroh</h5>
+                                </a>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Langkah-Langkah Penting Sebelum Berangkat ke Tanah Suci.</p>
+                                <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal: 01 Desember 2025</p>
+                                <a href="#"
+                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    Baca
+                                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Added h-full and object-cover -->
+                    </div>
+                    <!-- Item 5 -->
+                    <div id="carousel-item-5" class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <div
+                            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-custom dark:bg-gray-800 dark:border-gray-700">
+                            <a href="#">
+                                <img class="rounded-t-lg" src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg"
+                                    alt="" />
+                            </a>
+                            <div class="p-5">
+                                <p
+                                    class="mb-4 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                    Edukasi
+                                </p>
+                                <a href="#">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                        Panduan Lengkap Manasik Umroh</h5>
+                                </a>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Langkah-Langkah Penting Sebelum Berangkat ke Tanah Suci.</p>
+                                <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal: 01 Desember 2025</p>
+                                <a href="#"
+                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    Baca
+                                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Added h-full and object-cover -->
+                    </div>
+                </div>
+                <!-- Slider controls -->
+                <button type="button"
+                    class="absolute top-0 start-0 z-30 flex mt-12 items-start justify-start h-full px-4 cursor-pointer group focus:outline-none"
+                    data-carousel-prev>
+                    <span
+                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 1 1 5l4 4" />
+                        </svg>
+                        <span class="sr-only">Previous</span>
+                    </span>
+                </button>
+                <button type="button"
+                    class="absolute top-0 end-0 z-30 flex mt-12 items-start justify-start h-full px-4 cursor-pointer group focus:outline-none"
+                    data-carousel-next>
+                    <span
+                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 9 4-4-4-4" />
+                        </svg>
+                        <span class="sr-only">Next</span>
+                    </span>
+                </button>
+            </div>
         </div>
     </section>
 
+
+        <script>
+            const carouselElement = document.getElementById('carousel-example');
+
+            const items = [
+                { position: 0, el: document.getElementById('carousel-item-1') },
+                { position: 1, el: document.getElementById('carousel-item-2') },
+                { position: 2, el: document.getElementById('carousel-item-3') },
+                { position: 3, el: document.getElementById('carousel-item-4') },
+                { position: 4, el: document.getElementById('carousel-item-5') },
+            ];
+
+            const options = {
+                defaultPosition: 0,
+                interval: 3000,
+                indicators: true,
+            };
+
+            const carousel = new Carousel(carouselElement, items, options);
+
+            // Event listeners for controls
+            document.querySelector('[data-carousel-prev]').addEventListener('click', () => carousel.prev());
+            document.querySelector('[data-carousel-next]').addEventListener('click', () => carousel.next());
+        </script>
 
 
     </body>
