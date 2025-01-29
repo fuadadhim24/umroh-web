@@ -62,7 +62,8 @@
             </div>
         </div>
     </nav>
-    <section class="h-screen 2xl:h-4/5" style="background-image: url('{{ Vite::asset('resources/images/lp-main/section-hero.png') }}');">
+    <section class="h-screen 2xl:h-4/5 flex justify-center"
+        style="background-image: url('{{ Vite::asset('resources/images/lp-main/section-hero.png') }}');">
         <div class="mx-auto max-w-screen-2xl md:mx-4">
             <div class="grid max-w-screen-xl px-4 md:mx-8 xl:px-0 py-40 lg:mx-20 lg:gap-8 xl:gap-0 lg:py-8 xl:py-0 lg:grid-cols-12 items-center justify-center">
             <div class="mr-auto place-self-center lg:col-span-7 xl:col-span-7 md:mt-12">
@@ -374,7 +375,7 @@
             </div>
         </div>
     </section>
-    <section class="hidden sm:flex py-20">
+    <section class="hidden sm:flex py-20  justify-center">
         <div class="mx-auto w-full max-w-screen-2xl items-center md:mx-8 px-4 lg:mx-20 md:px-8">
             <div class="flex justify-between items-center mb-8">
                 <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Artikel Terbaru
@@ -467,7 +468,7 @@
             </div>
         </div>
     </section>
-    <section class="justify-center">
+    <section class="justify-center flex">
         <div class="mx-auto max-w-screen-2xl items-center md:mx-8 px-4 lg:mx-20 md:px-8">
             <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Testimoni Jama'ah
             </h2>
@@ -562,6 +563,19 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <section class="h-48 justify-center flex">
+        <div class="py-12">
+            <img src="{{ Vite::asset('resources/images/lp-main/al-aqsha-horizontal.png') }}" class="h-14"
+                alt="Flowbite Logo">
+            <h2 class="mt-4 text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Ikuti Kami
+            </h2>
+        </div>
+    </section>
+    <section class="flex justify-center bg-grey-primary py-4">
+        <p class="text-center sm:text-start text-lg font-extrabold text-white md:text-lg">@CopyrightEl-AqshoGroup
+        </p>
     </section>
 
 

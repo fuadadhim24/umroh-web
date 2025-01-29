@@ -19,6 +19,7 @@ export default {
                 'red-primary' : '#E01E38',
                 'yellow-primary' : '#FF7300',
                 'blue-primary' : '#0099FF',
+                'grey-primary' : '#313131',
                 'hover-red-primary' : '#DE4358',
             },
             boxShadow: {
