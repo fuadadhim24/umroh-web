@@ -60,38 +60,38 @@
                     </li>
                 </ul>
             </div>
+        </div>
+    </nav>
+    <section class="h-screen 2xl:h-4/5" style="background-image: url('{{ Vite::asset('resources/images/lp-main/section-hero.png') }}');">
+        <div class="mx-auto max-w-screen-2xl">
+            <div class="grid max-w-screen-xl px-4 md:mx-8 xl:px-0 py-40 lg:mx-20 lg:gap-8 xl:gap-0 lg:py-8 xl:py-0 lg:grid-cols-12 items-center justify-center">
+            <div class="mr-auto place-self-center lg:col-span-7 xl:col-span-7 md:mt-12">
+                <h1 class="max-w-2xl mb-8 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-5xl text-white">
+                    Temukan keajaiban dunia melalui perjalanan Haji dan Umroh yang tak terlupakan.</h1>
+                <p class="max-w-2xl mb-8 font-light text-gray-300 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Mulailah
+                    merencanakan perjalanan spiritual Anda dengan kami. Klik tombol di bawah ini untuk informasi lebih lanjut untuk
+                    pemesanan Haji & Umroh Bersama EL-Aqsho Group.</p>
+                <button type="button"
+                    class="text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-2 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Hubungi
+                    Kami</button>
             </div>
-        </nav>
-        <section class="h-screen 2xl:h-4/5" style="background-image: url('{{ Vite::asset('resources/images/lp-main/section-hero.png') }}');">
-            <div class="mx-auto max-w-screen-2xl px-4">
-                <div class="grid max-w-screen-xl px-4 md:mx-8 xl:px-0 py-40 lg:mx-20 lg:gap-8 xl:gap-0 lg:py-8 xl:py-0 lg:grid-cols-12 items-center justify-center">
-                <div class="mr-auto place-self-center lg:col-span-7 xl:col-span-7 md:mt-12">
-                    <h1 class="max-w-2xl mb-8 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-5xl text-white">
-                        Temukan keajaiban dunia melalui perjalanan Haji dan Umroh yang tak terlupakan.</h1>
-                    <p class="max-w-2xl mb-8 font-light text-gray-300 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Mulailah
-                        merencanakan perjalanan spiritual Anda dengan kami. Klik tombol di bawah ini untuk informasi lebih lanjut untuk
-                        pemesanan Haji & Umroh Bersama EL-Aqsho Group.</p>
-                    <button type="button"
-                        class="text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-2 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Hubungi
-                        Kami</button>
-                </div>
-                <div class="hidden lg:flex ml-auto lg:col-span-2 w-full xl:col-span-2 xl:ml-8">
-                    <img src="{{ Vite::asset('resources/images/lp-main/hero-1.png') }}" class="h-full w-full object-cover"
-                        alt="Gambar 1">
-                </div>
-                <div class="xl:ml-8 hidden lg:flex lg:col-span-3 lg:py-24 flex-wrap justify-end items-end gap-4 mt-8">
-                <div class="flex justify-end items-end">
-                    <img src="{{ Vite::asset('resources/images/lp-main/hero-2.png') }}" class="w-full h-auto object-cover xl:w-4/5"
-                        alt="Gambar 2">
-                </div>
-                <div class="flex justify-end items-end">
-                    <img src="{{ Vite::asset('resources/images/lp-main/hero-3.png') }}" class="w-full h-auto object-cover xl:w-4/5"
-                        alt="Gambar 3">
-                </div>
-                </div>
-                </div>
+            <div class="hidden lg:flex ml-auto lg:col-span-2 w-full xl:col-span-2 xl:ml-8">
+                <img src="{{ Vite::asset('resources/images/lp-main/hero-1.png') }}" class="h-full w-full object-cover"
+                    alt="Gambar 1">
             </div>
-        </section>
+            <div class="xl:ml-8 hidden lg:flex lg:col-span-3 lg:py-24 flex-wrap justify-end items-end gap-4 mt-8">
+            <div class="flex justify-end items-end">
+                <img src="{{ Vite::asset('resources/images/lp-main/hero-2.png') }}" class="w-full h-auto object-cover xl:w-4/5"
+                    alt="Gambar 2">
+            </div>
+            <div class="flex justify-end items-end">
+                <img src="{{ Vite::asset('resources/images/lp-main/hero-3.png') }}" class="w-full h-auto object-cover xl:w-4/5"
+                    alt="Gambar 3">
+            </div>
+            </div>
+            </div>
+        </div>
+    </section>
     <section class="mt-8">
         <div class="bg-white py-6 sm:py-8 lg:py-12 lg:mx-20">
             <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
@@ -170,6 +170,11 @@
                     class="sm:hidden text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-4 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Selengkapnya</button>
                     </div>
             </div>
+        </div>
+    </section>
+    <section class="mt-8">
+        <div class="mx-auto max-w-screen-2xl">
+
         </div>
     </section>
 
