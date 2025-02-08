@@ -48,11 +48,11 @@
                             class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Haji</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{ route('umroh') }}"
                             class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Umrah</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{ route('badal') }}"
                             class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Badal</a>
                     </li>
                     <li>
@@ -388,7 +388,7 @@
             </div>
             <div class="grid grid-flow-col grid-rows-2 gap-3 w-full">
                 <div
-                    class="row-span-3 col-span-5 rounded-3xl shadow-custom transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+                    class="row-span-2 col-span-5 rounded-3xl shadow-custom transition-transform duration-300 hover:shadow-lg">
                     <div class="mt-4 ml-4 mr-4 rounded-2xl shadow-custom">
                         <a href="#">
                             <img class="rounded-t-lg object-cover w-full h-72 rounded-2xl"
@@ -407,7 +407,7 @@
                             </a>
                             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Langkah-Langkah Penting Sebelum
                                 Berangkat ke Tanah Suci.</p>
-                            <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal: 01 Desember 2025</p>
+                            <p class="font-light text-gray-700 dark:text-gray-400">Tanggal: 01 Desember 2025</p>
     
                         </div>
                         <a href="#"
@@ -422,7 +422,7 @@
     
                 </div>
                 <div
-                    class="col-span-2 rounded-3xl shadow-custom transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+                    class="col-span-2 rounded-3xl shadow-custom transition-transform duration-300 hover:shadow-lg">
                     <div class="mt-4 ml-4 mr-4 rounded-2xl shadow-custom">
                         <a href="#">
                             <img class="rounded-t-lg object-cover w-full h-24 rounded-2xl"
@@ -444,7 +444,7 @@
                     </div>
                 </div>
                 <div
-                    class="col-span-2 rounded-3xl shadow-custom transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+                    class="col-span-2 rounded-3xl shadow-custom transition-transform duration-300  hover:shadow-lg">
                     <div class="mt-4 ml-4 mr-4 rounded-2xl shadow-custom">
                         <a href="#">
                             <img class="rounded-t-lg object-cover w-full h-24 rounded-2xl"
@@ -465,7 +465,6 @@
     
                     </div>
                 </div>
-    
             </div>
         </div>
     </section>

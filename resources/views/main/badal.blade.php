@@ -9,7 +9,7 @@
 
 <body>
     <nav
-        class="bg-white shadow-2xl dark:bg-gray-900 fixed rounded-full mt-4 mb-4 inset-x-0 xl:mx-56 sm:mx-24 md:mx-36 mx-4 z-50">
+        class="bg-white dark:bg-gray-900 fixed rounded-full shadow-2xl mt-4 mb-4 inset-x-0 xl:mx-56 sm:mx-24 md:mx-36 mx-4 z-50">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-1 lg:p-4">
             <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="{{ Vite::asset('resources/images/lp-main/al-aqsha-horizontal.png') }}" class="lg:h-8 h-6 ml-4"
@@ -36,16 +36,16 @@
                 <ul
                     class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                     <li>
-                        <a href="{{ route('dashboard') }}"
+                        <a href="{{ route('dashboard')}}"
                             class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Beranda</a>
                     </li>
                     <li>
                         <a href="{{ route('about') }}"
-                            class="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
-                            aria-current="page">Tentang Kami</a>
+                            class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Tentang
+                            Kami</a>
                     </li>
                     <li>
-                        <a href="{{ route('haji') }}"
+                        <a href="{{ route('haji')}}"
                             class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Haji</a>
                     </li>
                     <li>
@@ -54,7 +54,8 @@
                     </li>
                     <li>
                         <a href="{{ route('badal') }}"
-                            class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Badal</a>
+                            class="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                            aria-current="page">Badal</a>
                     </li>
                     <li>
                         <a href="#"
@@ -66,23 +67,92 @@
     </nav>
     <section class="h-screen 2xl:h-4/5 py-14  flex justify-center items-center">
         <div class="w-full h-full md:mx-12 mt-16 rounded-3xl mx-2"
-            style="background-image: url('{{ Vite::asset('resources/images/lp-main/about/section-hero.png') }}'); background-size: cover; background-position: center;">
-            <div class="flex items-center justify-center h-full">
+            style="background-image: url('{{ Vite::asset('resources/images/lp-main/badal/section-hero.png') }}'); background-size: cover; background-position: center;">
+            <div class="flex items-center justify-center h-full md:px-24">
                 <h1 class="text-white text-3xl md:text-6xl font-extrabold text-center leading-tight">
-                    Selamat Datang <br> di El Aqsho Group
+                    Badal Haji & Umroh :<br>Solusi Ibadah untuk<br>Orang Tercinta
                 </h1>
             </div>
         </div>
     </section>
-   
+    <section class="px-8 md:px-24 lg:px-48 xl:px-72 md:mt-20  md:mb-20">
+        <h1 class="text-center text-4xl font-extrabold text-dark-red-primary mb-12">Apa Itu Badal Haji dan Umroh? </h1>
+        <h4 class="text-center font-semibold">Badal Haji dan Umroh adalah layanan ibadah yang dilakukan oleh seseorang
+            sebagai wakil untuk melaksanakan haji atau umroh bagi orang lain yang sudah tidak mampu melaksanakannya
+            sendiri, baik karena sakit, usia lanjut, atau telah meninggal dunia.<br><br>
+
+            El Aqsho Group hadir untuk membantu keluarga Anda melaksanakan kewajiban ibadah ini dengan penuh amanah dan
+            sesuai syariat.</h4>
+    </section>
+    <section class="px-4 md:px-12 py-6">
+        <div class="px-4 py-6 bg-gradient-to-br bg-black rounded-xl md:py-24 flex items-center justify-center">
+            <div class="flex flex-col lg:flex-row lg:gap-4 items-center">
+                <!-- Bagian Kiri (Judul) -->
+                <div class="lg:flex lg:flex-col lg:justify-center p-4 lg:flex-[1]">
+                    <h1 class="text-center md:text-start font-bold text-2xl mb-4 md:text-xl lg:text-3xl text-white">
+                        Mengapa Memilih<br>Badal Haji dan<br>Umroh Bersama<br>El Aqsho Group?
+                    </h1>
+                </div>
+                <div class="flex flex-col gap-y-6  p-4">
+                    <div class="my-2 lg:my-0 flex flex-col items-center">
+                        <div class="rounded-full h-28 w-28 shadow-xl bg-white flex justify-center p-6">
+                            <img class="object-contain"
+                                src="{{ Vite::asset('resources/images/lp-main/badal/ic-excess-1.png') }}" alt="">
+                        </div>
+                        <h3 class="font-bold text-white mt-4 text-center text-lg">Amanah dan Sesuai Syariat</h3>
+                        <p class="text-center text-white mt-2">
+                            Kami memastikan ibadah badal dilaksanakan<br> oleh jamaah yang kompeten dan sesuai<br>
+                            dengan ketentuan agama.
+                        </p>
+                    </div>
+                    <div class="my-2 lg:my-0 flex flex-col items-center">
+                        <div class="rounded-full h-28 w-28 shadow-xl bg-white flex justify-center p-6">
+                            <img class="object-contain"
+                                src="{{ Vite::asset('resources/images/lp-main/badal/ic-excess-2.png') }}" alt="">
+                        </div>
+                        <h3 class="font-bold text-white mt-4 text-center text-lg">Laporan Lengkap</h3>
+                        <p class="text-center text-white mt-2 mx-4">
+                            Setiap pelaksanaan badal dilengkapi dengan<br> dokumentasi dan laporan sebagai
+                            bukti<br>transparansi ibadah.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-y-6  p-4">
+                    <div class="my-2 lg:my-0 flex flex-col items-center mb-8">
+                        <div class="rounded-full h-28 w-28 shadow-xl bg-white flex justify-center p-6">
+                            <img class="object-contain"
+                                src="{{ Vite::asset('resources/images/lp-main/badal/ic-excess-3.png') }}" alt="">
+                        </div>
+                        <h3 class="font-bold text-white mt-4 text-center text-lg">Didukung Tim Profesional</h3>
+                        <p class="text-center text-white mt-2 mx-4">
+                            Dengan pengalaman bertahun-tahun,<br> tim kami siap melayani Anda<br> dengan sepenuh hati.
+                        </p>
+                    </div>
+                    <div class="my-2 lg:my-0 flex flex-col items-center ">
+                        <div class="rounded-full h-28 w-28 shadow-xl bg-white flex justify-center p-6">
+                            <img class="object-contain"
+                                src="{{ Vite::asset('resources/images/lp-main/badal/ic-excess-4.png') }}" alt="">
+                        </div>
+                        <h3 class="font-bold text-white mt-4 text-center text-lg">Kerjasama dengan Ulama dan Pembimbing
+                            Agama</h3>
+                        <p class="text-center text-white mt-2 mx-4">
+                            Semua proses dipandu oleh pembimbing <br>agama yang berkompeten untuk<br> memastikan
+                            kesesuaian pelaksanaan badal.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <section>
         <div class="bg-white py-6 sm:py-8 md:mx-8 lg:py-12 lg:mx-20">
             <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
                 <div class="flex justify-center">
                     <div class="pb-12">
-                        <h2
-                            class="mt-4 text-center sm:text-start text-3xl font-extrabold text-dark-red-primary md:text-4xl">
-                            Layanan Unggulan Kami
+                        <h2 class="mt-4 text-center  text-3xl font-extrabold text-dark-red-primary md:text-4xl">
+                            Proses Pelaksanaan<br>Badal Haji dan Umroh
                         </h2>
                     </div>
                 </div>
@@ -97,13 +167,13 @@
                                 <div class="w-5/6 h-5/6  bg-dark-red-primary rounded-full"></div>
                             </div>
                             <div
-                                class="absolute top-1/2 h-48 left-1/2 -translate-x-1/2 -translate-y-28 w-full  shadow-lg rounded-lg p-6 flex flex-col items-center justify-center z-10 bg-gradient-to-b from-dark-red-primary to-dark-red-second">
+                                class="absolute top-1/2 h-64 left-1/2 -translate-x-1/2 -translate-y-28 w-full  shadow-lg rounded-lg p-6 flex flex-col items-center justify-center z-10 bg-gradient-to-b from-dark-red-primary to-dark-red-second">
                                 <!-- Konten utama -->
                                 <div class="relative flex mt-4 w-full flex-col rounded-lg text-center p-4">
-                                    <span class="text-lg font-bold text-white lg:text-xl">Manasik Terpadu</span>
-                                    <span class="text-gray-200 text-sm mt-2">Pendampingan ibadah dengan bimbingan
-                                        profesional dan
-                                        berpengalaman</span>
+                                    <span class="text-lg font-bold text-white lg:text-xl">Konsultasi dan
+                                        Pendaftaran</span>
+                                    <span class="text-gray-200 text-sm mt-2">Hubungi kami untuk mendiskusikan kebutuhan
+                                        badal haji atau umroh dan melengkapi data jamaah yang akan diwakilkan.</span>
                                 </div>
                             </div>
                         </a>
@@ -119,12 +189,13 @@
                                 <div class="w-5/6 h-5/6  bg-dark-red-primary rounded-full"></div>
                             </div>
                             <div
-                                class="absolute top-1/2 h-48 left-1/2 -translate-x-1/2 -translate-y-28 w-full  shadow-lg rounded-lg p-6 flex flex-col items-center justify-center z-10 bg-gradient-to-b from-dark-red-primary to-dark-red-second">
+                                class="absolute top-1/2 h-64 left-1/2 -translate-x-1/2 -translate-y-28 w-full  shadow-lg rounded-lg p-6 flex flex-col items-center justify-center z-10 bg-gradient-to-b from-dark-red-primary to-dark-red-second">
                                 <!-- Konten utama -->
                                 <div class="relative flex mt-4 w-full flex-col rounded-lg text-center p-4">
-                                    <span class="text-lg font-bold text-white lg:text-xl">Fasilitas Lengkap</span>
-                                    <span class="text-gray-200 text-sm mt-2">Hotel, transportasi nyaman, dan konsumsi
-                                        yang memadai</span>
+                                    <span class="text-lg font-bold text-white lg:text-xl">Verifikasi Data dan
+                                        Pembayaran</span>
+                                    <span class="text-gray-200 text-sm mt-2">Kami akan memverifikasi data serta
+                                        memproses administrasi secara cepat dan mudah.</span>
                                 </div>
                             </div>
                         </a>
@@ -140,12 +211,12 @@
                                 <div class="w-5/6 h-5/6  bg-dark-red-primary rounded-full"></div>
                             </div>
                             <div
-                                class="absolute top-1/2 h-48 left-1/2 -translate-x-1/2 -translate-y-28 w-full  shadow-lg rounded-lg p-6 flex flex-col items-center justify-center z-10 bg-gradient-to-b from-dark-red-primary to-dark-red-second">
+                                class="absolute top-1/2 h-64 left-1/2 -translate-x-1/2 -translate-y-28 w-full  shadow-lg rounded-lg p-6 flex flex-col items-center justify-center z-10 bg-gradient-to-b from-dark-red-primary to-dark-red-second">
                                 <!-- Konten utama -->
                                 <div class="relative flex mt-4 w-full flex-col rounded-lg text-center p-4">
-                                    <span class="text-lg font-bold text-white lg:text-xl">Harga Kompetitif</span>
-                                    <span class="text-gray-200 text-sm mt-2">Pilihan paket terjangkau tanpa mengurangi
-                                        kualitas layanan</span>
+                                    <span class="text-lg font-bold text-white lg:text-xl">Pelaksanaan Ibadah</span>
+                                    <span class="text-gray-200 text-sm mt-2">Tim kami akan melaksanakan ibadah sesuai
+                                        amanah Anda. Proses ini akan didokumentasikan dengan foto/video.</span>
                                 </div>
                             </div>
                         </a>
@@ -161,13 +232,13 @@
                                 <div class="w-5/6 h-5/6  bg-dark-red-primary rounded-full"></div>
                             </div>
                             <div
-                                class="absolute top-1/2 h-48 left-1/2 -translate-x-1/2 -translate-y-28 w-full  shadow-lg rounded-lg p-6 flex flex-col items-center justify-center z-10 bg-gradient-to-b from-dark-red-primary to-dark-red-second">
+                                class="absolute top-1/2 h-64 left-1/2 -translate-x-1/2 -translate-y-28 w-full  shadow-lg rounded-lg p-6 flex flex-col items-center justify-center z-10 bg-gradient-to-b from-dark-red-primary to-dark-red-second">
                                 <!-- Konten utama -->
                                 <div class="relative flex mt-8 w-full flex-col rounded-lg text-center p-4">
-                                    <span class="text-lg font-bold text-white lg:text-xl text-center">Tim Pendamping
-                                        Profesional</span>
-                                    <span class="text-gray-200 text-sm mt-2">Tim kami siap melayani Anda dengan sepenuh
-                                        hati selama perjalanan</span>
+                                    <span class="text-lg font-bold text-white lg:text-xl text-center">Laporan dan
+                                        Sertifikat</span>
+                                    <span class="text-gray-200 text-sm mt-2">Setelah selesai, Anda akan menerima laporan
+                                        lengkap dan sertifikat sebagai bukti pelaksanaan badal.</span>
                                 </div>
                             </div>
                         </a>
@@ -184,104 +255,90 @@
         </div>
     </section>
 
-    <section class="h-screen 2xl:h-4/5 py-14  flex justify-center items-center">
-        <div class="w-full h-full md:mx-4 rounded-3xl bg-black">
-            <div class="container mx-auto px-4 py-12">
-                <div class="text-center mb-12">
-                    <h2 class="text-white text-4xl md:text-5xl font-extrabold">
-                        Alasan Memilih <br>
-                        El Aqsho Group
-                    </h2>
+    <section class="px-4 md:px-12 py-6">
+        <div class="px-4 py-6 bg-gradient-to-br bg-black rounded-xl md:py-24 flex items-center justify-center">
+            <div class="flex flex-col lg:flex-row lg:gap-8 items-center">
+                <h1 class="text-center md:text-start font-bold text-2xl mb-4 md:text-xl lg:text-3xl text-white">
+                    Siapa saja yang <br>Berhak Melakukan<br> Badal Haji dan Umroh?
+                </h1>
+                <div class="rounded-xl bg-white w-48 h-60">
+                    <div class="flex flex-col items-center">
+                        <div class="bg-white shadow-xl w-24 h-24 rounded-full  flex items-center justify-center">
+                            <div class="bg-black w-5/6 h-5/6 rounded-full p-5">
+                                <img class="object-contain"
+                                    src="{{ Vite::asset('resources/images/lp-main/badal/ic-excess-5.png') }}" alt="">
+                            </div>
+                        </div>
+                        <p class="mt-4 text-center font-bold mx-4 text-sm">Orang yang sakit berat atau lansia yang tidak
+                            memungkinkan untuk bepergian.</p>
+                        <div class="mt-2 rounded-full w-4/6 h-8 bg-black">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-xl bg-white w-48 h-60 lg:mt-0 mt-6 ">
+                    <div class="flex flex-col items-center">
+                        <div class="bg-white shadow-xl w-24 h-24 rounded-full  flex items-center justify-center">
+                            <div class="bg-black w-5/6 h-5/6 rounded-full p-5">
+                                <img class="object-contain"
+                                    src="{{ Vite::asset('resources/images/lp-main/badal/ic-excess-5.png') }}" alt="">
+                            </div>
+                        </div>
+                        <p class="mt-4 text-center font-bold mx-4 text-sm">Orang yang sakit berat atau lansia yang tidak
+                            memungkinkan untuk bepergian.</p>
+                        <div class="mt-2 rounded-full w-4/6 h-8 bg-black">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="bg-white py-6 sm:py-8 lg:py-12 lg:mx-20">
+            <div class="mx-auto max-w-screen-2xl px-4 md:px-2">
+                <div class="flex justify-center">
+                    <div class="pb-12">
+                        <h2 class="mt-4 text-center  text-3xl font-extrabold md:text-4xl">
+                            Paket Badal <br>Haji & Umroh
+                        </h2>
+                    </div>
                 </div>
 
-                <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
+                <div class="grid sm:grid-cols-2 gap-2 xl:gap-6 lg:grid-cols-2 xl:grid-cols-2">
                     <!-- product - start -->
-                    <div>
-                        <a href="#"
-                            class="group relative flex h-96 justify-center items-center  overflow-hidden rounded-lg p-4">
-                            <div
-                                class="absolute top-24 left-1/2 -translate-x-1/2 -translate-y-24 w-24 h-24 bg-white   shadow-lg rounded-full z-20 flex items-center justify-center">
-                                <div class="w-5/6 h-5/6 rounded-full"></div>
-                            </div>
-                            <div
-                                class="absolute top-1/2 h-48 left-1/2 -translate-x-1/2 -translate-y-3/4 w-full  shadow-lg rounded-lg p-6 flex flex-col items-center justify-center z-10 bg-white">
-                                <!-- Konten utama -->
-                                <div class="relative flex mt-4 w-full flex-col rounded-lg text-center p-4">
-                                    <span class="text-lg font-bold text-yellow-primary lg:text-xl">Legalitas
-                                        Terjamin</span>
-                                    <span class="text-gray-600 text-sm mt-2">Berizin resmi dari Kementerian Agama RI
-                                        untuk perjalanan Haji dan Umroh</span>
-                                </div>
-                            </div>
-                        </a>
+                    <div
+                        class="px-4 py-8 bg-gradient-to-br from-dark-red-primary to-dark-red-second rounded-xl flex gap-2 xl:gap-4 justify-center items-center">
+                        <div>
+                            <h1 class="font-bold text-xl mb-4 md:text-2xl lg:text-6xl text-white">Badal <Br>
+                                Haji
+                            </h1>
+                            <h3 class="font-semibold text-white md:text-xl lg:text-xl">Harga</h3>
+                            <h3 class="font-semibold text-white md:text-xl lg:text-xl">Rp 15.000.000 Juta</h3>
+                        </div>
+                        <img class="xl:h-72 h-48"
+                            src="{{ Vite::asset('resources/images/lp-main/badal/paket-badal-1.png') }}" alt="">
                     </div>
                     <!-- product - end -->
 
                     <!-- product - start -->
-                    <div>
-                        <a href="#"
-                            class="group relative flex h-96 justify-center items-center  overflow-hidden rounded-lg p-4">
-                            <div
-                                class="absolute top-24 left-1/2 -translate-x-1/2 -translate-y-24 w-24 h-24 bg-white   shadow-lg rounded-full z-20 flex items-center justify-center">
-                                <div class="w-5/6 h-5/6 rounded-full"></div>
-                            </div>
-                            <div
-                                class="absolute top-1/2 h-48 left-1/2 -translate-x-1/2 -translate-y-3/4 w-full  shadow-lg rounded-lg p-6 flex flex-col items-center justify-center z-10 bg-white">
-                                <!-- Konten utama -->
-                                <div class="relative flex mt-4 w-full flex-col rounded-lg text-center p-4">
-                                    <span class="text-lg font-bold text-yellow-primary lg:text-xl">Pengalaman
-                                        Teruji</span>
-                                    <span class="text-gray-600 text-sm mt-2">Telah memberangkatkan ribuan jamaah dengan
-                                        pengalaman spiritual yang berkesan.</span>
-                                </div>
-                            </div>
-                        </a>
+                    <div
+                        class="px-4 py-8 bg-gradient-to-br from-dark-red-primary to-dark-red-second rounded-xl flex gap-2 xl:gap-4 justify-center items-center">
+                        <div>
+                            <h1 class="font-bold text-xl mb-4 md:text-2xl lg:text-6xl text-white">Badal <Br>
+                                Umroh
+                            </h1>
+                            <h3 class="font-semibold text-white md:text-xl lg:text-xl">Harga</h3>
+                            <h3 class="font-semibold text-white md:text-xl lg:text-xl">Rp 15.000.000 Juta</h3>
+                        </div>
+                        <img class="xl:h-72 h-48"
+                            src="{{ Vite::asset('resources/images/lp-main/badal/paket-badal-1.png') }}" alt="">
                     </div>
                     <!-- product - end -->
 
-                    <!-- product - start -->
-                    <div>
-                        <a href="#"
-                            class="group relative flex h-96 justify-center items-center  overflow-hidden rounded-lg p-4">
-                            <div
-                                class="absolute top-24 left-1/2 -translate-x-1/2 -translate-y-24 w-24 h-24 bg-white   shadow-lg rounded-full z-20 flex items-center justify-center">
-                                <div class="w-5/6 h-5/6 rounded-full"></div>
-                            </div>
-                            <div
-                                class="absolute top-1/2 h-48 left-1/2 -translate-x-1/2 -translate-y-3/4 w-full  shadow-lg rounded-lg p-6 flex flex-col items-center justify-center z-10 bg-white">
-                                <!-- Konten utama -->
-                                <div class="relative flex mt-4 w-full flex-col rounded-lg text-center p-4">
-                                    <span class="text-lg font-bold text-yellow-primary lg:text-xl">Fasilitas
-                                        Premium</span>
-                                    <span class="text-gray-600 text-sm mt-2">Layanan kelas dunia untuk kenyamanan dan
-                                        keamanan jamaah</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- product - end -->
 
-                    <!-- product - start -->
-                    <div>
-                        <a href="#"
-                            class="group relative flex h-96 justify-center items-center  overflow-hidden rounded-lg p-4">
-                            <div
-                                class="absolute top-24 left-1/2 -translate-x-1/2 -translate-y-24 w-24 h-24 bg-white   shadow-lg rounded-full z-20 flex items-center justify-center">
-                                <div class="w-5/6 h-5/6 rounded-full"></div>
-                            </div>
-                            <div
-                                class="absolute top-1/2 h-48 left-1/2 -translate-x-1/2 -translate-y-3/4 w-full  shadow-lg rounded-lg p-6 flex flex-col items-center justify-center z-10 bg-white">
-                                <!-- Konten utama -->
-                                <div class="relative flex mt-4 w-full flex-col rounded-lg text-center p-4">
-                                    <span class="text-lg font-bold text-yellow-primary lg:text-xl">Layanan
-                                        Responsif</span>
-                                    <span class="text-gray-600 text-sm mt-2">Dukungan 24/7 untuk setiap kebutuhan dan
-                                        pertanyaan jamaah</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- product - end -->
 
 
 
@@ -291,7 +348,7 @@
             </div>
         </div>
     </section>
-    
+
     <section class="bg-cover bg-center h-80 mt-14"
         style="background-image: url('{{ Vite::asset('resources/images/lp-main/section-hero.png') }}')">
         <div class="flex items-center justify-center h-full px-4">
@@ -319,7 +376,7 @@
     </section>
 
     <section class="h-48 justify-center flex">
-        <div class="py-12">
+        <div class="py-12 flex flex-col items-center">
             <img src="{{ Vite::asset('resources/images/lp-main/al-aqsha-horizontal.png') }}" class="h-14"
                 alt="Flowbite Logo">
             <h2 class="mt-4 text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Ikuti Kami
@@ -331,32 +388,4 @@
         </p>
     </section>
 
-
-    <script>
-        const carouselElement = document.getElementById('carousel-example');
-
-        const items = [
-            { position: 0, el: document.getElementById('carousel-item-1') },
-            { position: 1, el: document.getElementById('carousel-item-2') },
-            { position: 2, el: document.getElementById('carousel-item-3') },
-            { position: 3, el: document.getElementById('carousel-item-4') },
-            { position: 4, el: document.getElementById('carousel-item-5') },
-        ];
-
-        const options = {
-            defaultPosition: 0,
-            interval: 3000,
-            indicators: true,
-        };
-
-        const carousel = new Carousel(carouselElement, items, options);
-
-        // Event listeners for controls
-        document.querySelector('[data-carousel-prev]').addEventListener('click', () => carousel.prev());
-        document.querySelector('[data-carousel-next]').addEventListener('click', () => carousel.next());
-    </script>
-
-
 </body>
-
-</html>
