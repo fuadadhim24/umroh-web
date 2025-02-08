@@ -21,15 +21,20 @@ class ArtikelResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
+                    ->label('Judul')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('short_description')
+                    ->label('Deskripsi Singkat')
                     ->required(),
                 Forms\Components\FileUpload::make('image')
+                    ->label('Gambar')
                     ->required(),
                 Forms\Components\Textarea::make('content')
+                    ->label('Konten')
                     ->required(),
                 Forms\Components\TextInput::make('category')
+                    ->label('Kategori')
                     ->required(),
             ]);
     }
@@ -38,11 +43,11 @@ class ArtikelResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('short_description')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('title')->label('Judul')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('short_description')->label('Deskripsi Singkat')->sortable()->searchable(),
                 // Tables\Columns\ImageColumn::make('image')->sortable(),
-                Tables\Columns\TextColumn::make('category')->sortable(),
-                Tables\Columns\TextColumn::make('created_at')->dateTime(),
+                Tables\Columns\TextColumn::make('category')->label('Kategori')->sortable(),
+                Tables\Columns\TextColumn::make('created_at')->label('Dibuat Pada')->dateTime(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

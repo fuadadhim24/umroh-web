@@ -3,15 +3,15 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PendaftaranResource\Pages;
-use App\Filament\Resources\PendaftaranResource\RelationManagers;
 use App\Models\Pendaftaran;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PendaftaranExport;
+use Filament\Tables\Actions\Action;
 
 class PendaftaranResource extends Resource
 {
@@ -23,53 +23,134 @@ class PendaftaranResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('full_name')->required(),
-                Forms\Components\TextInput::make('phone_number')->required(),
-                Forms\Components\DatePicker::make('date_of_birth')->required(),
-                Forms\Components\TextInput::make('national_id_number')->required(),
-                Forms\Components\TextInput::make('marital_status')->required(),
-                Forms\Components\TextInput::make('occupation')->required(),
-                Forms\Components\TextInput::make('father_name')->required(),
-                Forms\Components\TextInput::make('address')->required(),
-                Forms\Components\TextInput::make('province')-> required(),
-                Forms\Components\TextInput::make('city_regency')->required(),
-                Forms\Components\TextInput::make('district')->required(),
-                Forms\Components\TextInput::make('sub_district_village')->required(),
-                Forms\Components\TextInput::make('email')->required()->email(),
-                Forms\Components\Toggle::make('passport_status')->required(),
-                Forms\Components\Toggle::make('meningitis_vaccine_status')->required(),
-                Forms\Components\TextInput::make('name_as_per_passport')->required(),
-                Forms\Components\Textarea::make('notes')->nullable(),
-                Forms\Components\TextInput::make('source_of_information')->required(),
-                Forms\Components\FileUpload::make('image')->nullable(),
-                Tables\Columns\TextColumn::make('created_at')->dateTime()->sortable(), 
+                Forms\Components\TextInput::make('full_name')
+                ->label('Nama Lengkap')
+                ->required(),
+            Forms\Components\TextInput::make('phone_number')
+                ->label('Nomor Telepon')
+                ->required(),
+            Forms\Components\DatePicker::make('date_of_birth')
+                ->label('Tanggal Lahir')
+                ->required(),
+            Forms\Components\TextInput::make('national_id_number')
+                ->label('Nomor KTP')
+                ->required(),
+            Forms\Components\TextInput::make('marital_status')
+                ->label('Status Pernikahan')
+                ->required(),
+            Forms\Components\TextInput::make('occupation')
+                ->label('Pekerjaan')
+                ->required(),
+            Forms\Components\TextInput::make('father_name')
+                ->label('Nama Ayah')
+                ->required(),
+            Forms\Components\TextInput::make('address')
+                ->label('Alamat')
+                ->required(),
+            Forms\Components\TextInput::make('province')
+                ->label('Provinsi')
+                ->required(),
+            Forms\Components\TextInput::make('city_regency')
+                ->label('Kota/Kabupaten')
+                ->required(),
+            Forms\Components\TextInput::make('district')
+                ->label('Kecamatan')
+                ->required(),
+            Forms\Components\TextInput::make('sub_district_village')
+                ->label('Kelurahan/Desa')
+                ->required(),
+            Forms\Components\TextInput::make('email')
+                ->label('Email')
+                ->required()
+                ->email(),
+                Forms\Components\Select::make('passport_status')
+                ->label('Status Paspor')
+                ->options([
+                    '1' => 'Aktif',  
+                    '0' => 'Tidak Aktif', 
+                ])
+                ->required(),
+            Forms\Components\Toggle::make('meningitis_vaccine_status')
+                ->label('Status Vaksin Meningitis')
+                ->required(),
+            Forms\Components\TextInput::make('name_as_per_passport')
+                ->label('Nama Sesuai Paspor')
+                ->required(),
+            Forms\Components\Textarea::make('notes')
+                ->label('Catatan')
+                ->nullable(),
+            Forms\Components\TextInput::make('source_of_information')
+                ->label('Sumber Informasi')
+                ->required(),
+            Forms\Components\FileUpload::make('image')
+                ->label('Foto')
+                ->nullable(),
             ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
-        ->columns([
-            Tables\Columns\TextColumn::make('full_name')->sortable()->searchable(),
-            Tables\Columns\TextColumn::make('phone_number')->sortable(),
-            Tables\Columns\TextColumn::make('date_of_birth')->date(),
-            Tables\Columns\TextColumn::make('national_id_number')->sortable(),
-            Tables\Columns\TextColumn::make('marital_status')->sortable(),
-            Tables\Columns\TextColumn::make('occupation')->sortable(),
-            Tables\Columns\TextColumn::make('father_name')->sortable(),
-            Tables\Columns\TextColumn::make('address')->sortable(),
-            Tables\Columns\TextColumn::make('province')->sortable(),
-            Tables\Columns\TextColumn::make('city_regency')->sortable(),
-            Tables\Columns\TextColumn::make('district')->sortable(),
-            Tables\Columns\TextColumn::make('sub_district_village')->sortable(),
-            Tables\Columns\TextColumn::make('email')->sortable(),
-            Tables\Columns\BooleanColumn::make('passport_status')->sortable(),
-            Tables\Columns\BooleanColumn::make('meningitis_vaccine_status')->sortable(),
-            Tables\Columns\TextColumn::make('name_as_per_passport')->sortable(),
-            Tables\Columns\TextColumn::make('source_of_information')->sortable(),
-            Tables\Columns\ImageColumn::make('image')->sortable(), // Display the image in the table
-            Tables\Columns\TextColumn::make('created_at')->dateTime(),
-        ])
+            ->columns([
+                Tables\Columns\TextColumn::make('full_name')
+                    ->label('Nama Lengkap')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('phone_number')
+                    ->label('Nomor Telepon')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('date_of_birth')
+                    ->label('Tanggal Lahir')
+                    ->date(),
+                Tables\Columns\TextColumn::make('national_id_number')
+                    ->label('Nomor KTP')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('marital_status')
+                    ->label('Status Pernikahan')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('occupation')
+                    ->label('Pekerjaan')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('father_name')
+                    ->label('Nama Ayah')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('address')
+                    ->label('Alamat')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('province')
+                    ->label('Provinsi')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('city_regency')
+                    ->label('Kota/Kabupaten')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('district')
+                    ->label('Kecamatan')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('sub_district_village')
+                    ->label('Kelurahan/Desa')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('email')
+                    ->label('Email')
+                    ->sortable(),
+                Tables\Columns\BooleanColumn::make('passport_status')
+                    ->label('Status Paspor')
+                    ->sortable(),
+                Tables\Columns\BooleanColumn::make('meningitis_vaccine_status')
+                    ->label('Status Vaksin Meningitis')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('name_as_per_passport')
+                    ->label('Nama Sesuai Paspor')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('source_of_information')
+                    ->label('Sumber Informasi')
+                    ->sortable(),
+                Tables\Columns\ImageColumn::make('image')
+                    ->label('Foto')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('Dibuat Pada')
+                    ->dateTime(),
+            ])
             ->filters([
                 //
             ])
@@ -78,8 +159,14 @@ class PendaftaranResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()->label('Hapus Massal'),
                 ]),
+            ])
+            ->headerActions([ 
+                Action::make('Export to Excel')
+                    ->icon('heroicon-o-document')  
+                    ->action(fn () => Excel::download(new PendaftaranExport, 'pendaftaran.xlsx')) 
+                    ->color('primary'),
             ]);
     }
 
@@ -94,8 +181,8 @@ class PendaftaranResource extends Resource
     {
         return [
             'index' => Pages\ListPendaftarans::route('/'),
-            'create' => Pages\CreatePendaftaran::route('/create'),
-            'edit' => Pages\EditPendaftaran::route('/{record}/edit'),
+            'create' => Pages\CreatePendaftaran::route('/buat'),
+            'edit' => Pages\EditPendaftaran::route('/{record}/ubah'),
         ];
     }
 }
