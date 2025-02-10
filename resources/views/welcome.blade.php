@@ -97,6 +97,7 @@
     <section class="mt-8">
         <div class="bg-white py-6 sm:py-8 md:mx-8 lg:py-12 lg:mx-20">
             <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+                @if ($pakets->isNotEmpty())
                 <div class="flex justify-between items-center mb-8"> <!-- Menggunakan flex dengan justify-between -->
                     <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Pilihan Paket Haji & Umroh
                     </h2>
@@ -105,72 +106,27 @@
                         Selengkapnya
                     </button>
                 </div>
+                @endif
                 <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-                    <!-- product - start -->
-                    <div>
-                        <a href="#"
-                            class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-                            <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-                                loading="lazy" alt="Photo by Austin Wade"
-                                class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-    
-                            <div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-                                <span class="text-gray-500">Rp. 35.9 Jt</span>
-                                <span class="text-lg font-bold text-gray-800 lg:text-xl">Umroh Full Ramadhan</span>
+                    @forelse ($pakets as $paket)
+                        <!-- Paket - start -->
+                        @if ($paket->visibility == 1)
+                            <div>
+                                <a href="#" class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
+                                    <img src="{{ asset('storage/' . $paket->image) }}" loading="lazy" alt="{{ $paket->title }}"
+                                        class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+
+                                    <div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
+                                        <span class="text-gray-500">Rp. {{ number_format($paket->price, 0, ',', '.') }}</span>
+                                        <span class="text-lg font-bold text-gray-800 lg:text-xl">{{ $paket->title }}</span>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                    <!-- product - end -->
-    
-                    <!-- product - start -->
-                    <div>
-                        <a href="#"
-                            class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-                            <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-                                loading="lazy" alt="Photo by engin akyurt"
-                                class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-    
-                            <div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-                                <span class="text-gray-500">Rp. 35.9 Jt</span>
-                                <span class="text-lg font-bold text-gray-800 lg:text-xl">Haji Furodha</span>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- product - end -->
-    
-                    <!-- product - start -->
-                    <div>
-                        <a href="#"
-                            class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-                            <img src="https://images.unsplash.com/photo-1552668693-d0738e00eca8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-                                loading="lazy" alt="Photo by Austin Wade"
-                                class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-    
-                            <div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-                                <span class="text-gray-500">Rp. 35.9 Jt</span>
-                                <span class="text-lg font-bold text-gray-800 lg:text-xl">Haji Furodha</span>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- product - end -->
-                    
-                    <!-- product - start -->
-                    <div>
-                        <a href="#"
-                            class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-                            <img src="https://images.unsplash.com/photo-1552668693-d0738e00eca8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-                                loading="lazy" alt="Photo by Austin Wade"
-                                class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-    
-                            <div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-                                <span class="text-gray-500">Rp. 35.9 Jt</span>
-                                <span class="text-lg font-bold text-gray-800 lg:text-xl">Haji Furodha</span>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- product - end -->
-                    <button type="button"
-                    class="sm:hidden text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-4 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Selengkapnya</button>
+                        @endif
+                        <!-- Paket - end -->
+                    @empty
+                        <!-- Jika tidak ada paket, tampilkan div kosong -->
+                    @endforelse
                     </div>
             </div>
         </div>
@@ -190,20 +146,20 @@
                         <div
                             class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-custom dark:bg-gray-800 dark:border-gray-700">
                             <a href="#">
-                                <img class="rounded-t-lg" src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg"
-                                    alt="" />
+                                <img class="rounded-t-lg" src="{{ asset('storage/' . $firstArticle->image) }}"
+                                alt="{{ $firstArticle->title }}" />
                             </a>
                             <div class="p-5">
                                 <p
                                     class="mb-4 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
-                                    Edukasi
+                                    {{ $firstArticle->category }}
                                 </p>
                                 <a href="#">
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        Panduan Lengkap Manasik Umroh</h5>
+                                        {{ $firstArticle->title }}</h5>
                                 </a>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Langkah-Langkah Penting Sebelum Berangkat ke Tanah Suci.</p>
-                                <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal: 01 Desember 2025</p>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $firstArticle->short_description }}</p>
+                                <p class="mb-3 text-sm font-light text-gray-700 dark:text-gray-400">Tanggal: {{ \Carbon\Carbon::parse($firstArticle->created_at)->translatedFormat('d F Y') }}</p>
                                 <a href="#"
                                     class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                     Baca
@@ -222,20 +178,21 @@
                         <div
                             class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-custom dark:bg-gray-800 dark:border-gray-700">
                             <a href="#">
-                                <img class="rounded-t-lg" src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg"
-                                    alt="" />
+                                <img class="rounded-t-lg"  src="
+                                {{ asset('storage/' . $firstArticle->image) }}"
+alt="{{ $firstArticle->title }}" />
                             </a>
                             <div class="p-5">
                                 <p
                                     class="mb-4 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
-                                    Edukasi
+                                    {{ $firstArticle->category }}
                                 </p>
                                 <a href="#">
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        Panduan Lengkap Manasik Umroh</h5>
+                                        {{ $firstArticle->title }}</h5>
                                 </a>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Langkah-Langkah Penting Sebelum Berangkat ke Tanah Suci.</p>
-                                <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal: 01 Desember 2025</p>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">      {{ $firstArticle->short_description }}</p>
+                                <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal: {{ \Carbon\Carbon::parse($firstArticle->created_at)->translatedFormat('d F Y') }}</p>
                                 <a href="#"
                                     class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                     Baca
@@ -254,20 +211,19 @@
                         <div
                             class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-custom dark:bg-gray-800 dark:border-gray-700">
                             <a href="#">
-                                <img class="rounded-t-lg" src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg"
-                                    alt="" />
+                                <img class="rounded-t-lg"  src="{{ asset('storage/' . $secondArticle->image) }}" alt="{{ $secondArticle->title }}" />
                             </a>
                             <div class="p-5">
                                 <p
                                     class="mb-4 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
-                                    Edukasi
+                                    {{ $secondArticle->category }}
                                 </p>
                                 <a href="#">
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        Panduan Lengkap Manasik Umroh</h5>
+                                        {{ $secondArticle->title }}</h5>
                                 </a>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Langkah-Langkah Penting Sebelum Berangkat ke Tanah Suci.</p>
-                                <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal: 01 Desember 2025</p>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"> {{ $secondArticle->short_description }}</p>
+                                <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal: {{ \Carbon\Carbon::parse($secondArticle->created_at)->translatedFormat('d F Y') }}</p>
                                 <a href="#"
                                     class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                     Baca
@@ -286,20 +242,19 @@
                         <div
                             class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-custom dark:bg-gray-800 dark:border-gray-700">
                             <a href="#">
-                                <img class="rounded-t-lg" src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg"
-                                    alt="" />
+                                <img class="rounded-t-lg"  src="{{ asset('storage/' . $thirdArticle->image) }}" alt="{{ $thirdArticle->title }}" />
                             </a>
                             <div class="p-5">
                                 <p
                                     class="mb-4 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
-                                    Edukasi
+                                    {{ $thirdArticle->category }}
                                 </p>
                                 <a href="#">
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        Panduan Lengkap Manasik Umroh</h5>
+                                        {{ $thirdArticle->title }}</h5>
                                 </a>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Langkah-Langkah Penting Sebelum Berangkat ke Tanah Suci.</p>
-                                <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal: 01 Desember 2025</p>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $thirdArticle->short_description }}</p>
+                                <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal: {{ \Carbon\Carbon::parse($thirdArticle->created_at)->translatedFormat('d F Y') }}</p>
                                 <a href="#"
                                     class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                     Baca
@@ -376,98 +331,109 @@
             </div>
         </div>
     </section>
-    <section class="hidden sm:flex py-20  justify-center">
-        <div class="mx-auto w-full max-w-screen-2xl items-center md:mx-8 px-4 lg:mx-20 md:px-8">
-            <div class="flex justify-between items-center mb-8">
-                <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Artikel Terbaru
-                </h2>
-                <button type="button"
-                    class="hidden sm:flex text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-4 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">
-                    Selengkapnya
-                </button>
-            </div>
-            <div class="grid grid-flow-col grid-rows-2 gap-3 w-full">
-                <div
-                    class="row-span-2 col-span-5 rounded-3xl shadow-custom transition-transform duration-300 hover:shadow-lg">
-                    <div class="mt-4 ml-4 mr-4 rounded-2xl shadow-custom">
-                        <a href="#">
-                            <img class="rounded-t-lg object-cover w-full h-72 rounded-2xl"
-                                src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg" alt="" />
-                        </a>
+    @if ($thirdArticle)
+
+        <section class="hidden sm:flex py-20  justify-center">
+            <div class="mx-auto w-full max-w-screen-2xl items-center md:mx-8 px-4 lg:mx-20 md:px-8">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Artikel Terbaru
+                    </h2>
+                    <button type="button"
+                        class="hidden sm:flex text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-4 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">
+                        Selengkapnya
+                    </button>
+                </div>
+                <div class="grid grid-flow-col grid-rows-2 gap-3 w-full">
+                    <div
+                        class="row-span-2 col-span-5 rounded-3xl shadow-custom transition-transform duration-300 hover:shadow-lg">
+                        <div class="mt-4 ml-4 mr-4 rounded-2xl shadow-custom">
+                            <a href="#">
+                                <img class="rounded-t-lg object-cover w-full h-72 rounded-2xl" src="
+                                                                            {{ asset('storage/' . $firstArticle->image) }}"
+                                    alt="{{ $firstArticle->title }}" />
+                            </a>
+                        </div>
+                        <div class="flex justify-between items-center px-4 py-4">
+                            <div>
+                                <p
+                                    class="mb-6 inline-flex items-center px-3 py-1 text-lg font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                    {{ $firstArticle->category }}
+                                </p>
+                                <a href="#">
+                                    <h5 class="line-clamp-2 mr-2 mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                        {{ $firstArticle->title }}
+                                    </h5>
+                                </a>
+                                <p class="line-clamp-5 mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                    {{ $firstArticle->short_description }}
+                                </p>
+                                <p class="font-light text-sm text-gray-700 dark:text-gray-400">Tanggal: {{ \Carbon\Carbon::parse($firstArticle->created_at)->translatedFormat('d F Y') }}</p>
+
+                            </div>
+                            <a href="#"
+                                class="ml-8 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-send-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z" />
+                                </svg>&nbsp;Bagikan
+                            </a>
+                        </div>
+
                     </div>
-                    <div class="flex justify-between items-center px-4 py-4">
-                        <div>
+                    <div class="col-span-2 rounded-3xl shadow-custom transition-transform duration-300 hover:shadow-lg">
+                        <div class="mt-4 ml-4 mr-4 rounded-2xl shadow-custom">
+                            <a href="#">
+                                <img class="rounded-t-lg object-cover w-full h-24 rounded-2xl"
+                                    src="{{ asset('storage/' . $secondArticle->image) }}" alt="{{ $secondArticle->title }}" />
+                            </a>
+                        </div>
+                        <div class="p-5">
                             <p
-                                class="mb-4 inline-flex items-center px-3 py-1 text-lg font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
-                                Edukasi
+                                class="mb-1 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                {{ $secondArticle->category }}
                             </p>
                             <a href="#">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                    Panduan Lengkap Manasik Umroh</h5>
+                                <h5 class="line-clamp-2 text-lg mb-2 font-bold tracking-tight text-gray-900 dark:text-white">
+                                    {{ $secondArticle->title }}
+                                </h5>
                             </a>
-                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Langkah-Langkah Penting Sebelum
-                                Berangkat ke Tanah Suci.</p>
-                            <p class="font-light text-gray-700 dark:text-gray-400">Tanggal: 01 Desember 2025</p>
-    
+                            <p class="line-clamp-3 mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
+                                {{ $secondArticle->short_description }}
+                            </p>
+                            <p class="font-light text-gray-700 dark:text-gray-400">Tanggal: {{ \Carbon\Carbon::parse($secondArticle->created_at)->translatedFormat('d F Y') }}</p>
+
                         </div>
-                        <a href="#"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-send-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z" />
-                            </svg>&nbsp;Bagikan Media
-                        </a>
                     </div>
-    
-                </div>
-                <div
-                    class="col-span-2 rounded-3xl shadow-custom transition-transform duration-300 hover:shadow-lg">
-                    <div class="mt-4 ml-4 mr-4 rounded-2xl shadow-custom">
-                        <a href="#">
-                            <img class="rounded-t-lg object-cover w-full h-24 rounded-2xl"
-                                src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg" alt="" />
-                        </a>
-                    </div>
-                    <div class="p-5">
-                        <p
-                            class="mb-1 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
-                            Edukasi
-                        </p>
-                        <a href="#">
-                            <h5 class="text-lg mb-2 font-bold tracking-tight text-gray-900 dark:text-white">
-                                Panduan Lengkap Manasik Umroh</h5>
-                        </a>
-                        <p class="text-sm font-normal text-gray-700 dark:text-gray-400">Langkah-Langkah Penting Sebelum
-                            Berangkat ke Tanah Suci.</p>
-    
-                    </div>
-                </div>
-                <div
-                    class="col-span-2 rounded-3xl shadow-custom transition-transform duration-300  hover:shadow-lg">
-                    <div class="mt-4 ml-4 mr-4 rounded-2xl shadow-custom">
-                        <a href="#">
-                            <img class="rounded-t-lg object-cover w-full h-24 rounded-2xl"
-                                src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg" alt="" />
-                        </a>
-                    </div>
-                    <div class="p-5">
-                        <p
-                            class="mb-1 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
-                            Edukasi
-                        </p>
-                        <a href="#">
-                            <h5 class="text-lg mb-2 font-bold tracking-tight text-gray-900 dark:text-white">
-                                Panduan Lengkap Manasik Umroh</h5>
-                        </a>
-                        <p class="text-sm font-normal text-gray-700 dark:text-gray-400">Langkah-Langkah Penting Sebelum
-                            Berangkat ke Tanah Suci.</p>
-    
+                    <div class="col-span-2 rounded-3xl shadow-custom transition-transform duration-300  hover:shadow-lg">
+                        <div class="mt-4 ml-4 mr-4 rounded-2xl shadow-custom">
+                            <a href="#">
+                                <img class="rounded-t-lg object-cover w-full h-24 rounded-2xl"
+                                    src="{{ asset('storage/' . $thirdArticle->image) }}" alt="{{ $thirdArticle->title }}" />
+                            </a>
+                        </div>
+                        <div class="p-5">
+                            <p
+                                class="mb-1 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                {{ $thirdArticle->category }}
+                            </p>
+                            <a href="#">
+                                <h5 class="line-clamp-2 text-lg mb-2 font-bold tracking-tight text-gray-900 dark:text-white">
+                                    {{ $thirdArticle->title }}
+                                </h5>
+                            </a>
+                            <p class="line-clamp-3 mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
+                                {{ $thirdArticle->short_description }}
+                            </p>
+                            
+                            <p class="font-light text-gray-700 dark:text-gray-400">Tanggal: {{ \Carbon\Carbon::parse($thirdArticle->created_at)->translatedFormat('d F Y') }}</p>
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
     <section class="justify-center flex">
         <div class="mx-auto max-w-screen-2xl items-center md:mx-8 px-4 lg:mx-20 md:px-8">
             <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Testimoni Jama'ah

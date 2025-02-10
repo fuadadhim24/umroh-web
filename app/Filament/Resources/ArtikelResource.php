@@ -29,7 +29,11 @@ class ArtikelResource extends Resource
                     ->required(),
                 Forms\Components\FileUpload::make('image')
                     ->label('Gambar')
-                    ->required(),
+                    ->required()
+                    ->disk('public') 
+                    ->directory('images/artikel')
+                    ->preserveFilenames()
+                    ->visibility('public'),
                 Forms\Components\Textarea::make('content')
                     ->label('Konten')
                     ->required(),
@@ -45,7 +49,7 @@ class ArtikelResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title')->label('Judul')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('short_description')->label('Deskripsi Singkat')->sortable()->searchable(),
-                // Tables\Columns\ImageColumn::make('image')->sortable(),
+                Tables\Columns\ImageColumn::make('image')->label('Gambar')->disk('public')->url(fn ($record) => asset('storage/' . $record->image)),
                 Tables\Columns\TextColumn::make('category')->label('Kategori')->sortable(),
                 Tables\Columns\TextColumn::make('created_at')->label('Dibuat Pada')->dateTime(),
             ])
