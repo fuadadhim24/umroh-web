@@ -61,7 +61,7 @@ class PendaftaranResource extends Resource
                 ->required(),
             Forms\Components\TextInput::make('email')
                 ->label('Email')
-                ->required()
+                ->nullable()
                 ->email(),
                 Forms\Components\Select::make('passport_status')
                 ->label('Status Paspor')
@@ -84,7 +84,7 @@ class PendaftaranResource extends Resource
                 ->required(),
             Forms\Components\FileUpload::make('image')
                 ->label('Foto')
-                ->nullable(),
+                ->required(),
             ]);
     }
 

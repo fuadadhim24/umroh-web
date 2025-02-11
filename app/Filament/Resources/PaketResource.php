@@ -24,44 +24,54 @@ class PaketResource extends Resource
         return $form
         ->schema([
             Forms\Components\TextInput::make('title')
+                ->label('Judul')
                 ->required(),
             Forms\Components\FileUpload::make('image')
+                ->label('Gambar')
                     ->required(),
             Forms\Components\Toggle::make('visibility')
+                ->label('Ditampilkan')
                 ->required(),
             Forms\Components\Textarea::make('short_description')
+                ->label('Deskripsi Pendek')
                 ->required(),
             Forms\Components\Repeater::make('advantages')
+                ->label('Keunggulan')
                 ->schema([
                     Forms\Components\TextInput::make('advantage')
                         ->required(),
                 ])
                 ->required(),
             Forms\Components\Repeater::make('facilities')
+                ->label('Fasilitas')
                 ->schema([
                     Forms\Components\TextInput::make('facility')
                         ->required(),
                 ])
                 ->required(),
             Forms\Components\Repeater::make('additional_services')
+                ->label('Gratis')
                 ->schema([
                     Forms\Components\TextInput::make('service')
                         ->required(),
                 ])
                 ->required(),
             Forms\Components\Repeater::make('bonuses')
+                ->label('Bonus Eksklusif')
                 ->schema([
                     Forms\Components\TextInput::make('bonus')
                         ->required(),
                 ])
                 ->required(),
             Forms\Components\Repeater::make('exclusions')
+                ->label('Tidak Termasuk')
                 ->schema([
                     Forms\Components\TextInput::make('exclusion')
                         ->required(),
                 ])
                 ->required(),
             Forms\Components\TextInput::make('price')
+                ->label('Harga')
                 ->numeric()
                 ->required(),
         ]);

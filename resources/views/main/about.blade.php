@@ -18,9 +18,9 @@
                 --}}
             </a>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <button type="button"
-                    class="text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4  px-1 py-1 lg:px-2 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Hubungi
-                    Kami</button>
+                <a href="{{ route('register-form') }}"><button type="button"
+                        class="text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4  px-1 py-1 lg:px-2 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Daftar
+                        Sekarang</button></a>
                 <button data-collapse-toggle="navbar-sticky" type="button"
                     class="inline-flex mr-2 items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-full lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                     aria-controls="navbar-sticky" aria-expanded="false">
@@ -184,7 +184,7 @@
         </div>
     </section>
 
-    <section class="h-screen 2xl:h-4/5 py-14  flex justify-center items-center">
+    <section class="2xl:h-4/5 py-14  flex justify-center items-center">
         <div class="w-full h-full md:mx-4 rounded-3xl bg-black">
             <div class="container mx-auto px-4 py-12">
                 <div class="text-center mb-12">
@@ -291,6 +291,115 @@
             </div>
         </div>
     </section>
+<section>
+    <div class="py-6">
+        <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+            <div class="flex justify-center">
+                <div class="pb-12">
+                    <h2
+                        class="mt-4 text-center sm:text-start text-3xl font-extrabold text-dark-red-primary md:text-4xl">
+                        Perjalanan Kesuksesan Kami
+                    </h2>
+                </div>
+            </div>
+            <div class="lg:flex lg:items-center lg:justify-between lg:mx-24">
+                <div class="w-1/4  h-96 rounded-xl flex items-end justify-center p-4"
+                    style="background-image: url('{{ Vite::asset('resources/images/lp-main/about/bg-1.png') }}'); background-size: cover; ">
+                    <div>
+                        <h2 class="mb-16 text-3xl font-bold text-white text-center items-center">Telah Menangani Lebih
+                            dari<br>+2500 Jamaah</h2>
+                        <div class="w-full h-20 bg-white rounded-2xl flex items-center justify-center ">
+                            <h3>Angka Keberhasilan</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-1/5 to-blue-800 flex flex-col justify-center h-96">
+                    <div class="mb-12 w-full h-28 rounded-xl bg-black flex justify-center items-center">
+                        <h2 class="text-2xl font-bold text-white text-center justify-center ">
+                            +2500<br>
+                            Jama’ah</h2>
+                    </div>
+                    <div class="w-full h-28 rounded-xl bg-black flex justify-center items-center">
+                        <h2 class="text-2xl font-bold text-white text-center justify-center ">
+                            +2500<br>
+                            Jama’ah</h2>
+                    </div>
+                </div>
+                <div class="w-1/4 bg-white h-96 rounded-xl flex items-end justify-center p-4"
+                    style="background-image: url('{{ Vite::asset('resources/images/lp-main/about/bg-2.png') }}'); background-size: cover;">
+                    <div>
+                        <h2 class="mb-8 text-3xl font-bold text-white text-center items-center">Menjadi mitra terpercaya
+                            bagi jamaah di Bondowoso dan sekitarnya</h2>
+                        <div class="w-full h-20 bg-white rounded-2xl flex items-center justify-center ">
+                            <h3>Angka Keberhasilan</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="px-4 md:px-12 py-6">
+    <div class="flex justify-center">
+        <div class="pb-12">
+            <h2 class="mt-4 text-center sm:text-start text-3xl font-extrabold text-dark-red-primary md:text-4xl">
+                Perjalanan Kesuksesan Kami
+            </h2>
+        </div>
+    </div>
+    <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
+        <!-- product - start -->
+        <div>
+            <a href="#" class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
+                <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+                    loading="lazy" alt="Photo by Austin Wade"
+                    class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+                    
+
+            </a>
+        </div>
+        <!-- product - end -->
+
+        <!-- product - start -->
+        <div>
+            <a href="#" class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
+                <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+                    loading="lazy" alt="Photo by engin akyurt"
+                    class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+
+
+            </a>
+
+        </div>
+        <!-- product - end -->
+
+        <!-- product - start -->
+        <div>
+            <a href="#" class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
+                <img src="https://images.unsplash.com/photo-1552668693-d0738e00eca8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+                    loading="lazy" alt="Photo by Austin Wade"
+                    class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+
+            </a>
+
+        </div>
+        <!-- product - end -->
+
+        <!-- product - start -->
+        <div>
+            <a href="#" class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
+                <img src="https://images.unsplash.com/photo-1552668693-d0738e00eca8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+                    loading="lazy" alt="Photo by Austin Wade"
+                    class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+            </a>
+
+        </div>
+        <!-- product - end -->
+        <button type="button"
+            class="sm:hidden text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-4 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Selengkapnya</button>
+    </div>
+</section>
     
     <section class="bg-cover bg-center h-80 mt-14"
         style="background-image: url('{{ Vite::asset('resources/images/lp-main/section-hero.png') }}')">
