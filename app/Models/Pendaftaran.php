@@ -10,6 +10,7 @@ class Pendaftaran extends Model
     use HasFactory;
 
     protected $fillable = [
+        'member_id',
         'full_name',
         'phone_number',
         'date_of_birth',
@@ -28,6 +29,7 @@ class Pendaftaran extends Model
         'name_as_per_passport',
         'notes',
         'source_of_information',
+        'id_agen',
         'image',
     ];
 }

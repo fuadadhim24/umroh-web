@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('pendaftarans', function (Blueprint $table) {
             $table->id();
+            // $table->string('member_id');
+            $table->string('member_id')->unique();
             $table->string('full_name');
             $table->string('phone_number');
             $table->date('date_of_birth');
@@ -31,6 +33,7 @@ return new class extends Migration
             $table->string('name_as_per_passport');
             $table->text('notes')->nullable();
             $table->string('source_of_information');
+            $table->string('id_agen')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

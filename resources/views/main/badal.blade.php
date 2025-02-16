@@ -19,8 +19,8 @@
             </a>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                 <a href="{{ route('register-form') }}"><button type="button"
-                    class="text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4  px-1 py-1 lg:px-2 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Daftar
-                    Sekarang</button></a>
+                        class="text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4  px-1 py-1 lg:px-2 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Daftar
+                        Sekarang</button></a>
                 <button data-collapse-toggle="navbar-sticky" type="button"
                     class="inline-flex mr-2 items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-full lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                     aria-controls="navbar-sticky" aria-expanded="false">
@@ -36,7 +36,7 @@
                 <ul
                     class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                     <li>
-                        <a href="{{ route('dashboard')}}"
+                        <a href="{{ route('dashboard') }}"
                             class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Beranda</a>
                     </li>
                     <li>
@@ -45,7 +45,7 @@
                             Kami</a>
                     </li>
                     <li>
-                        <a href="{{ route('haji')}}"
+                        <a href="{{ route('haji') }}"
                             class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Haji</a>
                     </li>
                     <li>
@@ -97,7 +97,8 @@
                     <div class="my-2 lg:my-0 flex flex-col items-center">
                         <div class="rounded-full h-28 w-28 shadow-xl bg-white flex justify-center p-6">
                             <img class="object-contain"
-                                src="{{ Vite::asset('resources/images/lp-main/badal/ic-excess-1.png') }}" alt="">
+                                src="{{ Vite::asset('resources/images/lp-main/badal/ic-excess-1.png') }}"
+                                alt="">
                         </div>
                         <h3 class="font-bold text-white mt-4 text-center text-lg">Amanah dan Sesuai Syariat</h3>
                         <p class="text-center text-white mt-2">
@@ -108,7 +109,8 @@
                     <div class="my-2 lg:my-0 flex flex-col items-center">
                         <div class="rounded-full h-28 w-28 shadow-xl bg-white flex justify-center p-6">
                             <img class="object-contain"
-                                src="{{ Vite::asset('resources/images/lp-main/badal/ic-excess-2.png') }}" alt="">
+                                src="{{ Vite::asset('resources/images/lp-main/badal/ic-excess-2.png') }}"
+                                alt="">
                         </div>
                         <h3 class="font-bold text-white mt-4 text-center text-lg">Laporan Lengkap</h3>
                         <p class="text-center text-white mt-2 mx-4">
@@ -121,7 +123,8 @@
                     <div class="my-2 lg:my-0 flex flex-col items-center mb-8">
                         <div class="rounded-full h-28 w-28 shadow-xl bg-white flex justify-center p-6">
                             <img class="object-contain"
-                                src="{{ Vite::asset('resources/images/lp-main/badal/ic-excess-3.png') }}" alt="">
+                                src="{{ Vite::asset('resources/images/lp-main/badal/ic-excess-3.png') }}"
+                                alt="">
                         </div>
                         <h3 class="font-bold text-white mt-4 text-center text-lg">Didukung Tim Profesional</h3>
                         <p class="text-center text-white mt-2 mx-4">
@@ -131,7 +134,8 @@
                     <div class="my-2 lg:my-0 flex flex-col items-center ">
                         <div class="rounded-full h-28 w-28 shadow-xl bg-white flex justify-center p-6">
                             <img class="object-contain"
-                                src="{{ Vite::asset('resources/images/lp-main/badal/ic-excess-4.png') }}" alt="">
+                                src="{{ Vite::asset('resources/images/lp-main/badal/ic-excess-4.png') }}"
+                                alt="">
                         </div>
                         <h3 class="font-bold text-white mt-4 text-center text-lg">Kerjasama dengan Ulama dan Pembimbing
                             Agama</h3>
@@ -237,7 +241,8 @@
                                 <div class="relative flex mt-8 w-full flex-col rounded-lg text-center p-4">
                                     <span class="text-lg font-bold text-white lg:text-xl text-center">Laporan dan
                                         Sertifikat</span>
-                                    <span class="text-gray-200 text-sm mt-2">Setelah selesai, Anda akan menerima laporan
+                                    <span class="text-gray-200 text-sm mt-2">Setelah selesai, Anda akan menerima
+                                        laporan
                                         lengkap dan sertifikat sebagai bukti pelaksanaan badal.</span>
                                 </div>
                             </div>
@@ -266,10 +271,12 @@
                         <div class="bg-white shadow-xl w-24 h-24 rounded-full  flex items-center justify-center">
                             <div class="bg-black w-5/6 h-5/6 rounded-full p-5">
                                 <img class="object-contain"
-                                    src="{{ Vite::asset('resources/images/lp-main/badal/ic-excess-5.png') }}" alt="">
+                                    src="{{ Vite::asset('resources/images/lp-main/badal/ic-excess-5.png') }}"
+                                    alt="">
                             </div>
                         </div>
-                        <p class="mt-4 text-center font-bold mx-4 text-sm">Orang yang sakit berat atau lansia yang tidak
+                        <p class="mt-4 text-center font-bold mx-4 text-sm">Orang yang sakit berat atau lansia yang
+                            tidak
                             memungkinkan untuk bepergian.</p>
                         <div class="mt-2 rounded-full w-4/6 h-8 bg-black">
 
@@ -281,10 +288,12 @@
                         <div class="bg-white shadow-xl w-24 h-24 rounded-full  flex items-center justify-center">
                             <div class="bg-black w-5/6 h-5/6 rounded-full p-5">
                                 <img class="object-contain"
-                                    src="{{ Vite::asset('resources/images/lp-main/badal/ic-excess-5.png') }}" alt="">
+                                    src="{{ Vite::asset('resources/images/lp-main/badal/ic-excess-5.png') }}"
+                                    alt="">
                             </div>
                         </div>
-                        <p class="mt-4 text-center font-bold mx-4 text-sm">Orang yang sakit berat atau lansia yang tidak
+                        <p class="mt-4 text-center font-bold mx-4 text-sm">Orang yang sakit berat atau lansia yang
+                            tidak
                             memungkinkan untuk bepergian.</p>
                         <div class="mt-2 rounded-full w-4/6 h-8 bg-black">
 
@@ -319,7 +328,8 @@
                             <h3 class="font-semibold text-white md:text-xl lg:text-xl">Rp 15.000.000 Juta</h3>
                         </div>
                         <img class="xl:h-72 h-48"
-                            src="{{ Vite::asset('resources/images/lp-main/badal/paket-badal-1.png') }}" alt="">
+                            src="{{ Vite::asset('resources/images/lp-main/badal/paket-badal-1.png') }}"
+                            alt="">
                     </div>
                     <!-- product - end -->
 
@@ -334,7 +344,8 @@
                             <h3 class="font-semibold text-white md:text-xl lg:text-xl">Rp 15.000.000 Juta</h3>
                         </div>
                         <img class="xl:h-72 h-48"
-                            src="{{ Vite::asset('resources/images/lp-main/badal/paket-badal-1.png') }}" alt="">
+                            src="{{ Vite::asset('resources/images/lp-main/badal/paket-badal-1.png') }}"
+                            alt="">
                     </div>
                     <!-- product - end -->
 

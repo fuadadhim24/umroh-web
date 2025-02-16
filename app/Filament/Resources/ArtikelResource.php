@@ -32,6 +32,7 @@ class ArtikelResource extends Resource
                     ->required()
                     ->disk('public') 
                     ->directory('images/artikel')
+                    ->helperText('Ukuran file maksimal 2MB')
                     ->preserveFilenames()
                     ->visibility('public'),
                 Forms\Components\Textarea::make('content')
