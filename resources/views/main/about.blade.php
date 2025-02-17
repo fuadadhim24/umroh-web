@@ -57,7 +57,7 @@
                             class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Badal</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{ route('artikel') }}"
                             class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Artikel</a>
                     </li>
                 </ul>
@@ -74,7 +74,7 @@
             </div>
         </div>
     </section>
-   
+
     <section>
         <div class="bg-white py-6 sm:py-8 md:mx-8 lg:py-12 lg:mx-20">
             <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
@@ -291,116 +291,137 @@
             </div>
         </div>
     </section>
-<section>
-    <div class="py-6">
-        <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-            <div class="flex justify-center">
-                <div class="pb-12">
-                    <h2
-                        class="mt-4 text-center sm:text-start text-3xl font-extrabold text-dark-red-primary md:text-4xl">
-                        Perjalanan Kesuksesan Kami
+    <section class="mb-4">
+        <div>
+            <div class="mx-auto max-w-screen-2xl md:px-8 ">
+                <div class="flex justify-center ">
+                    <div class="">
+                        <h2 class="mt-4 text-center  text-3xl font-extrabold text-dark-red-primary md:text-4xl">
+                            Perjalanan Kesuksesan<br>Kami
+                        </h2>
+                    </div>
+                </div>
+                <div class="lg:flex lg:items-center lg:justify-between lg:mx-24">
+                    <div class="sm:w-1/4  h-96 rounded-xl flex items-end justify-center p-4"
+                        style="background-image: url('{{ Vite::asset('resources/images/lp-main/about/bg-1.png') }}'); background-size: cover; ">
+                        <div class="mx-2">
+                            <h2 class="mb-16 text-3xl font-bold text-white text-center items-center">Telah Menangani
+                                Lebih
+                                dari<br>+2500 Jamaah</h2>
+                            <div class="w-full h-20 bg-white rounded-2xl flex items-center justify-center font-bold">
+                                <h3>Angka Keberhasilan</h3>
+                            </div>
+                            </div>
+                            </div>
+                    <div class="sm:w-1/5 px-14 sm:px-0 to-blue-800 flex flex-col justify-center h-96">
+                        <div class="mb-12 w-full h-28 rounded-xl bg-black flex justify-center items-center">
+                            <h2 class="text-2xl font-bold text-white text-center justify-center ">
+                                +2500<br>
+                                Jama’ah</h2>
+                        </div>
+                        <div class="w-full h-28 rounded-xl bg-black flex justify-center items-center">
+                            <h2 class="text-2xl font-bold text-white text-center justify-center ">
+                                +2500<br>
+                                Jama’ah</h2>
+                        </div>
+                    </div>
+                    <div class="sm:w-1/4  h-96 rounded-xl flex items-end justify-center p-4"
+                        style="background-image: url('{{ Vite::asset('resources/images/lp-main/about/bg-2.png') }}'); background-size: cover; ">
+                        <div class="mx-2">
+                            <h2 class="mb-8 text-3xl font-bold text-white text-center items-center">Menjadi mitra
+                                terpercaya
+                                bagi jamaah di Bondowoso dan sekitarnya</h2>
+                            <div class="w-full h-20 bg-white rounded-2xl flex items-center justify-center font-bold">
+                                <h3>Angka Keberhasilan</h3>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </section>
+
+    <section class="px-4 md:px-12 py-6">
+        <div class="flex justify-center">
+            <div class="pb-12">
+                <h2 class="mt-4 text-center sm:text-start text-3xl font-extrabold text-dark-red-primary md:text-4xl">
+                    Tim dan Divisi Kami
                     </h2>
+                    </div>
+                    </div>
+                    <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
+                        <!-- product - start -->
+                        <div>
+                            <a href="#" class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
+                                <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+                                    loading="lazy" alt="Photo by Austin Wade"
+                                    class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+                </a>
                 </div>
+                <!-- product - end -->
+
+            <!-- product - start -->
+            <div>
+                <a href="#" class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+                        loading="lazy" alt="Photo by engin akyurt"
+                        class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+
+
+                </a>
+
             </div>
-            <div class="lg:flex lg:items-center lg:justify-between lg:mx-24">
-                <div class="w-1/4  h-96 rounded-xl flex items-end justify-center p-4"
-                    style="background-image: url('{{ Vite::asset('resources/images/lp-main/about/bg-1.png') }}'); background-size: cover; ">
-                    <div>
-                        <h2 class="mb-16 text-3xl font-bold text-white text-center items-center">Telah Menangani Lebih
-                            dari<br>+2500 Jamaah</h2>
-                        <div class="w-full h-20 bg-white rounded-2xl flex items-center justify-center ">
-                            <h3>Angka Keberhasilan</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-1/5 to-blue-800 flex flex-col justify-center h-96">
-                    <div class="mb-12 w-full h-28 rounded-xl bg-black flex justify-center items-center">
-                        <h2 class="text-2xl font-bold text-white text-center justify-center ">
-                            +2500<br>
-                            Jama’ah</h2>
-                    </div>
-                    <div class="w-full h-28 rounded-xl bg-black flex justify-center items-center">
-                        <h2 class="text-2xl font-bold text-white text-center justify-center ">
-                            +2500<br>
-                            Jama’ah</h2>
-                    </div>
-                </div>
-                <div class="w-1/4 bg-white h-96 rounded-xl flex items-end justify-center p-4"
-                    style="background-image: url('{{ Vite::asset('resources/images/lp-main/about/bg-2.png') }}'); background-size: cover;">
-                    <div>
-                        <h2 class="mb-8 text-3xl font-bold text-white text-center items-center">Menjadi mitra terpercaya
-                            bagi jamaah di Bondowoso dan sekitarnya</h2>
-                        <div class="w-full h-20 bg-white rounded-2xl flex items-center justify-center ">
-                            <h3>Angka Keberhasilan</h3>
-                        </div>
-                    </div>
-                </div>
+            <!-- product - end -->
+
+            <!-- product - start -->
+            <div>
+                <a href="#" class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1552668693-d0738e00eca8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+                        loading="lazy" alt="Photo by Austin Wade"
+                        class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+
+                </a>
+
             </div>
-        </div>
-    </div>
-</section>
+            <!-- product - end -->
 
-<section class="px-4 md:px-12 py-6">
-    <div class="flex justify-center">
-        <div class="pb-12">
-            <h2 class="mt-4 text-center sm:text-start text-3xl font-extrabold text-dark-red-primary md:text-4xl">
-                Perjalanan Kesuksesan Kami
-            </h2>
-        </div>
-    </div>
-    <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-        <!-- product - start -->
-        <div>
-            <a href="#" class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-                <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-                    loading="lazy" alt="Photo by Austin Wade"
-                    class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-                    
+            <!-- product - start -->
+            <div>
+                <a href="#" class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1552668693-d0738e00eca8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+                        loading="lazy" alt="Photo by Austin Wade"
+                        class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+                </a>
 
-            </a>
-        </div>
-        <!-- product - end -->
+            </div>
+            <!-- product - end -->
+            <button type="button"
+                class="sm:hidden text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-4 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Selengkapnya</button>
+            </div>
+            </section>
 
-        <!-- product - start -->
-        <div>
-            <a href="#" class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-                <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-                    loading="lazy" alt="Photo by engin akyurt"
-                    class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-
-            </a>
-
-        </div>
-        <!-- product - end -->
-
-        <!-- product - start -->
-        <div>
-            <a href="#" class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-                <img src="https://images.unsplash.com/photo-1552668693-d0738e00eca8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-                    loading="lazy" alt="Photo by Austin Wade"
-                    class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-            </a>
-
-        </div>
-        <!-- product - end -->
-
-        <!-- product - start -->
-        <div>
-            <a href="#" class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-                <img src="https://images.unsplash.com/photo-1552668693-d0738e00eca8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-                    loading="lazy" alt="Photo by Austin Wade"
-                    class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-            </a>
-
-        </div>
-        <!-- product - end -->
-        <button type="button"
-            class="sm:hidden text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-4 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Selengkapnya</button>
-    </div>
-</section>
+    <section class="h-screen p-4 py-12 sm:p-24">
+        <div class="bg-black rounded-xl h-full w-full">
+            <div class="flex flex-col sm:flex-row sm:items-center h-full px-4">
+                <div class="sm:ml-4">
+                    <h2 class="mt-4 text-white text-3xl md:text-5xl font-extrabold">
+                        Pesan Paket<br>
+                        Anda Sekarang! </h2>
+                    <p class="mt-2 text-white">Jangan tunda lagi, wujudkan perjalanan spiritual Anda bersama El Aqsho Group.
+                    </p>
+                    <button type="button"
+                        class="mt-4 text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-2 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Jadwalkan
+                        Sekarang</button>
     
+                </div>
+                <div class="mt-12 sm:mt-0 mb-4 rounded-2xl w-full sm:w-5/6 lg:w-1/3 sm:h-5/6 sm:mx-2 lg:mx-14 flex-grow"
+                    style="background-image: url('{{ Vite::asset('resources/images/lp-main/about/bg-3.png') }}'); background-size: cover; backgound-position: center; background-repeat: no-repeat;">
+                </div>
+            </div>
+    
+        </div>
+    </section>
+
     <section class="bg-cover bg-center h-80 mt-14"
         style="background-image: url('{{ Vite::asset('resources/images/lp-main/section-hero.png') }}')">
         <div class="flex items-center justify-center h-full px-4">
@@ -444,12 +465,26 @@
     <script>
         const carouselElement = document.getElementById('carousel-example');
 
-        const items = [
-            { position: 0, el: document.getElementById('carousel-item-1') },
-            { position: 1, el: document.getElementById('carousel-item-2') },
-            { position: 2, el: document.getElementById('carousel-item-3') },
-            { position: 3, el: document.getElementById('carousel-item-4') },
-            { position: 4, el: document.getElementById('carousel-item-5') },
+                                        const items = [{
+                                            position: 0,
+                                            el: document.getElementById('carousel-item-1')
+                                        },
+                                            {
+                                                position: 1,
+                                                el: document.getElementById('carousel-item-2')
+                                            },
+                                            {
+                                                position: 2,
+                                                el: document.getElementById('carousel-item-3')
+                                            },
+                                            {
+                                                position: 3,
+                                                el: document.getElementById('carousel-item-4')
+                                            },
+                                            {
+                                                position: 4,
+                                                el: document.getElementById('carousel-item-5')
+                                            },
         ];
 
         const options = {

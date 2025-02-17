@@ -19,8 +19,8 @@
             </a>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                 <a href="{{ route('register-form') }}"><button type="button"
-                    class="text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4  px-1 py-1 lg:px-2 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Daftar
-                    Sekarang</button></a>
+                        class="text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4  px-1 py-1 lg:px-2 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Daftar
+                        Sekarang</button></a>
                 <button data-collapse-toggle="navbar-sticky" type="button"
                     class="inline-flex mr-2 items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-full lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                     aria-controls="navbar-sticky" aria-expanded="false">
@@ -36,8 +36,8 @@
                 <ul
                     class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                     <li>
-                        <a href="{{ route('dashboard')}}"
-                        class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Beranda</a>
+                        <a href="{{ route('dashboard') }}"
+                            class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Beranda</a>
                     </li>
                     <li>
                         <a href="{{ route('about') }}"
@@ -45,9 +45,9 @@
                             Kami</a>
                     </li>
                     <li>
-                        <a href="{{ route('haji')}}"
-                        class="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
-                        aria-current="page">Haji</a>
+                        <a href="{{ route('haji') }}"
+                            class="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                            aria-current="page">Haji</a>
                     </li>
                     <li>
                         <a href="{{ route('umroh') }}"
@@ -58,14 +58,14 @@
                             class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Badal</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{ route('artikel') }}"
                             class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Artikel</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <section class="h-screen 2xl:h-4/5 py-14  flex justify-center items-center">
+    <section class="h-screen 2xl:h-96 py-14 flex justify-center items-center">
         <div class="w-full h-full md:mx-12 mt-16 rounded-3xl mx-2"
             style="background-image: url('{{ Vite::asset('resources/images/lp-main/haji/section-hero.png') }}'); background-size: cover; background-position: center;">
             <div class="flex items-center justify-center h-full">
@@ -109,8 +109,7 @@
             </div>
             <div class="my-2 lg:my-0 flex flex-col items-center">
                 <div class="rounded-full h-28 w-28 shadow-xl bg-dark-red-primary flex justify-center p-6">
-                    <img class="object-contain" src="{{ Vite::asset('resources/images/lp-main/haji/ic-excess-3.png') }}"
-                        alt="">
+                    <img class="object-contain" src="{{ Vite::asset('resources/images/lp-main/haji/ic-excess-3.png') }}" alt="">
 
                 </div>
                 <h3 class="font-bold text-dark-red-primary mt-4 text-lg">Fasilitas Premium</h3>
@@ -121,30 +120,32 @@
         <div class="lg:grid lg:grid-cols-3 lg:gap-4 mt-8">
             <div class="my-2 lg:my-0 flex flex-col items-center mb-8">
                 <div class="rounded-full h-28 w-28 shadow-xl bg-dark-red-primary flex justify-center p-6">
-                    <img class="object-contain" src="{{ Vite::asset('resources/images/lp-main/haji/ic-excess-4.png') }}"
-                        alt="">
+                    <img class="object-contain" src="{{ Vite::asset('resources/images/lp-main/haji/ic-excess-4.png') }}" alt="">
 
                 </div>
                 <h3 class="font-bold text-dark-red-primary mt-4 text-lg">Pembimbing Berpengalaman</h3>
-                <p class="text-center mt-2 mx-4">Didampingi oleh pembimbing ibadah yang kompeten dan berpengalaman, memastikan ibadah Anda berjalan lancar dan sesuai tuntunan. </p>
+                <p class="text-center mt-2 mx-4">Didampingi oleh pembimbing ibadah yang kompeten dan berpengalaman,
+                    memastikan ibadah Anda berjalan lancar dan sesuai tuntunan. </p>
             </div>
             <div class="my-2 lg:my-0 flex flex-col items-center mb-8">
                 <div class="rounded-full h-28 w-28 shadow-xl bg-dark-red-primary flex justify-center p-6">
-                    <img class="object-contain" src="{{ Vite::asset('resources/images/lp-main/haji/ic-excess-5.png') }}"
-                        alt="">
+                    <img class="object-contain"
+                        src="{{ Vite::asset('resources/images/lp-main/haji/ic-excess-5.png') }}" alt="">
 
                 </div>
                 <h3 class="font-bold text-dark-red-primary mt-4 text-lg">Waktu yang Fleksibel</h3>
-                <p class="text-center mt-2 mx-4">Keberangkatan bisa disesuaikan dengan kebutuhan dan jadwal jamaah tanpa terikat kuota nasional.</p>
+                <p class="text-center mt-2 mx-4">Keberangkatan bisa disesuaikan dengan kebutuhan dan jadwal jamaah tanpa
+                    terikat kuota nasional.</p>
             </div>
             <div class="my-2 lg:my-0 flex flex-col items-center">
                 <div class="rounded-full h-28 w-28 shadow-xl bg-dark-red-primary flex justify-center p-6">
-                    <img class="object-contain" src="{{ Vite::asset('resources/images/lp-main/haji/ic-excess-6.png') }}"
-                        alt="">
+                    <img class="object-contain"
+                        src="{{ Vite::asset('resources/images/lp-main/haji/ic-excess-6.png') }}" alt="">
 
                 </div>
                 <h3 class="font-bold text-dark-red-primary mt-4 text-lg">Layanan Pribadi dan Eksklusif</h3>
-                <p class="text-center  mt-2 mx-4">Pelayanan yang ramah, profesional, dan personal untuk memastikan kenyamanan setiap jamaah selama perjalanan.</p>
+                <p class="text-center  mt-2 mx-4">Pelayanan yang ramah, profesional, dan personal untuk memastikan
+                    kenyamanan setiap jamaah selama perjalanan.</p>
             </div>
         </div>
     </section>
@@ -155,18 +156,20 @@
                 <h3 class="my-2 mx-4 font-bold text-white">Selengkapnya</h3>
             </div>
         </div>
-        <div class="px-4 py-6 bg-gradient-to-br from-dark-red-primary to-dark-red-second rounded-xl">
-            <div class="md:justify-between md:flex-row md:px-8 lg:px-24 xl:px-48 flex flex-col items-center">
-                <img class="object-contain mb-2 md:mb-0 md:mr-12"
-                    src="{{ Vite::asset('resources/images/lp-main/haji/catalog.png') }}" alt="">
-                <div>
-                    <h1 class="font-bold text-xl mb-4 md:text-3xl lg:text-5xl text-white">Paket Haji Visa Furodha 2025
-                    </h1>
-                    <h3 class="font-semibold text-white md:text-xl lg:text-3xl">Harga</h3>
-                    <h3 class="font-semibold text-white md:text-xl lg:text-3xl">USD 35000</h3>
+        <a href="#">
+            <div class="px-4 py-6 bg-gradient-to-br  from-dark-red-primary to-dark-red-second rounded-xl hover:from-dark-red-second hover:to-dark-red-primary">
+                <div class="md:justify-between md:flex-row md:px-8 lg:px-24 xl:px-48 flex flex-col items-center">
+                    <img class="object-contain mb-2 md:mb-0 md:mr-12"
+                        src="{{ Vite::asset('resources/images/lp-main/haji/catalog.png') }}" alt="">
+                    <div>
+                        <h1 class="font-bold text-xl mb-4 md:text-3xl lg:text-5xl text-white">Paket Haji Visa Furodha 2025
+                        </h1>
+                        <h3 class="font-semibold text-white md:text-xl lg:text-3xl">Harga</h3>
+                        <h3 class="font-semibold text-white md:text-xl lg:text-3xl">USD 35000</h3>
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
     </section>
 
     <section class="bg-cover bg-center h-80 mt-14"

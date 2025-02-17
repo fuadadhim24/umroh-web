@@ -132,6 +132,7 @@
         </div>
     </section>
     {{-- carousel --}}
+    @if ($thirdArticle != null)
     <section class="mt-8 h-screen sm:hidden">
         <div class="mx-auto max-w-screen-2xl md:mx-8 px-4 lg:mx-20 md:px-8">
             <div class="mb-8">
@@ -331,6 +332,7 @@ alt="{{ $firstArticle->title }}" />
             </div>
         </div>
     </section>
+    @endif
     @if ($thirdArticle)
 
         <section class="hidden sm:flex py-20  justify-center">

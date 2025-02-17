@@ -58,14 +58,14 @@
                             aria-current="page">Badal</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{ route('artikel') }}"
                             class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Artikel</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <section class="h-screen 2xl:h-4/5 py-14  flex justify-center items-center">
+    <section class="h-screen 2xl:h-96 py-14  flex justify-center items-center">
         <div class="w-full h-full md:mx-12 mt-16 rounded-3xl mx-2"
             style="background-image: url('{{ Vite::asset('resources/images/lp-main/badal/section-hero.png') }}'); background-size: cover; background-position: center;">
             <div class="flex items-center justify-center h-full md:px-24">
@@ -318,35 +318,39 @@
 
                 <div class="grid sm:grid-cols-2 gap-2 xl:gap-6 lg:grid-cols-2 xl:grid-cols-2">
                     <!-- product - start -->
-                    <div
-                        class="px-4 py-8 bg-gradient-to-br from-dark-red-primary to-dark-red-second rounded-xl flex gap-2 xl:gap-4 justify-center items-center">
-                        <div>
-                            <h1 class="font-bold text-xl mb-4 md:text-2xl lg:text-6xl text-white">Badal <Br>
-                                Haji
-                            </h1>
-                            <h3 class="font-semibold text-white md:text-xl lg:text-xl">Harga</h3>
-                            <h3 class="font-semibold text-white md:text-xl lg:text-xl">Rp 15.000.000 Juta</h3>
+                    <a href="#">
+                        <div
+                            class="px-4 py-8 bg-gradient-to-br hover:from-dark-red-second hover:to-dark-red-primary from-dark-red-primary to-dark-red-second rounded-xl flex gap-2 xl:gap-4 justify-center items-center">
+                            <div>
+                                <h1 class="font-bold text-xl mb-4 md:text-2xl lg:text-6xl text-white">Badal <Br>
+                                    Haji
+                                </h1>
+                                <h3 class="font-semibold text-white md:text-xl lg:text-xl">Harga</h3>
+                                <h3 class="font-semibold text-white md:text-xl lg:text-xl">Rp 15.000.000 Juta</h3>
+                            </div>
+                            <img class="xl:h-72 h-48"
+                                src="{{ Vite::asset('resources/images/lp-main/badal/paket-badal-1.png') }}"
+                                alt="">
                         </div>
-                        <img class="xl:h-72 h-48"
-                            src="{{ Vite::asset('resources/images/lp-main/badal/paket-badal-1.png') }}"
-                            alt="">
-                    </div>
+                    </a>
                     <!-- product - end -->
 
                     <!-- product - start -->
-                    <div
-                        class="px-4 py-8 bg-gradient-to-br from-dark-red-primary to-dark-red-second rounded-xl flex gap-2 xl:gap-4 justify-center items-center">
-                        <div>
-                            <h1 class="font-bold text-xl mb-4 md:text-2xl lg:text-6xl text-white">Badal <Br>
-                                Umroh
-                            </h1>
-                            <h3 class="font-semibold text-white md:text-xl lg:text-xl">Harga</h3>
-                            <h3 class="font-semibold text-white md:text-xl lg:text-xl">Rp 15.000.000 Juta</h3>
+                    <a href="#">
+                        <div
+                            class="px-4 py-8 bg-gradient-to-br from-dark-red-primary to-dark-red-second rounded-xl hover:from-dark-red-second hover:to-dark-red-primary flex gap-2 xl:gap-4 justify-center items-center">
+                            <div>
+                                <h1 class="font-bold text-xl mb-4 md:text-2xl lg:text-6xl text-white">Badal <Br>
+                                    Umroh
+                                </h1>
+                                <h3 class="font-semibold text-white md:text-xl lg:text-xl">Harga</h3>
+                                <h3 class="font-semibold text-white md:text-xl lg:text-xl">Rp 15.000.000 Juta</h3>
+                            </div>
+                            <img class="xl:h-72 h-48"
+                                src="{{ Vite::asset('resources/images/lp-main/badal/paket-badal-1.png') }}"
+                                alt="">
                         </div>
-                        <img class="xl:h-72 h-48"
-                            src="{{ Vite::asset('resources/images/lp-main/badal/paket-badal-1.png') }}"
-                            alt="">
-                    </div>
+                    </a>
                     <!-- product - end -->
 
 
