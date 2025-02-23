@@ -15,7 +15,9 @@ use App\Exports\PendaftaranExport;
 use Filament\Tables\Actions\Action;
 use Filament\Forms\Components\Select;
 use Carbon\Carbon;
+use Filament\Notifications\Notification;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Paket;
 
 class PendaftaranResource extends Resource
 {
@@ -73,22 +75,42 @@ class PendaftaranResource extends Resource
                     ->label('Email')
                     ->nullable()
                     ->email(),
-                    Forms\Components\Select::make('passport_status')
+                Forms\Components\Select::make('passport_status')
                     ->label('Status Paspor')
                     ->options([
                         '1' => 'Aktif',  
                         '0' => 'Tidak Aktif', 
                     ])
+                    ->live()
                     ->required(),
+                Forms\Components\TextInput::make('nama_sesuai_paspor')
+                    ->label('Nama Sesuai Paspor')
+                    ->visible(fn ($get) => $get('passport_status') === '1')
+                    ->required(),
+                Forms\Components\TextInput::make('nomor_paspor')
+                    ->label('Nomor Paspor')
+                    ->visible(fn ($get) => $get('passport_status') === '1')
+                    ->required(),
+                Forms\Components\DatePicker::make('tanggal_issued_paspor')
+                    ->label('Tanggal Terbit Paspor')
+                    ->visible(fn ($get) => $get('passport_status') === '1')
+                    ->required(),
+                Forms\Components\DatePicker::make('tanggal_expired')
+                    ->label('Tanggal Expired Paspor')
+                    ->visible(fn ($get) => $get('passport_status') === '1')
+                    ->required(),
+                Forms\Components\Select::make('permintaan')
+                    ->label('Permintaan Paspor')
+                    ->visible(fn ($get) => $get('passport_status') === '0')
+                    ->options([
+                        'jasa el-aqsho' => 'Jasa El-Aqsho',  
+                        'urus sendiri' => 'Urus Sendiri', 
+                    ])
+                    ->required(),
+
                 Forms\Components\Toggle::make('meningitis_vaccine_status')
                     ->label('Status Vaksin Meningitis')
                     ->required(),
-                Forms\Components\TextInput::make('name_as_per_passport')
-                    ->label('Nama Sesuai Paspor')
-                    ->required(),
-                Forms\Components\Textarea::make('notes')
-                    ->label('Catatan')
-                    ->nullable(),
                 Select::make('source_of_information')
                     ->label('Sumber Informasi')
                     ->options([
@@ -109,13 +131,23 @@ class PendaftaranResource extends Resource
                     ->visible(fn ($get) => $get('source_of_information') === 'agen')
                     ->required(),
                 Forms\Components\FileUpload::make('image')
-                    ->label('Gambar')
+                    ->label('Foto Pendaftar')
                     ->required()
                     ->disk('public') 
                     ->directory('images/artikel')
                     ->helperText('Ukuran file maksimal 2MB')
                     ->preserveFilenames()
                     ->visibility('public'),
+
+                Select::make('id_paket')
+                    ->label('Pilih Paket')
+                    ->options(Paket::all()->pluck('title', 'id')->prepend('Tidak Memilih', null))  
+                    ->searchable()
+                    // ->required()
+                    ->placeholder('Pilih Paket'),
+                Forms\Components\Textarea::make('notes')
+                    ->label('Catatan')
+                    ->nullable(),
             ]);
     }
 
@@ -131,6 +163,13 @@ class PendaftaranResource extends Resource
                     ->label('Nama Lengkap')
                     ->sortable()
                     ->searchable(),
+                Tables\Columns\TextColumn::make('paket.title')
+                    ->label('Paket')
+                    ->default('Tidak Memilih')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('Terdaftar Pada')
+                    ->dateTime(),
                 Tables\Columns\TextColumn::make('phone_number')
                     ->label('Nomor Telepon')
                     ->sortable(),
@@ -170,21 +209,37 @@ class PendaftaranResource extends Resource
                 Tables\Columns\BooleanColumn::make('passport_status')
                     ->label('Status Paspor')
                     ->sortable(),
+                Tables\Columns\TextColumn::make('nama_sesuai_paspor')
+                    ->default('-')
+                    ->label('Nama Sesuai Paspor'),
+                Tables\Columns\TextColumn::make('nomor_paspor')
+                    ->default('-')
+                    ->label('Nomor Paspor'),
+                Tables\Columns\TextColumn::make('tanggal_issued_paspor')
+                    ->label('Tanggal Terbit Paspor')
+                    ->date()
+                    // ->default('-')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('tanggal_expired')
+                    ->label('Tanggal Expired Paspor')
+                    ->date()
+                    // ->default('-')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('permintaan')
+                    ->label('Permintaan Paspor')
+                    ->default('-')
+                    ->sortable(),
                 Tables\Columns\BooleanColumn::make('meningitis_vaccine_status')
                     ->label('Status Vaksin Meningitis')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('name_as_per_passport')
-                    ->label('Nama Sesuai Paspor')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('source_of_information')
                     ->label('Sumber Informasi')
                     ->sortable(),
-                Tables\Columns\ImageColumn::make('image')
-                    ->label('Gambar')
+                Tables\Columns\TextColumn::make('agent_number')
+                    ->label('Nomor Agen')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->label('Dibuat Pada')
-                    ->dateTime(),
+                Tables\Columns\ImageColumn::make('image')
+                    ->label('Gambar'),
             ])
             ->filters([
                 //
@@ -198,10 +253,161 @@ class PendaftaranResource extends Resource
                 ]),
             ])
             ->headerActions([ 
-                Action::make('Export to Excel')
+                Action::make('Export ke Excel')
                     ->icon('heroicon-o-document')  
-                    ->action(fn () => Excel::download(new PendaftaranExport, 'pendaftaran.xlsx')) 
-                    ->color('primary'),
+                    // ->action(fn (array $data) => Excel::download(new PendaftaranExport('tanggal', '2025-02-20', null, null), 'pendaftaran.xlsx'))
+                    // ->action(fn (array $data) => Excel::download(new PendaftaranExport('tahun', null, null, 2025), 'pendaftaran.xlsx')) 
+                    // ->action(fn (array $data) => Excel::download(new PendaftaranExport('bulan', null, 2, 2025), 'pendaftaran.xlsx')) 
+                    // ->action(fn (array $data) => Excel::download(new PendaftaranExport('semua', null, null, null), 'pendaftaran.xlsx')) 
+                    ->form([
+                        Forms\Components\Select::make('filter_by')
+                            ->label('Pilih Berdasarkan')
+                            ->options([
+                                'tanggal' => 'Tanggal',
+                                'bulan' => 'Bulan',
+                                'tahun' => 'Tahun',
+                                'semua' => 'Semua',
+                            ])
+                            ->required()
+                            ->reactive()
+                            ->afterStateUpdated(function ($state, callable $set) {
+                                // Reset fields based on selected filter
+                                if ($state === 'tanggal') {
+                                    $set('tanggal', null);
+                                    $set('bulan', null);
+                                    $set('tahun', null);
+                                } elseif ($state === 'bulan') {
+                                    $set('tanggal', null);
+                                    $set('tahun', null);
+                                } elseif ($state === 'tahun') {
+                                    $set('tanggal', null);
+                                    $set('bulan', null);
+                                } elseif ($state === 'semua') {
+                                    $set('tanggal', null);
+                                    $set('bulan', null);
+                                    $set('tahun', null);
+                                }
+                            }),
+            
+                        Forms\Components\DatePicker::make('tanggal')
+                            ->label('Pilih Tanggal')
+                            ->hidden(fn ($get) => $get('filter_by') !== 'tanggal'),
+            
+                        Forms\Components\Select::make('bulan')
+                            ->label('Pilih Bulan')
+                            ->options([
+                                1 => 'Januari',
+                                2 => 'Februari',
+                                3 => 'Maret',
+                                4 => 'April',
+                                5 => 'Mei',
+                                6 => 'Juni',
+                                7 => 'Juli',
+                                8 => 'Agustus',
+                                9 => 'September',
+                                10 => 'Oktober',
+                                11 => 'November',
+                                12 => 'Desember',
+                            ])
+                            ->hidden(fn ($get) => $get('filter_by') !== 'bulan'),
+            
+                        Forms\Components\TextInput::make('tahun')
+                            ->label('Pilih Tahun')
+                            ->type('number')
+                            ->hidden(fn ($get) => $get('filter_by') !== 'tahun')
+                            ->required(), 
+                    ])
+                    ->action(fn (array $data) => 
+    $data['filter_by'] === 'semua' 
+        ? Excel::download(new PendaftaranExport('semua', null, null, null), 'pendaftaran.xlsx')
+        : ($data['filter_by'] === 'bulan' 
+            ? Excel::download(new PendaftaranExport('bulan', null, $data['bulan'], $data['tahun']), 'pendaftaran.xlsx')
+            : ($data['filter_by'] === 'tahun' 
+                ? Excel::download(new PendaftaranExport('tahun', null, null, $data['tahun']), 'pendaftaran.xlsx')
+                : Excel::download(new PendaftaranExport('tanggal', $data['tanggal']->format('Y-m-d'), null, null), 'pendaftaran.xlsx')
+            )
+        )
+)
+                    // ->slideOver()
+                // ->form([
+                //     Forms\Components\Select::make('filter_by')
+                //     ->label('Pilih Berdasarkan')
+                //     ->options([
+                //         'tanggal' => 'Tanggal',
+                //         'bulan' => 'Bulan',
+                //         'tahun' => 'Tahun',
+                //         'all' => 'Semua', // Add this line
+                //     ])
+                //     ->reactive()
+                //     ->afterStateUpdated(function ($state, callable $set) {
+                //         if ($state === 'tanggal') {
+                //             $set('tanggal', null);
+                //             $set('bulan', null);
+                //             $set('tahun', null);
+                //         } elseif ($state === 'bulan') {
+                //             $set('tanggal', null);
+                //             $set('tahun', null);
+                //         } elseif ($state === 'tahun') {
+                //             $set('tanggal', null);
+                //             $set('bulan', null);
+                //         } elseif ($state === 'all') {
+                //             $set('tanggal', null);
+                //             $set('bulan', null);
+                //             $set('tahun', null);
+                //         }
+                //     }),
+            
+                //     Forms\Components\DatePicker::make('tanggal')
+                //         ->label('Pilih Tanggal')
+                //         ->hidden(fn ($get) => $get('filter_by') !== 'tanggal'),
+            
+                //     Forms\Components\Select::make('bulan')
+                //         ->label('Pilih Bulan')
+                //         ->options([
+                //             1 => 'Januari',
+                //             2 => 'Februari',
+                //             3 => 'Maret',
+                //             4 => 'April',
+                //             5 => 'Mei',
+                //             6 => 'Juni',
+                //             7 => 'Juli',
+                //             8 => 'Agustus',
+                //             9 => 'September',
+                //             10 => 'Oktober',
+                //             11 => 'November',
+                //             12 => 'Desember',
+                //         ])
+                //         ->hidden(fn ($get) => $get('filter_by') !== 'bulan'),
+            
+                //     Forms\Components\TextInput::make('tahun')
+                //         ->label('Pilih Tahun')
+                //         ->type('number')
+                //         ->hidden(fn ($get) => $get('filter_by') !== 'tahun')
+                //         ->required(), 
+            
+                //     // Add year input when filtering by month
+                //     Forms\Components\TextInput::make('tahun_bulan')
+                //         ->label('Pilih Tahun untuk Bulan')
+                //         ->type('number')
+                //         ->hidden(fn ($get) => $get('filter_by') !== 'bulan')
+                //         ->required(),
+                // ])
+                // ->action(function (array $data): void {
+                //     // Log::info('Export action triggered', $data); 
+                //     if($data['filter_by'] == 'all'){
+                //         Excel::download(new PendaftaranExport($data['filter_by'], ), 'pendaftaran.xlsx');
+                //     }else if($data['filter_by'] == 'bulan'){
+                //         Excel::download(new PendaftaranExport($data['filter_by'], $data['bulan'],), 'pendaftaran.xlsx');
+                //     }else if($data['filter_by'] == 'tahun'){
+                //         Excel::download(new PendaftaranExport($data['filter_by'], $data['tahun'],), 'pendaftaran.xlsx');
+
+                //     }else{
+                //         Excel::download(new PendaftaranExport($data['filter_by'], ), 'pendaftaran.xlsx');
+                //     }
+                //     // dd($data);
+                //     // Excel::download(new PendaftaranExport($data['filter_by'], $data['tanggal'], $data['bulan'], $data['tahun']), 'pendaftaran.xlsx');
+                //     // // PendaftaranResource::exportToExcel($data);  // Call static method
+                // }),
             ]);
     }
 

@@ -26,10 +26,20 @@ class Pendaftaran extends Model
         'email',
         'passport_status',
         'meningitis_vaccine_status',
-        'name_as_per_passport',
+        'nama_sesuai_paspor',
+        'nomor_paspor',
+        'tanggal_issued_paspor',
+        'tanggal_expired',
+        'permintaan',
         'notes',
         'source_of_information',
-        'id_agen',
+        'agent_number',
         'image',
+        'id_paket', 
     ];
+
+    public function paket()
+    {
+        return $this->belongsTo(Paket::class, 'id_paket');
+    }
 }

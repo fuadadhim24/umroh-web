@@ -30,11 +30,19 @@ return new class extends Migration
             $table->string('email');
             $table->boolean('passport_status');
             $table->boolean('meningitis_vaccine_status');
-            $table->string('name_as_per_passport');
             $table->text('notes')->nullable();
             $table->string('source_of_information');
-            $table->string('id_agen')->nullable();
+            $table->string('agent_number')->nullable();
             $table->string('image')->nullable();
+
+            $table->string('nama_sesuai_paspor')->nullable();
+            $table->string('nomor_paspor')->nullable();
+            $table->date('tanggal_issued_paspor')->nullable();
+            $table->date('tanggal_expired')->nullable();
+            $table->string('permintaan')->nullable();
+
+            $table->unsignedBigInteger('id_paket')->nullable();
+            $table->foreign('id_paket')->references('id')->on('pakets')->onDelete('set null');
             $table->timestamps();
         });
     }
@@ -44,6 +52,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pendaftarans');
+        Schema::table('pendaftaran', function (Blueprint $table) {
+            $table->dropForeign(['id_paket']);
+            $table->dropColumn('id_paket');
+        });
     }
 };
