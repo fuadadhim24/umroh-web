@@ -15,6 +15,8 @@ class Pendaftaran extends Model
         'phone_number',
         'date_of_birth',
         'national_id_number',
+        'family_id_number',
+        'gender',
         'marital_status',
         'occupation',
         'father_name',

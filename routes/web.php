@@ -9,4 +9,5 @@ Route::get('/haji', function () {return view('main.haji');})->name('haji');
 Route::get('/umroh', function () {return view('main.umroh');})->name('umroh');
 Route::get('/badal', function () {return view('main.badal');})->name('badal');
 Route::get('/artikel', function () {return view('main.artikel');})->name('artikel');
-Route::get('/form-pendaftaran', function () {return view('form.register-form');})->name('register-form');
+Route::get('/formulir-pendaftaran',  [App\Http\Controllers\RegisterFormController::class,'index'])->name('register-form');
+Route::post('/pendaftaran', [App\Http\Controllers\RegisterFormController::class, 'store'])->name('pendaftaran-store');

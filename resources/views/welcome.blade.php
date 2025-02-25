@@ -41,7 +41,8 @@
                     </li>
                     <li>
                         <a href="{{ route('about') }}"
-                            class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Tentang Kami</a>
+                            class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Tentang
+                            Kami</a>
                     </li>
                     <li>
                         <a href="{{ route('haji') }}"
@@ -66,279 +67,314 @@
     <section class="h-screen 2xl:h-4/5 flex justify-center"
         style="background-image: url('{{ Vite::asset('resources/images/lp-main/section-hero.png') }}');">
         <div class="mx-auto max-w-screen-2xl md:mx-4">
-            <div class="grid max-w-screen-xl px-4 md:mx-8 xl:px-0 py-40 lg:mx-20 lg:gap-8 xl:gap-0 lg:py-8 xl:py-0 lg:grid-cols-12 items-center justify-center">
-            <div class="mr-auto place-self-center lg:col-span-7 xl:col-span-7 md:mt-12">
-                <h1 class="max-w-2xl mb-8 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-5xl text-white">
-                    Temukan keajaiban dunia melalui perjalanan Haji dan Umroh yang tak terlupakan.</h1>
-                <p class="max-w-2xl mb-8 font-light text-gray-300 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Mulailah
-                    merencanakan perjalanan spiritual Anda dengan kami. Klik tombol di bawah ini untuk informasi lebih lanjut untuk
-                    pemesanan Haji & Umroh Bersama EL-Aqsho Group.</p>
-                <button type="button"
-                    class="text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-2 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Hubungi
-                    Kami</button>
-            </div>
-            <div class="hidden lg:flex ml-auto lg:col-span-2 w-full xl:col-span-2 xl:ml-8">
-                <img src="{{ Vite::asset('resources/images/lp-main/hero-1.png') }}" class="h-full w-full object-cover"
-                    alt="Gambar 1">
-            </div>
-            <div class="xl:ml-8 hidden lg:flex lg:col-span-3 lg:py-24 flex-wrap justify-end items-end gap-4 mt-8">
-            <div class="flex justify-end items-end">
-                <img src="{{ Vite::asset('resources/images/lp-main/hero-2.png') }}" class="w-full h-auto object-cover xl:w-4/5"
-                    alt="Gambar 2">
-            </div>
-            <div class="flex justify-end items-end">
-                <img src="{{ Vite::asset('resources/images/lp-main/hero-3.png') }}" class="w-full h-auto object-cover xl:w-4/5"
-                    alt="Gambar 3">
-            </div>
-            </div>
+            <div
+                class="grid max-w-screen-xl px-4 md:mx-8 xl:px-0 py-40 lg:mx-20 lg:gap-8 xl:gap-0 lg:py-8 xl:py-0 lg:grid-cols-12 items-center justify-center">
+                <div class="mr-auto place-self-center lg:col-span-7 xl:col-span-7 md:mt-12">
+                    <h1 class="max-w-2xl mb-8 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-5xl text-white">
+                        Temukan keajaiban dunia melalui perjalanan Haji dan Umroh yang tak terlupakan.</h1>
+                    <p class="max-w-2xl mb-8 font-light text-gray-300 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+                        Mulailah
+                        merencanakan perjalanan spiritual Anda dengan kami. Klik tombol di bawah ini untuk informasi
+                        lebih lanjut untuk
+                        pemesanan Haji & Umroh Bersama EL-Aqsho Group.</p>
+                    <button type="button"
+                        class="text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-2 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Hubungi
+                        Kami</button>
+                    </div>
+                    <div class="hidden lg:flex ml-auto lg:col-span-2 w-full xl:col-span-2 xl:ml-8">
+                    <img src="{{ Vite::asset('resources/images/lp-main/hero-1.png') }}" class="h-full w-full object-cover" alt="Gambar 1">
+                    </div>
+                    <div class="xl:ml-8 hidden lg:flex lg:col-span-3 lg:py-24 flex-wrap justify-end items-end gap-4 mt-8">
+                        <div class="flex justify-end items-end">
+                            <img src="{{ Vite::asset('resources/images/lp-main/hero-2.png') }}" class="w-full h-auto object-cover xl:w-4/5"
+                                alt="Gambar 2">
+                        </div>
+                        <div class="flex justify-end items-end">
+                            <img src="{{ Vite::asset('resources/images/lp-main/hero-3.png') }}" class="w-full h-auto object-cover xl:w-4/5"
+                                alt="Gambar 3">
+                        </div>
+                    </div>
             </div>
         </div>
     </section>
     <section class="mt-8">
         <div class="bg-white py-6 sm:py-8 md:mx-8 lg:py-12 lg:mx-20">
             <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-                @if ($pakets->isNotEmpty())
-                <div class="flex justify-between items-center mb-8"> <!-- Menggunakan flex dengan justify-between -->
-                    <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Pilihan Paket Haji & Umroh
-                    </h2>
-                    <button type="button"
-                        class="hidden sm:flex text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-4 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">
-                        Selengkapnya
-                    </button>
-                </div>
-                @endif
-                <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-                    @forelse ($pakets as $paket)
-                        <!-- Paket - start -->
-                        @if ($paket->visibility == 1)
-                            <div>
-                                <a href="#" class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-                                    <img src="{{ asset('storage/' . $paket->image) }}" loading="lazy" alt="{{ $paket->title }}"
-                                        class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-                                    <div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-                                        <span class="text-gray-500">Rp. {{ number_format($paket->price, 0, ',', '.') }}</span>
-                                        <span class="text-lg font-bold text-gray-800 lg:text-xl">{{ $paket->title }}</span>
-                                    </div>
-                                </a>
-                            </div>
-                        @endif
-                        <!-- Paket - end -->
-                    @empty
-                        <!-- Jika tidak ada paket, tampilkan div kosong -->
-                    @endforelse
+                @if ($pakets->where('visibility', 1)->isNotEmpty())
+                    <div class="flex justify-between items-center mb-8">
+                        <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Pilihan
+                            Paket Haji & Umroh
+                        </h2>
+                        <button type="button"
+                            class="hidden sm:flex text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-4 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">
+                            Selengkapnya
+                        </button>
                     </div>
+                @endif
+<div class="flex flex-wrap justify-evenly gap-4">
+    @if ($pakets->where('visibility', 1)->isNotEmpty())
+        @foreach ($pakets as $paket)
+            <!-- Paket - start -->
+            @if ($paket->visibility == 1)
+                <div class="flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+                    <a href="#" class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
+                        <img src="{{ asset('storage/' . $paket->image) }}" loading="lazy" alt="{{ $paket->title }}"
+                            class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+
+                        <div class="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
+                            <span class="text-gray-500">Rp.
+                                {{ number_format($paket->price, 0, ',', '.') }}</span>
+                            <span class="text-lg font-bold text-gray-800 lg:text-xl">{{ $paket->title }}</span>
+                        </div>
+                    </a>
+                </div>
+            @endif
+            <!-- Paket - end -->
+        @endforeach
+    @else
+        <!-- Jika tidak ada paket, tampilkan pesan atau div kosong -->
+        <div class="text-center text-gray-500 flex flex-col items-center">
+            <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Mohon Maaf</h2>
+            <p>Tidak ada paket yang tersedia saat ini.</p>
+        </div>
+    @endif
+        </div>
             </div>
         </div>
     </section>
     {{-- carousel --}}
     @if ($thirdArticle != null)
-    <section class="mt-8 h-screen sm:hidden">
-        <div class="mx-auto max-w-screen-2xl md:mx-8 px-4 lg:mx-20 md:px-8">
-            <div class="mb-8">
-                <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Artikel Terbaru</h2>
-            </div>
-            <div id="carousel-example" class="relative w-full h-screen" data-carousel="slide">
-                <!-- Carousel wrapper -->
-                <div class="relative overflow-hidden rounded-lg md:h-96" style="height: 70vh">
-                    <!-- Increased height here -->
-                    <!-- Item 1 -->
-                    <div id="carousel-item-1" class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <div
-                            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-custom dark:bg-gray-800 dark:border-gray-700">
-                            <a href="#">
-                                <img class="rounded-t-lg" src="{{ asset('storage/' . $firstArticle->image) }}"
-                                alt="{{ $firstArticle->title }}" />
-                            </a>
-                            <div class="p-5">
-                                <p
-                                    class="mb-4 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
-                                    {{ $firstArticle->category }}
-                                </p>
-                                <a href="#">
-                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        {{ $firstArticle->title }}</h5>
-                                </a>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $firstArticle->short_description }}</p>
-                                <p class="mb-3 text-sm font-light text-gray-700 dark:text-gray-400">Tanggal: {{ \Carbon\Carbon::parse($firstArticle->created_at)->translatedFormat('d F Y') }}</p>
-                                <a href="#"
-                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    Baca
-                                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Added h-full and object-cover -->
+        <section class="mt-8 h-screen sm:hidden">
+            <div class="mx-auto max-w-screen-2xl md:mx-8 px-4 lg:mx-20 md:px-8">
+                <div class="mb-8">
+                    <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Artikel
+                        Terbaru</h2>
                     </div>
-                    <!-- Item 2 -->
-                    <div id="carousel-item-2" class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <div
-                            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-custom dark:bg-gray-800 dark:border-gray-700">
-                            <a href="#">
-                                <img class="rounded-t-lg"  src="
+                    <div id="carousel-example" class="relative w-full h-screen" data-carousel="slide">
+                        <!-- Carousel wrapper -->
+                        <div class="relative overflow-hidden rounded-lg md:h-96" style="height: 70vh">
+                            <!-- Increased height here -->
+                            <!-- Item 1 -->
+                            <div id="carousel-item-1" class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <div
+                                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-custom dark:bg-gray-800 dark:border-gray-700">
+                                    <a href="#">
+                                        <img class="rounded-t-lg" src="{{ asset('storage/' . $firstArticle->image) }}"
+                                            alt="{{ $firstArticle->title }}" />
+                                    </a>
+                                    <div class="p-5">
+                                        <p
+                                            class="mb-4 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                            {{ $firstArticle->category }}
+                                        </p>
+                                        <a href="#">
+                                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                            {{ $firstArticle->title }}
+                                            </h5>
+                                            </a>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                        {{ $firstArticle->short_description }}
+                                    </p>
+                                    <p class="mb-3 text-sm font-light text-gray-700 dark:text-gray-400">Tanggal:
+                                        {{ \Carbon\Carbon::parse($firstArticle->created_at)->translatedFormat('d F Y') }}
+                                    </p>
+                                    <a href="#"
+                                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        Baca
+                                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                            viewBox="0 0 14 10">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                        </svg>
+                                        </a>
+                                        </div>
+                                        </div>
+                                        <!-- Added h-full and object-cover -->
+                                        </div>
+                                        <!-- Item 2 -->
+                                        <div id="carousel-item-2" class="hidden duration-700 ease-in-out" data-carousel-item>
+                                            <div
+                                                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-custom dark:bg-gray-800 dark:border-gray-700">
+                                                <a href="#">
+                                    <img class="rounded-t-lg" src="
                                 {{ asset('storage/' . $firstArticle->image) }}"
-alt="{{ $firstArticle->title }}" />
-                            </a>
-                            <div class="p-5">
-                                <p
-                                    class="mb-4 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
-                                    {{ $firstArticle->category }}
-                                </p>
-                                <a href="#">
-                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        {{ $firstArticle->title }}</h5>
+                                        alt="{{ $firstArticle->title }}" />
                                 </a>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">      {{ $firstArticle->short_description }}</p>
-                                <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal: {{ \Carbon\Carbon::parse($firstArticle->created_at)->translatedFormat('d F Y') }}</p>
-                                <a href="#"
-                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    Baca
-                                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Added h-full and object-cover -->
-                    </div>
-                    <!-- Item 3 -->
-                    <div id="carousel-item-3" class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <div
-                            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-custom dark:bg-gray-800 dark:border-gray-700">
-                            <a href="#">
-                                <img class="rounded-t-lg"  src="{{ asset('storage/' . $secondArticle->image) }}" alt="{{ $secondArticle->title }}" />
-                            </a>
-                            <div class="p-5">
-                                <p
-                                    class="mb-4 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
-                                    {{ $secondArticle->category }}
-                                </p>
-                                <a href="#">
-                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        {{ $secondArticle->title }}</h5>
-                                </a>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"> {{ $secondArticle->short_description }}</p>
-                                <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal: {{ \Carbon\Carbon::parse($secondArticle->created_at)->translatedFormat('d F Y') }}</p>
-                                <a href="#"
-                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    Baca
-                                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Added h-full and object-cover -->
-                    </div>
-                    <!-- Item 4 -->
-                    <div id="carousel-item-4" class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <div
-                            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-custom dark:bg-gray-800 dark:border-gray-700">
-                            <a href="#">
-                                <img class="rounded-t-lg"  src="{{ asset('storage/' . $thirdArticle->image) }}" alt="{{ $thirdArticle->title }}" />
-                            </a>
-                            <div class="p-5">
-                                <p
-                                    class="mb-4 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
-                                    {{ $thirdArticle->category }}
-                                </p>
-                                <a href="#">
-                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        {{ $thirdArticle->title }}</h5>
-                                </a>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $thirdArticle->short_description }}</p>
-                                <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal: {{ \Carbon\Carbon::parse($thirdArticle->created_at)->translatedFormat('d F Y') }}</p>
-                                <a href="#"
-                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    Baca
-                                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Added h-full and object-cover -->
-                    </div>
-                    <!-- Item 5 -->
-                    <div id="carousel-item-5" class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <div
-                            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-custom dark:bg-gray-800 dark:border-gray-700">
-                            <a href="#">
-                                <img class="rounded-t-lg" src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg"
-                                    alt="" />
-                            </a>
-                            <div class="p-5">
-                                <p
-                                    class="mb-4 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
-                                    Edukasi
-                                </p>
-                                <a href="#">
-                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        Panduan Lengkap Manasik Umroh</h5>
-                                </a>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Langkah-Langkah Penting Sebelum Berangkat ke Tanah Suci.</p>
-                                <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal: 01 Desember 2025</p>
-                                <a href="#"
-                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    Baca
-                                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Added h-full and object-cover -->
-                    </div>
-                </div>
-                <!-- Slider controls -->
-                <button type="button"
-                    class="absolute top-0 start-0 z-30 flex mt-12 items-start justify-start h-full px-4 cursor-pointer group focus:outline-none"
-                    data-carousel-prev>
-                    <span
-                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                        <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M5 1 1 5l4 4" />
-                        </svg>
-                        <span class="sr-only">Previous</span>
-                    </span>
-                </button>
-                <button type="button"
-                    class="absolute top-0 end-0 z-30 flex mt-12 items-start justify-start h-full px-4 cursor-pointer group focus:outline-none"
-                    data-carousel-next>
-                    <span
-                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                        <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m1 9 4-4-4-4" />
-                        </svg>
-                        <span class="sr-only">Next</span>
-                    </span>
-                </button>
-            </div>
+                                <div class="p-5">
+                                    <p
+                                        class="mb-4 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                        {{ $firstArticle->category }}
+                                    </p>
+                                    <a href="#">
+                                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                            {{ $firstArticle->title }}
+                                            </h5>
+                                            </a>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                        {{ $firstArticle->short_description }}
+                                    </p>
+                                    <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal:
+                                        {{ \Carbon\Carbon::parse($firstArticle->created_at)->translatedFormat('d F Y') }}
+                                    </p>
+                                    <a href="#"
+                                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        Baca
+                                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                            viewBox="0 0 14 10">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                        </svg>
+                                        </a>
+                                        </div>
+                                        </div>
+                                        <!-- Added h-full and object-cover -->
+                                        </div>
+                                        <!-- Item 3 -->
+                                        <div id="carousel-item-3" class="hidden duration-700 ease-in-out" data-carousel-item>
+                                            <div
+                                                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-custom dark:bg-gray-800 dark:border-gray-700">
+                                                <a href="#">
+                                    <img class="rounded-t-lg" src="{{ asset('storage/' . $secondArticle->image) }}" alt="{{ $secondArticle->title }}" />
+                                    </a>
+                                    <div class="p-5">
+                                        <p
+                                            class="mb-4 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                            {{ $secondArticle->category }}
+                                        </p>
+                                        <a href="#">
+                                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                            {{ $secondArticle->title }}
+                                            </h5>
+                                            </a>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                        {{ $secondArticle->short_description }}
+                                    </p>
+                                    <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal:
+                                        {{ \Carbon\Carbon::parse($secondArticle->created_at)->translatedFormat('d F Y') }}
+                                    </p>
+                                    <a href="#"
+                                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        Baca
+                                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                            viewBox="0 0 14 10">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                        </svg>
+                                        </a>
+                                        </div>
+                                        </div>
+                                        <!-- Added h-full and object-cover -->
+                                        </div>
+                                        <!-- Item 4 -->
+                                        <div id="carousel-item-4" class="hidden duration-700 ease-in-out" data-carousel-item>
+                                            <div
+                                                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-custom dark:bg-gray-800 dark:border-gray-700">
+                                                <a href="#">
+                                    <img class="rounded-t-lg" src="{{ asset('storage/' . $thirdArticle->image) }}" alt="{{ $thirdArticle->title }}" />
+                                    </a>
+                                    <div class="p-5">
+                                        <p
+                                            class="mb-4 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                            {{ $thirdArticle->category }}
+                                        </p>
+                                        <a href="#">
+                                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                            {{ $thirdArticle->title }}
+                                            </h5>
+                                            </a>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                        {{ $thirdArticle->short_description }}
+                                    </p>
+                                    <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal:
+                                        {{ \Carbon\Carbon::parse($thirdArticle->created_at)->translatedFormat('d F Y') }}
+                                    </p>
+                                    <a href="#"
+                                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        Baca
+                                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                            viewBox="0 0 14 10">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                        </svg>
+                                        </a>
+                                        </div>
+                                        </div>
+                                        <!-- Added h-full and object-cover -->
+                                        </div>
+                                        <!-- Item 5 -->
+                                        <div id="carousel-item-5" class="hidden duration-700 ease-in-out" data-carousel-item>
+                                            <div
+                                                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-custom dark:bg-gray-800 dark:border-gray-700">
+                                                <a href="#">
+                                    <img class="rounded-t-lg" src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg" alt="" />
+                                    </a>
+                                    <div class="p-5">
+                                        <p
+                                            class="mb-4 inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                            Edukasi
+                                        </p>
+                                        <a href="#">
+                                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                                Panduan Lengkap Manasik Umroh</h5>
+                                        </a>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Langkah-Langkah
+                                        Penting Sebelum Berangkat ke Tanah Suci.</p>
+                                    <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal: 01 Desember
+                                        2025</p>
+                                    <a href="#"
+                                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        Baca
+                                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                            viewBox="0 0 14 10">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                        </svg>
+                                        </a>
+                                        </div>
+                                        </div>
+                                        <!-- Added h-full and object-cover -->
+                                        </div>
+                                        </div>
+                                        <!-- Slider controls -->
+                                        <button type="button"
+                                            class="absolute top-0 start-0 z-30 flex mt-12 items-start justify-start h-full px-4 cursor-pointer group focus:outline-none"
+                                            data-carousel-prev>
+                                            <span
+                                                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                                </svg>
+                                <span class="sr-only">Previous</span>
+                                </span>
+                                </button>
+                                <button type="button"
+                                    class="absolute top-0 end-0 z-30 flex mt-12 items-start justify-start h-full px-4 cursor-pointer group focus:outline-none"
+                                    data-carousel-next>
+                                    <span
+                                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                        <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                                </svg>
+                                <span class="sr-only">Next</span>
+                                </span>
+                                </button>
+                                </div>
+                                </div>
+                                </section>
+    @else
+        <div class="text-center text-gray-500 flex flex-col items-center">
+            <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Mohon Maaf</h2>
+            <p>Tidak belum ada artikel yang tersedia saat ini.</p>
         </div>
-    </section>
     @endif
     @if ($thirdArticle)
-
         <section class="hidden sm:flex py-20  justify-center">
             <div class="mx-auto w-full max-w-screen-2xl items-center md:mx-8 px-4 lg:mx-20 md:px-8">
                 <div class="flex justify-between items-center mb-8">
-                    <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Artikel Terbaru
+                    <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Artikel
+                        Terbaru
                     </h2>
                     <button type="button"
                         class="hidden sm:flex text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-4 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">
@@ -369,13 +405,15 @@ alt="{{ $firstArticle->title }}" />
                                 <p class="line-clamp-5 mb-3 font-normal text-gray-700 dark:text-gray-400">
                                     {{ $firstArticle->short_description }}
                                 </p>
-                                <p class="font-light text-sm text-gray-700 dark:text-gray-400">Tanggal: {{ \Carbon\Carbon::parse($firstArticle->created_at)->translatedFormat('d F Y') }}</p>
+                                <p class="font-light text-sm text-gray-700 dark:text-gray-400">Tanggal:
+                                    {{ \Carbon\Carbon::parse($firstArticle->created_at)->translatedFormat('d F Y') }}
+                                </p>
 
                             </div>
                             <a href="#"
                                 class="ml-8 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-send-fill" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill"
+                                    viewBox="0 0 16 16">
                                     <path
                                         d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z" />
                                 </svg>&nbsp;Bagikan
@@ -387,7 +425,8 @@ alt="{{ $firstArticle->title }}" />
                         <div class="mt-4 ml-4 mr-4 rounded-2xl shadow-custom">
                             <a href="#">
                                 <img class="rounded-t-lg object-cover w-full h-24 rounded-2xl"
-                                    src="{{ asset('storage/' . $secondArticle->image) }}" alt="{{ $secondArticle->title }}" />
+                                    src="{{ asset('storage/' . $secondArticle->image) }}"
+                                    alt="{{ $secondArticle->title }}" />
                             </a>
                         </div>
                         <div class="p-5">
@@ -403,7 +442,9 @@ alt="{{ $firstArticle->title }}" />
                             <p class="line-clamp-3 mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
                                 {{ $secondArticle->short_description }}
                             </p>
-                            <p class="font-light text-gray-700 dark:text-gray-400">Tanggal: {{ \Carbon\Carbon::parse($secondArticle->created_at)->translatedFormat('d F Y') }}</p>
+                            <p class="font-light text-gray-700 dark:text-gray-400">Tanggal:
+                                {{ \Carbon\Carbon::parse($secondArticle->created_at)->translatedFormat('d F Y') }}
+                            </p>
 
                         </div>
                     </div>
@@ -411,7 +452,8 @@ alt="{{ $firstArticle->title }}" />
                         <div class="mt-4 ml-4 mr-4 rounded-2xl shadow-custom">
                             <a href="#">
                                 <img class="rounded-t-lg object-cover w-full h-24 rounded-2xl"
-                                    src="{{ asset('storage/' . $thirdArticle->image) }}" alt="{{ $thirdArticle->title }}" />
+                                    src="{{ asset('storage/' . $thirdArticle->image) }}"
+                                    alt="{{ $thirdArticle->title }}" />
                             </a>
                         </div>
                         <div class="p-5">
@@ -427,8 +469,10 @@ alt="{{ $firstArticle->title }}" />
                             <p class="line-clamp-3 mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
                                 {{ $thirdArticle->short_description }}
                             </p>
-                            
-                            <p class="font-light text-gray-700 dark:text-gray-400">Tanggal: {{ \Carbon\Carbon::parse($thirdArticle->created_at)->translatedFormat('d F Y') }}</p>
+
+                            <p class="font-light text-gray-700 dark:text-gray-400">Tanggal:
+                                {{ \Carbon\Carbon::parse($thirdArticle->created_at)->translatedFormat('d F Y') }}
+                            </p>
 
                         </div>
                     </div>
@@ -436,7 +480,7 @@ alt="{{ $firstArticle->title }}" />
             </div>
         </section>
     @endif
-    <section class="justify-center flex">
+    <section class="justify-center flex mt-14   ">
         <div class="mx-auto max-w-screen-2xl items-center md:mx-8 px-4 lg:mx-20 md:px-8">
             <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Testimoni Jama'ah
             </h2>
@@ -481,13 +525,15 @@ alt="{{ $firstArticle->title }}" />
                                                 d="M9.049 3.317a1 1 0 011.902 0l1.478 4.555a1 1 0 00.95.69h4.8a1 1 0 01.588 1.81l-3.887 2.829a1 1 0 00-.364 1.118l1.478 4.555a1 1 0 01-1.539 1.118L10 15.767l-3.887 2.829a1 1 0 01-1.539-1.118l1.478-4.555a1 1 0 00-.364-1.118L1.8 9.372a1 1 0 01.588-1.81h4.8a1 1 0 00.95-.69l1.478-4.555z" />
                                         </svg>
                                     </div>
-    
+
                             </div>
                         </div>
                         <a href="#" class="mt-8">
                             <h5 class="text-lg mb-2 font-bold tracking-tight text-gray-900 dark:text-white text-justify">
-                                Alhamdulillah, perjalanan umroh saya bersama El Aqsho Group benar-benar luar biasa. Semua
-                                fasilitas yang disediakan sangat memuaskan, mulai dari akomodasi yang nyaman, makanan halal
+                                Alhamdulillah, perjalanan umroh saya bersama El Aqsho Group benar-benar luar biasa.
+                                Semua
+                                fasilitas yang disediakan sangat memuaskan, mulai dari akomodasi yang nyaman, makanan
+                                halal
                                 yang lezat, hingga bimbingan ibadah yang sangat profesional.
                             </h5>
                         </a>
@@ -501,20 +547,21 @@ alt="{{ $firstArticle->title }}" />
                                 allowfullscreen></iframe>
                         </div>
                     </div>
-    
+
                 </div>
             </div>
         </div>
-    
+
     </section>
-    
+
     <section class="bg-cover bg-center h-80 mt-14"
         style="background-image: url('{{ Vite::asset('resources/images/lp-main/section-hero.png') }}')">
         <div class="flex items-center justify-center h-full px-4">
             <div class="flex flex-col items-center">
                 <!-- Text div -->
                 <div class="text-center p-6 rounded-lg">
-                    <h2 class="text-2xl font-bold text-white mb-4">Dapatkan Berita Terbaru Umroh Langsung ke WhatsApp Anda
+                    <h2 class="text-2xl font-bold text-white mb-4">Dapatkan Berita Terbaru Umroh Langsung ke WhatsApp
+                        Anda
                     </h2>
                 </div>
                 <!-- Button div -->
@@ -547,15 +594,29 @@ alt="{{ $firstArticle->title }}" />
     </section>
 
 
-        <script>
-            const carouselElement = document.getElementById('carousel-example');
+    <script>
+        const carouselElement = document.getElementById('carousel-example');
 
-            const items = [
-                { position: 0, el: document.getElementById('carousel-item-1') },
-                { position: 1, el: document.getElementById('carousel-item-2') },
-                { position: 2, el: document.getElementById('carousel-item-3') },
-                { position: 3, el: document.getElementById('carousel-item-4') },
-                { position: 4, el: document.getElementById('carousel-item-5') },
+                            const items = [{
+                                position: 0,
+                                el: document.getElementById('carousel-item-1')
+                            },
+                                {
+                                    position: 1,
+                                    el: document.getElementById('carousel-item-2')
+                                },
+                                {
+                                    position: 2,
+                                    el: document.getElementById('carousel-item-3')
+                                },
+                                {
+                                    position: 3,
+                                    el: document.getElementById('carousel-item-4')
+                                },
+                                {
+                                    position: 4,
+                                    el: document.getElementById('carousel-item-5')
+                                },
             ];
 
             const options = {
@@ -572,6 +633,6 @@ alt="{{ $firstArticle->title }}" />
         </script>
 
 
-    </body>
+</body>
 
 </html>

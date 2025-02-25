@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('phone_number');
             $table->date('date_of_birth');
             $table->string('national_id_number');
+            $table->string('family_id_number');
+            $table->string('gender');
             $table->string('marital_status');
             $table->string('occupation');
             $table->string('father_name');
