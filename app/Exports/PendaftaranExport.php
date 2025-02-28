@@ -117,6 +117,8 @@ class PendaftaranExport implements FromCollection, WithHeadings, WithStyles, Wit
             'Nomor Telepon',
             'Tanggal Lahir',
             'Nomor KTP',
+            'Nomor KK',
+            'Jenis Kelamin',
             'Status Pernikahan',
             'Pekerjaan',
             'Nama Ayah',
@@ -156,7 +158,7 @@ class PendaftaranExport implements FromCollection, WithHeadings, WithStyles, Wit
         //     $sheet->getStyle('A2')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
 
         //     // Set header row (now in row 4)
-        $sheet->getStyle('A1:Z1')->applyFromArray([
+        $sheet->getStyle('A1:AA1')->applyFromArray([
             'borders' => [
                 'top' => ['borderStyle' => Border::BORDER_THIN],
                 'bottom' => ['borderStyle' => Border::BORDER_THIN],
@@ -177,7 +179,7 @@ class PendaftaranExport implements FromCollection, WithHeadings, WithStyles, Wit
         $highestRow = $sheet->getHighestRow();
         if ($highestRow >= 5) {
             // Ensure there is data below the header
-            $sheet->getStyle('A5:Z' . $highestRow)->applyFromArray([
+            $sheet->getStyle('A5:AA' . $highestRow)->applyFromArray([
                 'borders' => [
                     'top' => ['borderStyle' => Border::BORDER_THIN],
                     'left' => ['borderStyle' => Border::BORDER_THIN],
@@ -220,6 +222,7 @@ class PendaftaranExport implements FromCollection, WithHeadings, WithStyles, Wit
             'X' => 20,
             'Y' => 20,
             'Z' => 20,
+            'AA' => 20,
         ];
     }
 }
