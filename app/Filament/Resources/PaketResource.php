@@ -18,6 +18,8 @@ class PaketResource extends Resource
     protected static ?string $model = Paket::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationLabel = 'Paket';
+    protected static ?string $pluralLabel = 'Paket';
 
     public static function form(Form $form): Form
     {
