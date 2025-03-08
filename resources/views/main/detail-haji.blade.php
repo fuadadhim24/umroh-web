@@ -69,7 +69,7 @@
         </div>
     </nav>
     <section class="xl:h-screen 2xl:h-96 flex flex-col justify-center items-center w-screen">
-        <div id="indicators-carousel" class="relative w-full" data-carousel="static">
+        <div id="indicators-carousel" class="relative w-full xl:hidden" data-carousel="static">
             <div class="flex w-full h-96 overflow-hidden rounded-lg ">
                 <!-- Item 1 -->
                 <div class="hidden duration-700 ease-in-out w-full" data-carousel-item="active">
