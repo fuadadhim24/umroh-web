@@ -196,17 +196,12 @@
             <span class="close" onclick="closeModal()">&times;</span>
             <img class="modal-content" id="modalImage">
         </div>
-        <h1 class="mt-8 text-center text-2xl md:text-4xl font-extrabold text-dark-red-primary mb-12">Haji Tanpa Antri
-            dengan Visa
-            Furodha <br>(1446 H/2025 M)</h1>
+        <h1 class="mt-8 text-center text-2xl md:text-4xl font-extrabold text-dark-red-primary mb-12">Umroh Spesial Bulan<br>Syawwal 1446 H</h1>
     </section>
 
 
     <section class="h-2/3 px-8 md:px-24 lg:px-48 xl:px-72 flex items-center">
-        <h4 class="text-center font-semibold">Nikmati perjalanan ibadah Haji yang mudah dan nyaman bersama El-Aqsho
-            Group. Dengan program Visa Furodha, Anda dapat melaksanakan ibadah Haji tanpa harus menunggu antrean
-            panjang. Bersiaplah untuk pengalaman spiritual yang mendalam dengan fasilitas terbaik dan pendampingan
-            profesional.</h4>
+        <h4 class="text-center font-semibold">Bersama El-Aqsho Group, nikmati perjalanan Umroh yang penuh berkah di bulan Syawwal. Kami menghadirkan paket eksklusif dengan layanan terbaik selama 16 hari untuk pengalaman ibadah yang nyaman dan berkesan.</h4>
     </section>
     <section class="px-2 mt-8 md:mt-22 py-12 md:px-24 md:py-4">
         <h1
@@ -259,7 +254,7 @@
                         Gratis:
                     </h1>
                     <ul class="list-disc list-outside px-6 font-semibold">
-                        <li class="pb-4 md:pb-2">Pembuatan Paspor Haji.</li>
+                        <li class="pb-4 md:pb-2">Pembuatan Paspor Umroh.</li>
                         <li class="pb-4 md:pb-2">Vaksin meningitis.</li>
                         <li class="pb-4 md:pb-2">City Tour ke Thaif.</li>
                         <li class="pb-4 md:pb-2">Perjalanan dengan kereta cepat yang modern.</li>

@@ -8,7 +8,8 @@ class Badal extends Model
 {
     protected $fillable = [
         'title', 
-        'subtitle', 
+        'subtitle',
+        'image',  
         'harga_paket',  
         'facilities'
     ];

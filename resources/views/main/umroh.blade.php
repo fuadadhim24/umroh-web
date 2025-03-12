@@ -163,7 +163,7 @@
         <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
             <!-- product - start -->
             <div>
-                <a href="#"
+                <a href="{{ route('detail-umroh') }}"
                     class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
                     <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
                         loading="lazy" alt="Photo by Austin Wade"
@@ -177,7 +177,7 @@
 
             <!-- product - start -->
             <div>
-                <a href="#"
+                <a href="{{ route('detail-umroh') }}"
                     class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
                     <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
                         loading="lazy" alt="Photo by engin akyurt"
@@ -193,7 +193,7 @@
 
             <!-- product - start -->
             <div>
-                <a href="#"
+                <a href="{{ route('detail-umroh') }}"
                     class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
                     <img src="https://images.unsplash.com/photo-1552668693-d0738e00eca8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
                         loading="lazy" alt="Photo by Austin Wade"
@@ -208,7 +208,7 @@
 
             <!-- product - start -->
             <div>
-                <a href="#"
+                <a href="{{ route('detail-umroh') }}"
                     class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
                     <img src="https://images.unsplash.com/photo-1552668693-d0738e00eca8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
                         loading="lazy" alt="Photo by Austin Wade"

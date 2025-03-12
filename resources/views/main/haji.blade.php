@@ -159,7 +159,7 @@
                 <h3 class="my-2 mx-4 font-bold text-white">Selengkapnya</h3>
             </div>
         </div>
-        <a href="#">
+        <a href="{{ route('detail-haji') }}">
             <div
                 class="px-4 py-6 bg-gradient-to-br  from-dark-red-primary to-dark-red-second rounded-xl hover:from-dark-red-second hover:to-dark-red-primary">
                 <div class="md:justify-between md:flex-row md:px-8 lg:px-24 xl:px-48 flex flex-col items-center">

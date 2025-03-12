@@ -43,6 +43,12 @@ class ArtikelResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('category')
                     ->label('Kategori')
+                    ->datalist([
+                        'Edukasi',
+                        'Perjalanan Terbaru',
+                        'Fakta Unik',
+                        'Kabar Terbaru',
+                    ])
                     ->required(),
             ]);
     }
@@ -52,13 +58,17 @@ class ArtikelResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('title')->label('Judul')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('short_description')->label('Deskripsi Singkat')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('short_description')->label('Deskripsi Singkat')->searchable(),
                 Tables\Columns\ImageColumn::make('image')->label('Gambar')->disk('public')->url(fn ($record) => asset('storage/' . $record->image)),
-                Tables\Columns\TextColumn::make('category')->label('Kategori')->sortable(),
+                Tables\Columns\TextColumn::make('category')->label('Kategori')->searchable(),
                 Tables\Columns\TextColumn::make('created_at')->label('Dibuat Pada')->dateTime(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+            ])
+            
+            ->filters([
+                Tables\Filters\SelectFilter::make('category')->options(Artikel::pluck('category', 'category')->unique()->toArray()),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

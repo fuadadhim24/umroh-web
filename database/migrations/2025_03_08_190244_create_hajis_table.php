@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('hajis', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('image');
+            $table->boolean('visibility');
             $table->string('subtitle');
             $table->json('keunggulan');
+            $table->json('facilities');
             $table->bigInteger('harga_paket');
             $table->json('tidak_termasuk');
             $table->json('akomodasi');

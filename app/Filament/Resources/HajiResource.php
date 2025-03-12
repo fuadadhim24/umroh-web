@@ -9,6 +9,7 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\BooleanColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -22,7 +23,6 @@ class HajiResource extends Resource
 
     protected static ?string $pluralLabel = 'Haji';
 
-
     public static function canCreate(): bool
     {
         return false;
@@ -32,10 +32,17 @@ class HajiResource extends Resource
     {
         return $form->schema([
             Forms\Components\TextInput::make('title')->label('Judul')->required(),
+            Forms\Components\FileUpload::make('image')->disk('public')->directory('images/haji')->preserveFilenames()->visibility('public')->label('Gambar')->helperText('Ukuran file maksimal 2MB')->required(),
+
+            Forms\Components\Toggle::make('visibility')->label('Ditampilkan'),
             Forms\Components\TextInput::make('subtitle')->label('Deskripsi Singkat')->required(),
             Forms\Components\Repeater::make('keunggulan')
                 ->label('Keunggulan')
                 ->schema([Forms\Components\TextInput::make('keunggulan_item')->required()])
+                ->required(),
+            Forms\Components\Repeater::make('facilities')
+                ->label('Daftar Fasilitas')
+                ->schema([Forms\Components\TextInput::make('facilities_item')->required()])
                 ->required(),
             Forms\Components\TextInput::make('harga_paket')->numeric()->required(),
             Forms\Components\Repeater::make('tidak_termasuk')
@@ -57,11 +64,17 @@ class HajiResource extends Resource
                 // Tambahkan kolom yang ingin ditampilkan di tabel
                 Tables\Columns\TextColumn::make('title')->label('Judul'),
                 Tables\Columns\TextColumn::make('subtitle')->label('Deskripsi Singkat'),
-                Tables\Columns\TextColumn::make('harga_paket')   ->formatStateUsing(fn ($state) => 'Rp ' . number_format($state, 0, ',', '.')),
+                Tables\Columns\TextColumn::make('harga_paket')->formatStateUsing(fn($state) => 'Rp ' . number_format($state, 0, ',', '.')),
+                Tables\Columns\ImageColumn::make('image')->label('Gambar')->disk('public')->url(fn($record) => asset('storage/' . $record->image)),
+                Tables\Columns\BooleanColumn::make('visibility')->label('Ditampilkan'),
+                
                 Tables\Columns\TextColumn::make('updated_at')->label('Terakhir Diperbarui'),
             ])
             ->filters([
-                //
+                // Tables\Filters\SelectFilter::make('visibility')->options([
+                //     true => 'Visible',
+                //     false => 'Not Visible',
+                // ]),
             ])
             ->actions([Tables\Actions\EditAction::make()])
             ->bulkActions([Tables\Actions\BulkActionGroup::make([Tables\Actions\DeleteBulkAction::make()])]);
