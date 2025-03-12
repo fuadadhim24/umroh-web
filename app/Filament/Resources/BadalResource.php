@@ -25,6 +25,13 @@ class BadalResource extends Resource
     protected static ?string $navigationLabel = 'Badal';
     protected static ?string $pluralLabel = 'Badal';
 
+    public static function canCreate(): bool
+    {
+        $count = Badal::count();
+        return $count < 2;
+    }
+
+
     public static function form(Form $form): Form
     {
         return $form->schema([
@@ -42,7 +49,7 @@ class BadalResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([TextColumn::make('title')->label('Judul')->searchable(), TextColumn::make('subtitle')->label('Deskripsi Singkat')->searchable(), TextColumn::make('harga_paket')->label('Harga Paket')->formatStateUsing(fn($state) => 'Rp ' . number_format($state, 0, ',', '.')), 
+            ->columns([TextColumn::make('title')->label('Judul'), TextColumn::make('subtitle')->label('Deskripsi Singkat'), TextColumn::make('harga_paket')->label('Harga Paket')->formatStateUsing(fn($state) => 'Rp ' . number_format($state, 0, ',', '.')), 
             Tables\Columns\ImageColumn::make('image')->label('Gambar')->disk('public')->url(fn($record) => asset('storage/' . $record->image)), TextColumn::make('updated_at')->label('Terakhir Diperbarui')])
             ->filters([
                 //

@@ -25,7 +25,7 @@ class HajiResource extends Resource
 
     public static function canCreate(): bool
     {
-        return false;
+        return Haji::count() === 0;
     }
 
     public static function form(Form $form): Form

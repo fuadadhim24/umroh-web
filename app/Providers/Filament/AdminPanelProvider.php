@@ -25,12 +25,15 @@ class AdminPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->default()
+            ->viteTheme('resources/css/filament/admin/theme.css')
+            ->brandLogo(asset('images/al-aqsha-horizontal.png'))
+            ->brandLogoHeight('3rem')
+            // ->brandLogo(fn () => view('filament.admin.logo'))
             ->id('admin')
             ->path('admin')
             ->login()
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Red,
                 'danger' => Color::Rose,
                 'gray' => Color::Gray,
                 'info' => Color::Blue,
