@@ -23,7 +23,7 @@ class Paket extends Model
 
     protected $casts = [
         'visibility' => 'boolean',
-        'price' => 'decimal:2',
+        'price' => 'integer',
         'advantages' => 'array',
         'facilities' => 'array',
         'additional_services' => 'array',

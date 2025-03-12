@@ -39,8 +39,10 @@ class PendaftaranResource extends Resource
             Forms\Components\TextInput::make('full_name')->label('Nama Lengkap')->required(),
             Forms\Components\TextInput::make('phone_number')->label('Nomor Telepon')->required(),
             Forms\Components\DatePicker::make('date_of_birth')->label('Tanggal Lahir')->required(),
-            Forms\Components\TextInput::make('national_id_number')->label('Nomor KTP')->required(),
-            Forms\Components\TextInput::make('family_id_number')->label('Nomor KK')->required(),
+            Forms\Components\TextInput::make('national_id_number')->label('Nomor KTP')->numeric()
+            ->required(),
+            Forms\Components\TextInput::make('family_id_number')->label('Nomor KK')->numeric()
+            ->required(),
             Forms\Components\Select::make('gender')
                 ->label('Jenis Kelamin')
                 ->options([

@@ -17,7 +17,7 @@ class Haji extends Model
     ];
 
     protected $casts = [
-        'harga_paket' => 'decimal:2',
+        'harga_paket' => 'integer',
         'keunggulan' => 'array',
         'tidak_termasuk' => 'array',
         'akomodasi' => 'array',

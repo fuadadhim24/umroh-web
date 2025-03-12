@@ -18,8 +18,8 @@ class PaketResource extends Resource
     protected static ?string $model = Paket::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationLabel = 'Paket';
-    protected static ?string $pluralLabel = 'Paket';
+    protected static ?string $navigationLabel = 'Umroh';
+    protected static ?string $pluralLabel = 'Umroh';
 
     public static function form(Form $form): Form
     {
@@ -37,8 +37,7 @@ class PaketResource extends Resource
                 ->helperText('Ukuran file maksimal 2MB')
                 ->required(),
             Forms\Components\Toggle::make('visibility')
-                ->label('Ditampilkan')
-                ->required(),
+                ->label('Ditampilkan'),
             Forms\Components\Textarea::make('short_description')
                 ->label('Deskripsi Pendek')
                 ->required(),
@@ -89,17 +88,26 @@ class PaketResource extends Resource
         return $table
         ->columns([
             Tables\Columns\TextColumn::make('title')
+                ->label('Judul')
                 ->sortable()
                 ->searchable(),
             Tables\Columns\TextColumn::make('short_description')
+                ->label('Deskripsi Singkat')
                 ->sortable()
                 ->searchable(),
             Tables\Columns\TextColumn::make('price')
+            ->formatStateUsing(fn ($state) => 'Rp ' . number_format($state, 0, ',', '.'))
+                ->label('Harga')
                 ->sortable(),
                 
-            Tables\Columns\ImageColumn::make('image')->label('Gambar')->disk('public')->url(fn ($record) => asset('storage/' . $record->image)),
+            Tables\Columns\ImageColumn::make('image')
+            ->label('Gambar')
+            ->disk('public')
+            ->url(fn ($record) => asset('storage/' . $record->image)),
             Tables\Columns\BooleanColumn::make('visibility')
-                ->label('Visible'),
+                ->label('Ditampilkan'),
+                
+            Tables\Columns\TextColumn::make('updated_at')->label('Terakhir Diperbarui'),
         ])
         ->filters([
             Tables\Filters\SelectFilter::make('visibility')

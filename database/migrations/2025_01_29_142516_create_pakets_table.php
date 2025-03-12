@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('image');
             $table->boolean('visibility');
             $table->string('short_description');
-            $table->decimal('price', 10, 2);
+            $table->bigInteger('price');
             $table->json('advantages');
             $table->json('facilities');
             $table->json('additional_services');
