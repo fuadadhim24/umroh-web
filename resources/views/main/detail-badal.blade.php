@@ -196,7 +196,7 @@
             <span class="close" onclick="closeModal()">&times;</span>
             <img class="modal-content" id="modalImage">
         </div>
-        <h1 class="mt-8 text-center text-2xl md:text-5xl font-extrabold text-dark-red-primary mb-12">Haji Tanpa Antri
+        <h1 class="mt-8 text-center text-2xl md:text-5xl font-extrabold text-dark-red-primary mb-12">Badal Haji Tanpa Antri
             dengan Visa
             Furodha <br>(1446 H/2025 M)</h1>
     </section>
@@ -211,9 +211,9 @@
     <section class="px-2 mt-8 md:mt-22 py-12 md:px-24 md:py-4">
         <h1
             class="mt-4 text-center md:text-start text-2xl md:text-5xl  font-extrabold text-dark-red-primary mb-12 md:mb-4 mx-2">
-            Keunggulan Program Kami
+            Harga Badal Haji:<br>20.000 USD
         </h1>
-        <p class="px-12 font-bold">Keunggulan Program Umroh Syawwal Kami:</p>
+        <p class="px-12 font-bold">Fasilitas yang Anda Dapatkan:</p>
         <ul class="list-disc list-outside px-16 font-semibold">
             
             <li class="pb-2 md:pb-0 pt-2">Tanpa Antrian Panjang: Dengan Visa Furodha, Anda langsung berangkat tanpa harus menunggu
@@ -228,58 +228,7 @@
                 kenyamanan Anda.</li>
         </ul>
     </section>
-    <section class="px-8 md:px-24">
-        <div class="flex flex-col justify-between items-center md:items-start md:flex-row md:">
-            <div class="">
-                <h1
-                    class="mt-4 text-center md:text-start text-2xl md:text-5xl  font-extrabold text-dark-red-primary mb-12 md:mb-4">
-                    Harga Paket:<br>20.000 USD
-                </h1>
-                <h3 class="md:px-12 px-2 font-bold">Sudah Termasuk</h3>
-                <ul class="list-disc list-outside px-6 md:px-16 font-semibold">
-                    <li class="pb-2 md:pb-0 pt-2">Tiket pesawat PP (Indonesia - Saudi Arabia).</li>
-                    <li class="pb-2">Visa Furodha tanpa antrean.</li>
-                    <li class="pb-2">Maktab Furodha untuk kenyamanan ibadah.</li>
-                </ul>
-            </div>
-            <div class="flex flex-col">
-                <div>
-                    <h1
-                        class="mt-4 md:text-start text-center text-2xl md:text-5xl font-extrabold text-dark-red-primary mb-8 md:mb-4 mx-2">
-                        Akomodasi Hotel Premium
-                    </h1>
-                    <ul class="list-disc list-outside px-16 font-semibold">
-                        <li class="pb-4 md:pb-2">Mekah: Elaf Masyaher atau setara.</li>
-                        <li class="pb-4 md:pb-2">Madinah: Al-Saha atau setara.</li>
-                    </ul>
-                </div>
-                <div>
-                    <h1
-                        class="mt-4 text-center md:text-start text-2xl md:text-5xl  font-extrabold text-dark-red-primary mb-8 mx-2 md:mb-4">
-                        Gratis:
-                    </h1>
-                    <ul class="list-disc list-outside px-16 font-semibold">
-                        <li class="pb-4 md:pb-2">Pembuatan Paspor Haji.</li>
-                        <li class="pb-4 md:pb-2">Vaksin meningitis.</li>
-                        <li class="pb-4 md:pb-2">City Tour ke Thaif.</li>
-                        <li class="pb-4 md:pb-2">Perjalanan dengan kereta cepat yang modern.</li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-        <div>
-            <h1
-                class="mt-4 text-center md:text-start text-5xl md:text-4xl  font-extrabold text-dark-red-primary mb-8 mx-2 md:mt-2 md:mb-4">
-                Tidak Termasuk:
-            </h1>
-            <ul class="list-disc list-outside px-16 font-semibold">
-                <li class="pb-4 md:pb-2">Medical check-up sebelum keberangkatan.</li>
-                <li class="pb-4 md:pb-2">Kelebihan bagasi.</li>
-                <li class="pb-4 md:pb-2">Keperluan pribadi selama perjalanan.</li>
-            </ul>
-        </div>
-    </section>
+    
     <section class="h-screen p-4 py-12 sm:p-24">
         <div class="bg-black rounded-xl h-full w-full">
             <div class="flex flex-col sm:flex-row sm:items-center h-full px-4">
