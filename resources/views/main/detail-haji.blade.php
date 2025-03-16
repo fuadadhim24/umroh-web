@@ -244,8 +244,8 @@
                             @foreach ($haji->akomodasi as $akomodasi_item)
                                 <li class="pb-4 md:pb-2">{{ $akomodasi_item['akomodasi_item'] }}</li>
                             @endforeach
-                        </ul>
-                    </div>
+                            </ul>
+                            </div>
                 @endif
                 @if ($haji->gratis)
                     <div>
@@ -257,24 +257,24 @@
                             @foreach ($haji->gratis as $gratis_item)
                                 <li class="pb-4 md:pb-2">{{ $gratis_item['gratis_item'] }}</li>
                             @endforeach
-                        </ul>
-                    </div>
+                            </ul>
+                            </div>
                 @endif
             </div>
 
         </div>
         @if ($haji->tidak_termasuk)
-        <div>
-            <h1
-                class="mt-4 text-center md:text-start text-5xl md:text-4xl  font-extrabold text-dark-red-primary mb-8 mx-2 md:mt-2 md:mb-4">
-                Tidak Termasuk:
-            </h1>
-            <ul class="list-disc list-outside px-16 font-semibold">
-                @foreach ($haji->tidak_termasuk as $tidak_termasuk_item)
-                    <li class="pb-4 md:pb-2">{{ $tidak_termasuk_item['tidak_termasuk_item'] }}</li>
-                @endforeach
-            </ul>
-        </div>
+            <div>
+                <h1
+                    class="mt-4 text-center md:text-start text-5xl md:text-4xl  font-extrabold text-dark-red-primary mb-8 mx-2 md:mt-2 md:mb-4">
+                    Tidak Termasuk:
+                </h1>
+                <ul class="list-disc list-outside px-16 font-semibold">
+                    @foreach ($haji->tidak_termasuk as $tidak_termasuk_item)
+                        <li class="pb-4 md:pb-2">{{ $tidak_termasuk_item['tidak_termasuk_item'] }}</li>
+                    @endforeach
+                </ul>
+            </div>
         @endif
     </section>
     <section class="h-screen p-4 py-12 sm:p-24">
@@ -287,9 +287,11 @@
                     <p class="mt-2 text-white">Jangan tunda lagi, wujudkan perjalanan spiritual Anda bersama El Aqsho
                         Group.
                     </p>
-                    <button type="button"
+                    <a href="{{ route('register-form') }}">
+                        <button type="button"
                         class="mt-4 text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-2 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Jadwalkan
                         Sekarang</button>
+                    </a>
 
                 </div>
                 <div class="mt-12 sm:mt-0 mb-4 rounded-2xl w-full sm:w-5/6 lg:w-1/3 sm:h-5/6 sm:mx-2 lg:mx-14 flex-grow"

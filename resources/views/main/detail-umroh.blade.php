@@ -285,10 +285,11 @@
                     <p class="mt-2 text-white">Jangan tunda lagi, wujudkan perjalanan spiritual Anda bersama El Aqsho
                         Group.
                     </p>
-                    <button type="button"
+                    <a href="{{ route('register-form') }}">
+                        <button type="button"
                         class="mt-4 text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-2 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Jadwalkan
                         Sekarang</button>
-
+                    </a>
                 </div>
                 <div class="mt-12 sm:mt-0 mb-4 rounded-2xl w-full sm:w-5/6 lg:w-1/3 sm:h-5/6 sm:mx-2 lg:mx-14 flex-grow"
                     style="background-image: url('{{ Vite::asset('resources/images/lp-main/about/bg-3.png') }}'); background-size: cover; backgound-position: center; background-repeat: no-repeat;">

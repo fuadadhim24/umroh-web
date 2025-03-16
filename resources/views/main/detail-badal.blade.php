@@ -196,39 +196,31 @@
             <span class="close" onclick="closeModal()">&times;</span>
             <img class="modal-content" id="modalImage">
         </div>
-        <h1 class="mt-8 text-center text-2xl md:text-5xl font-extrabold text-dark-red-primary mb-12">Badal Haji Tanpa Antri
-            dengan Visa
-            Furodha <br>(1446 H/2025 M)</h1>
+        <h1 class="mt-8 text-center text-2xl md:text-5xl font-extrabold text-dark-red-primary mb-12">Paket
+            {!! str_replace('(', '<br>(', $badal->title) !!}
+        </h1>
     </section>
 
 
-    <section class="h-2/3 px-8 md:px-24 lg:px-48 xl:px-72 flex items-center">
-        <h4 class="text-center font-semibold">Nikmati perjalanan ibadah Haji yang mudah dan nyaman bersama El-Aqsho
-            Group. Dengan program Visa Furodha, Anda dapat melaksanakan ibadah Haji tanpa harus menunggu antrean
-            panjang. Bersiaplah untuk pengalaman spiritual yang mendalam dengan fasilitas terbaik dan pendampingan
-            profesional.</h4>
+    <section class="h-2/3 px-8 md:px-24 lg:px-48 xl:px-72 flex items-center justify-center">
+        <h4 class="text-center font-semibold">{{ $badal->subtitle }}</h4>
     </section>
     <section class="px-2 mt-8 md:mt-22 py-12 md:px-24 md:py-4">
         <h1
             class="mt-4 text-center md:text-start text-2xl md:text-5xl  font-extrabold text-dark-red-primary mb-12 md:mb-4 mx-2">
-            Harga Badal Haji:<br>20.000 USD
+            Harga Badal Haji:<br>Rp. {{ number_format($badal->harga_paket, 0, ',', '.') }}
         </h1>
-        <p class="px-12 font-bold">Fasilitas yang Anda Dapatkan:</p>
-        <ul class="list-disc list-outside px-16 font-semibold">
-            
-            <li class="pb-2 md:pb-0 pt-2">Tanpa Antrian Panjang: Dengan Visa Furodha, Anda langsung berangkat tanpa harus menunggu
-                antrean
-                reguler.</li>
-            <li class="pb-2">Pendampingan Profesional: Dibimbing oleh Muthawwif berpengalaman yang akan membantu
-                kelancaran ibadah
-                Anda.</li>
-            <li class="pb-2">Perjalanan Nyaman: Akomodasi premium, fasilitas modern, dan layanan yang dirancang
-                khusus
-                untuk
-                kenyamanan Anda.</li>
-        </ul>
+        @if ($badal->facilities)
+            <p class="px-12 font-bold">Fasilitas yang Anda Dapatkan:</p>
+            <ul class="list-disc list-outside px-16 font-semibold">
+                @foreach ($badal->facilities as $facilities_item)
+                    <li class="pb-2 md:pb-0 pt-2">{{ $facilities_item['facilities_item'] }}</li>
+                @endforeach
+                </ul>
+        @endif
+
     </section>
-    
+
     <section class="h-screen p-4 py-12 sm:p-24">
         <div class="bg-black rounded-xl h-full w-full">
             <div class="flex flex-col sm:flex-row sm:items-center h-full px-4">
@@ -239,9 +231,11 @@
                     <p class="mt-2 text-white">Jangan tunda lagi, wujudkan perjalanan spiritual Anda bersama El Aqsho
                         Group.
                     </p>
-                    <button type="button"
+                    <a href="{{ route('register-form') }}">
+                        <button type="button"
                         class="mt-4 text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-2 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Jadwalkan
                         Sekarang</button>
+                    </a>
 
                 </div>
                 <div class="mt-12 sm:mt-0 mb-4 rounded-2xl w-full sm:w-5/6 lg:w-1/3 sm:h-5/6 sm:mx-2 lg:mx-14 flex-grow"
