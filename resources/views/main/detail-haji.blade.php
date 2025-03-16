@@ -166,119 +166,116 @@
 
         </div>
 
-
+        @if($haji->images)
         <div class="gap-4 hidden xl:flex justify-around items-center flex-row">
+            @foreach ($haji->images as $image_item) 
             <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl" onclick="openModal('image1')">
-                <img class="rounded-xl"
-                    src="{{ Vite::asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}"
-                    alt="">
+                <img class="rounded-xl w-full h-full object-cover"
+                     src="{{ asset('storage/' . $image_item) }}" alt="Gambar Haji">
             </div>
+                
+            @endforeach
+            
             {{-- <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl" onclick="openModal('image2')">
                 <img class="rounded-xl" src="{{ Vite::asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}" alt="">
             </div>
             <div class="w-72 bg-white rounded-xl p-2 mt-16 shadow-2xl" onclick="openModal('image3')">
                 <img class="rounded-xl" src="{{ Vite::asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}" alt="">
             </div> --}}
-            <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl" onclick="openModal('image4')">
-                <img class="rounded-xl"
-                    src="{{ Vite::asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}"
-                    alt="">
-            </div>
-            <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl" onclick="openModal('image5')">
-                <img class="rounded-xl"
-                    src="{{ Vite::asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}"
-                    alt="">
-            </div>
         </div>
-
+    
+        @endif
+        
         <!-- Modal -->
         <div id="imageModal" class="modal hidden">
             <span class="close" onclick="closeModal()">&times;</span>
             <img class="modal-content" id="modalImage">
         </div>
-        <h1 class="mt-8 text-center text-2xl md:text-5xl font-extrabold text-dark-red-primary mb-12">Haji Tanpa Antri
-            dengan Visa
-            Furodha <br>(1446 H/2025 M)</h1>
-    </section>
-
-
-    <section class="h-2/3 px-8 md:px-24 lg:px-48 xl:px-72 flex items-center">
-        <h4 class="text-center font-semibold">Nikmati perjalanan ibadah Haji yang mudah dan nyaman bersama El-Aqsho
-            Group. Dengan program Visa Furodha, Anda dapat melaksanakan ibadah Haji tanpa harus menunggu antrean
-            panjang. Bersiaplah untuk pengalaman spiritual yang mendalam dengan fasilitas terbaik dan pendampingan
-            profesional.</h4>
-    </section>
-    <section class="px-2 mt-8 md:mt-22 py-12 md:px-24 md:py-4">
-        <h1
-            class="mt-4 text-center md:text-start text-2xl md:text-5xl  font-extrabold text-dark-red-primary mb-12 md:mb-4 mx-2">
-            Keunggulan Program Kami
+        <h1 class="mt-8 text-center text-2xl md:text-5xl font-extrabold text-dark-red-primary mb-12">
+            Paket {!! str_replace('(', '<br>(', $haji->title) !!}
         </h1>
-        <p class="px-12 font-bold">Keunggulan Program Umroh Syawwal Kami:</p>
-        <ul class="list-disc list-outside px-16 font-semibold">
-            
-            <li class="pb-2 md:pb-0 pt-2">Tanpa Antrian Panjang: Dengan Visa Furodha, Anda langsung berangkat tanpa harus menunggu
-                antrean
-                reguler.</li>
-            <li class="pb-2">Pendampingan Profesional: Dibimbing oleh Muthawwif berpengalaman yang akan membantu
-                kelancaran ibadah
-                Anda.</li>
-            <li class="pb-2">Perjalanan Nyaman: Akomodasi premium, fasilitas modern, dan layanan yang dirancang
-                khusus
-                untuk
-                kenyamanan Anda.</li>
-        </ul>
     </section>
+
+
+    <section class="h-2/3 px-8 md:px-24 lg:px-48 xl:px-72 flex items-center justify-center">
+        <h4 class="text-center font-semibold">{{ $haji->subtitle }}</h4>
+    </section>
+    @if ($haji->keunggulan)
+        <section class="px-2 mt-8 md:mt-22 py-12 md:px-20 md:py-4">
+            <h1
+                class="mt-4 text-center md:text-start text-2xl md:text-5xl font-extrabold text-dark-red-primary mb-12 md:mb-4 mx-2">
+                Keunggulan Program Kami
+            </h1>
+            <p class="px-12 font-bold">Keunggulan {{ $haji->title }} kami:</p>
+
+            <ul class="list-disc list-outside px-16 font-semibold">
+                @foreach ($haji->keunggulan as $keunggulan_item)
+                    <li class="pb-2 md:pb-0 pt-2">{{ $keunggulan_item['keunggulan_item'] }}</li>
+                @endforeach
+            </ul>
+        </section>
+    @endif
+
     <section class="px-8 md:px-24">
         <div class="flex flex-col justify-between items-center md:items-start md:flex-row md:">
             <div class="">
                 <h1
                     class="mt-4 text-center md:text-start text-2xl md:text-5xl  font-extrabold text-dark-red-primary mb-12 md:mb-4">
-                    Harga Paket:<br>20.000 USD
+                    Harga Paket:<br>Rp. {{ $haji->harga_paket }}
                 </h1>
                 <h3 class="md:px-12 px-2 font-bold">Sudah Termasuk</h3>
-                <ul class="list-disc list-outside px-6 md:px-16 font-semibold">
-                    <li class="pb-2 md:pb-0 pt-2">Tiket pesawat PP (Indonesia - Saudi Arabia).</li>
-                    <li class="pb-2">Visa Furodha tanpa antrean.</li>
-                    <li class="pb-2">Maktab Furodha untuk kenyamanan ibadah.</li>
-                </ul>
+                @if ($haji->facilities)
+                    <ul class="list-disc list-outside px-6 md:px-16 font-semibold">
+                        @foreach ($haji->facilities as $facility_item)
+                            <li class="pb-2 md:pb-0 pt-2">{{ $facility_item['facilities_item'] }}</li>
+                        @endforeach
+                        </ul>
+                @endif
+
             </div>
             <div class="flex flex-col">
-                <div>
-                    <h1
-                        class="mt-4 md:text-start text-center text-2xl md:text-5xl font-extrabold text-dark-red-primary mb-8 md:mb-4 mx-2">
-                        Akomodasi Hotel Premium
-                    </h1>
-                    <ul class="list-disc list-outside px-16 font-semibold">
-                        <li class="pb-4 md:pb-2">Mekah: Elaf Masyaher atau setara.</li>
-                        <li class="pb-4 md:pb-2">Madinah: Al-Saha atau setara.</li>
-                    </ul>
-                </div>
-                <div>
-                    <h1
-                        class="mt-4 text-center md:text-start text-2xl md:text-5xl  font-extrabold text-dark-red-primary mb-8 mx-2 md:mb-4">
-                        Gratis:
-                    </h1>
-                    <ul class="list-disc list-outside px-16 font-semibold">
-                        <li class="pb-4 md:pb-2">Pembuatan Paspor Haji.</li>
-                        <li class="pb-4 md:pb-2">Vaksin meningitis.</li>
-                        <li class="pb-4 md:pb-2">City Tour ke Thaif.</li>
-                        <li class="pb-4 md:pb-2">Perjalanan dengan kereta cepat yang modern.</li>
-                    </ul>
-                </div>
+                @if ($haji->akomodasi)
+                    <div>
+                        <h1
+                            class="mt-4 md:text-start text-center text-2xl md:text-5xl font-extrabold text-dark-red-primary mb-8 md:mb-4 mx-2">
+                            Akomodasi Hotel Premium
+                        </h1>
+                        <ul class="list-disc list-outside px-16 font-semibold">
+                            @foreach ($haji->akomodasi as $akomodasi_item)
+                                <li class="pb-4 md:pb-2">{{ $akomodasi_item['akomodasi_item'] }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                @if ($haji->gratis)
+                    <div>
+                        <h1
+                            class="mt-4 text-center md:text-start text-2xl md:text-5xl  font-extrabold text-dark-red-primary mb-8 mx-2 md:mb-4">
+                            Gratis:
+                        </h1>
+                        <ul class="list-disc list-outside px-16 font-semibold">
+                            @foreach ($haji->gratis as $gratis_item)
+                                <li class="pb-4 md:pb-2">{{ $gratis_item['gratis_item'] }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </div>
 
         </div>
+        @if ($haji->tidak_termasuk)
         <div>
             <h1
                 class="mt-4 text-center md:text-start text-5xl md:text-4xl  font-extrabold text-dark-red-primary mb-8 mx-2 md:mt-2 md:mb-4">
                 Tidak Termasuk:
             </h1>
             <ul class="list-disc list-outside px-16 font-semibold">
-                <li class="pb-4 md:pb-2">Medical check-up sebelum keberangkatan.</li>
-                <li class="pb-4 md:pb-2">Kelebihan bagasi.</li>
-                <li class="pb-4 md:pb-2">Keperluan pribadi selama perjalanan.</li>
+                @foreach ($haji->tidak_termasuk as $tidak_termasuk_item)
+                    <li class="pb-4 md:pb-2">{{ $tidak_termasuk_item['tidak_termasuk_item'] }}</li>
+                @endforeach
             </ul>
         </div>
+        @endif
     </section>
     <section class="h-screen p-4 py-12 sm:p-24">
         <div class="bg-black rounded-xl h-full w-full">

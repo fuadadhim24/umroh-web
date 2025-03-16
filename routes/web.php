@@ -1,13 +1,14 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\HajiController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',  [ArticleController::class,'index'])->name('dashboard');
 Route::get('/tentang-kami', function () {return view('main.about');})->name('about');
-Route::get('/haji', function () {return view('main.haji');})->name('haji');
+Route::get('/haji', [HajiController::class,'index'])->name('haji');
 Route::get('/detail-badal', function () {return view('main.detail-badal');})->name('detail-badal');
-Route::get('/detail-haji', function () {return view('main.detail-haji');})->name('detail-haji');
+Route::get('/detail-haji/{id}',[HajiController::class, 'show'])->name('detail-haji');
 Route::get('/detail-umroh', function () {return view('main.detail-umroh');})->name('detail-umroh');
 Route::get('/umroh', function () {return view('main.umroh');})->name('umroh');
 Route::get('/badal', function () {return view('main.badal');})->name('badal');
