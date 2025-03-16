@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('hajis', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('image');
+            $table->json('images');
             $table->boolean('visibility');
             $table->string('subtitle');
             $table->json('keunggulan');

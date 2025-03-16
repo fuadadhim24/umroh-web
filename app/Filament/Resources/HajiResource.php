@@ -32,7 +32,7 @@ class HajiResource extends Resource
     {
         return $form->schema([
             Forms\Components\TextInput::make('title')->label('Judul')->required(),
-            Forms\Components\FileUpload::make('image')->disk('public')->directory('images/haji')->preserveFilenames()->visibility('public')->label('Gambar')->helperText('Ukuran file maksimal 2MB')->required(),
+            Forms\Components\FileUpload::make('images')->disk('public')->multiple()->directory('images/haji')->preserveFilenames()->visibility('public')->label('Gambar')->helperText('Ukuran file maksimal 2MB')->required(),
 
             Forms\Components\Toggle::make('visibility')->label('Ditampilkan'),
             Forms\Components\TextInput::make('subtitle')->label('Deskripsi Singkat')->required(),
@@ -65,7 +65,7 @@ class HajiResource extends Resource
                 Tables\Columns\TextColumn::make('title')->label('Judul'),
                 Tables\Columns\TextColumn::make('subtitle')->label('Deskripsi Singkat'),
                 Tables\Columns\TextColumn::make('harga_paket')->formatStateUsing(fn($state) => 'Rp ' . number_format($state, 0, ',', '.')),
-                Tables\Columns\ImageColumn::make('image')->label('Gambar')->disk('public')->url(fn($record) => asset('storage/' . $record->image)),
+                // Tables\Columns\ImageColumn::make('image')->label('Gambar')->disk('public')->url(fn($record) => asset('storage/' . $record->image)),
                 Tables\Columns\BooleanColumn::make('visibility')->label('Ditampilkan'),
                 
                 Tables\Columns\TextColumn::make('updated_at')->label('Terakhir Diperbarui'),

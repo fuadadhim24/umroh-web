@@ -17,5 +17,6 @@ class Badal extends Model
     protected $casts = [
         'harga_paket' => 'integer',
         'facilities' => 'array',
+        'image' => 'array',
     ];
 }

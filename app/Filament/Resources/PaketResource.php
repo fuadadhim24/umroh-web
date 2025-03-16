@@ -25,7 +25,7 @@ class PaketResource extends Resource
     {
         return $form->schema([
             Forms\Components\TextInput::make('title')->label('Judul')->required(),
-            Forms\Components\FileUpload::make('image')->disk('public')->directory('images/umroh')->preserveFilenames()->visibility('public')->label('Gambar')->helperText('Ukuran file maksimal 2MB')->required(),
+            Forms\Components\FileUpload::make('image')->multiple()->disk('public')->directory('images/umroh')->preserveFilenames()->visibility('public')->label('Gambar')->helperText('Ukuran file maksimal 2MB')->required(),
             Forms\Components\Toggle::make('visibility')->label('Ditampilkan'),
             Forms\Components\Textarea::make('short_description')->label('Deskripsi Pendek')->required(),
             Forms\Components\Repeater::make('advantages')
@@ -55,7 +55,9 @@ class PaketResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([Tables\Columns\TextColumn::make('title')->label('Judul')->sortable()->searchable(), Tables\Columns\TextColumn::make('short_description')->label('Deskripsi Singkat')->sortable()->searchable(), Tables\Columns\TextColumn::make('price')->formatStateUsing(fn($state) => 'Rp ' . number_format($state, 0, ',', '.'))->label('Harga')->sortable(), Tables\Columns\ImageColumn::make('image')->label('Gambar')->disk('public')->url(fn($record) => asset('storage/' . $record->image)), Tables\Columns\BooleanColumn::make('visibility')->searchable()->label('Ditampilkan'), Tables\Columns\TextColumn::make('updated_at')->label('Terakhir Diperbarui')])
+            ->columns([Tables\Columns\TextColumn::make('title')->label('Judul')->sortable()->searchable(), Tables\Columns\TextColumn::make('short_description')->label('Deskripsi Singkat')->sortable()->searchable(), Tables\Columns\TextColumn::make('price')->formatStateUsing(fn($state) => 'Rp ' . number_format($state, 0, ',', '.'))->label('Harga')->sortable(), 
+            // Tables\Columns\ImageColumn::make('image')->label('Gambar')->disk('public')->url(fn($record) => asset('storage/' . $record->image)),
+             Tables\Columns\BooleanColumn::make('visibility')->searchable()->label('Ditampilkan'), Tables\Columns\TextColumn::make('updated_at')->label('Terakhir Diperbarui')])
             ->filters([
                 Tables\Filters\SelectFilter::make('visibility')->options([
                     true => 'Visible',

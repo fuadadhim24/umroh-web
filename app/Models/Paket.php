@@ -22,6 +22,7 @@ class Paket extends Model
     ];
 
     protected $casts = [
+        'image' => 'array',
         'visibility' => 'boolean',
         'price' => 'integer',
         'advantages' => 'array',

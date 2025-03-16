@@ -9,7 +9,7 @@ class Haji extends Model
     protected $fillable = [
         'title', 
         'subtitle', 
-        'image', 
+        'images', 
         'visibility', 
         'facilities', 
         'keunggulan', 
@@ -20,6 +20,7 @@ class Haji extends Model
     ];
 
     protected $casts = [
+        'images' => 'array',
         'harga_paket' => 'integer',
         'keunggulan' => 'array',
         'facilities' => 'array',

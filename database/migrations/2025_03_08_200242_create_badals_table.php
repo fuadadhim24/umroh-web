@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('badals', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('image');
+            $table->json('image');
             $table->string('subtitle');
             $table->bigInteger('harga_paket');
             $table->json('facilities');
