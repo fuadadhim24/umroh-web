@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'node_modules/flowbite/dist/flowbite.min.js'])
-    <link rel="icon" href="{{ Vite::asset('resources/images/lp-main/al-aqsha.png') }}" type="image/icon type">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="icon" href="{{ asset('resources/images/lp-main/al-aqsha.png') }}" type="image/icon type">
 </head>
 
 <body>
@@ -13,7 +13,7 @@
         class="bg-white shadow-2xl dark:bg-gray-900 fixed rounded-full mt-4 mb-4 inset-x-0 xl:mx-56 sm:mx-24 md:mx-36 mx-4 z-50">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-1 lg:p-4">
             <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="{{ Vite::asset('resources/images/lp-main/al-aqsha-horizontal.png') }}" class="lg:h-8 h-6 ml-4"
+                <img src="{{ asset('resources/images/lp-main/al-aqsha-horizontal.png') }}" class="lg:h-8 h-6 ml-4"
                     alt="El-Aqsho Logo">
                 {{-- <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
                 --}}
@@ -66,7 +66,7 @@
         </div>
     </nav>
     <section class="h-screen 2xl:h-4/5 flex justify-center"
-        style="background-image: url('{{ Vite::asset('resources/images/lp-main/section-hero.png') }}');">
+        style="background-image: url('{{ asset('resources/images/lp-main/section-hero.png') }}');">
         <div class="mx-auto max-w-screen-2xl md:mx-4">
             <div
                 class="grid max-w-screen-xl px-4 md:mx-8 xl:px-0 py-40 lg:mx-20 lg:gap-8 xl:gap-0 lg:py-8 xl:py-0 lg:grid-cols-12 items-center justify-center">
@@ -84,15 +84,15 @@
                             </button></a>
                             </div>
                             <div class="hidden lg:flex ml-auto lg:col-span-2 w-full xl:col-span-2 xl:ml-8">
-                    <img src="{{ Vite::asset('resources/images/lp-main/hero-1.png') }}" class="h-full w-full object-cover" alt="Gambar 1">
+                    <img src="{{ asset('resources/images/lp-main/hero-1.png') }}" class="h-full w-full object-cover" alt="Gambar 1">
                     </div>
                     <div class="xl:ml-8 hidden lg:flex lg:col-span-3 lg:py-24 flex-wrap justify-end items-end gap-4 mt-8">
                         <div class="flex justify-end items-end">
-                        <img src="{{ Vite::asset('resources/images/lp-main/hero-2.png') }}" class="w-full h-auto object-cover xl:w-4/5"
+                        <img src="{{ asset('resources/images/lp-main/hero-2.png') }}" class="w-full h-auto object-cover xl:w-4/5"
                             alt="Gambar 2">
                         </div>
                         <div class="flex justify-end items-end">
-                        <img src="{{ Vite::asset('resources/images/lp-main/hero-3.png') }}" class="w-full h-auto object-cover xl:w-4/5"
+                        <img src="{{ asset('resources/images/lp-main/hero-3.png') }}" class="w-full h-auto object-cover xl:w-4/5"
                             alt="Gambar 3">
                         </div>
                         </div>
@@ -541,7 +541,7 @@
                             </h5>
                         </a>
                     </div>
-                    <div class="lg:row-span-5"><img src="{{ Vite::asset('resources/images/lp-main/testimoni.png') }}"
+                    <div class="lg:row-span-5"><img src="{{ asset('resources/images/lp-main/testimoni.png') }}"
                             class="h-full w-full object-cover" alt="Testimoni 1"></div>
                     <div class="lg:row-span-5 lg:mt-2 mt-4">
                         <div class="relative overflow-hidden rounded-3xl shadow-custom bg-red-700">
@@ -558,7 +558,7 @@
     </section>
 
     <section class="bg-cover bg-center h-80 mt-14"
-        style="background-image: url('{{ Vite::asset('resources/images/lp-main/section-hero.png') }}')">
+        style="background-image: url('{{ asset('resources/images/lp-main/section-hero.png') }}')">
         <div class="flex items-center justify-center h-full px-4">
             <div class="flex flex-col items-center">
                 <!-- Text div -->
@@ -587,7 +587,7 @@
 
     <section class="justify-center flex">
         <div class="py-12 flex flex-col items-center">
-            <img src="{{ Vite::asset('resources/images/lp-main/al-aqsha-horizontal.png') }}" class="h-14"
+            <img src="{{ asset('resources/images/lp-main/al-aqsha-horizontal.png') }}" class="h-14"
                 alt="Flowbite Logo">
             <h2 class="mt-4 text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Ikuti Kami
             </h2>

@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'node_modules/flowbite/dist/flowbite.min.js'])
-    <link rel="icon" href="{{ Vite::asset('resources/images/lp-main/al-aqsha.png') }}" type="image/icon type">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="icon" href="{{ asset('resources/images/lp-main/al-aqsha.png') }}" type="image/icon type">
 </head>
 
 <body>
@@ -13,7 +13,7 @@
         class="bg-white dark:bg-gray-900 fixed rounded-full shadow-2xl mt-4 mb-4 inset-x-0 xl:mx-56 sm:mx-24 md:mx-36 mx-4 z-50">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-1 lg:p-4">
             <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="{{ Vite::asset('resources/images/lp-main/al-aqsha-horizontal.png') }}" class="lg:h-8 h-6 ml-4"
+                <img src="{{ asset('resources/images/lp-main/al-aqsha-horizontal.png') }}" class="lg:h-8 h-6 ml-4"
                     alt="Flowbite Logo">
                 {{-- <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
                 --}}
@@ -91,7 +91,7 @@
     @endif
 
     <section class="bg-cover bg-center h-80 mt-14"
-        style="background-image: url('{{ Vite::asset('resources/images/lp-main/section-hero.png') }}')">
+        style="background-image: url('{{ asset('resources/images/lp-main/section-hero.png') }}')">
         <div class="flex items-center justify-center h-full px-4">
             <div class="flex flex-col items-center">
                 <!-- Text div -->
@@ -120,7 +120,7 @@
 
     <section class="justify-center flex">
         <div class="py-12 flex flex-col items-center">
-            <img src="{{ Vite::asset('resources/images/lp-main/al-aqsha-horizontal.png') }}" class="h-14"
+            <img src="{{ asset('resources/images/lp-main/al-aqsha-horizontal.png') }}" class="h-14"
                 alt="Flowbite Logo">
             <h2 class="mt-4 text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Ikuti Kami
             </h2>

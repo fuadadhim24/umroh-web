@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'node_modules/flowbite/dist/flowbite.min.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
-    <link rel="icon" href="{{ Vite::asset('resources/images/lp-main/al-aqsha.png') }}" type="image/icon type">
+    <link rel="icon" href="{{ asset('resources/images/lp-main/al-aqsha.png') }}" type="image/icon type">
 
     <script>
         let currentTab = 0;
@@ -209,7 +209,7 @@
     <section class=" w-screen bg-gray-200 p-8 pr-10">
         <div class="bg-white w-full h-full rounded-xl shadow-2xl">
             <div class="flex justify-between p-4 relative">
-                <img src="{{ Vite::asset('resources/images/lp-main/al-aqsha-horizontal.png') }}" class="h-8 lg:h-12 "
+                <img src="{{ asset('resources/images/lp-main/al-aqsha-horizontal.png') }}" class="h-8 lg:h-12 "
                     alt="El-Aqsho Logo">
 
                 <h1 class="text-xl font-bold text-center absolute left-1/2 -translate-x-2/4">Formulir<Br> Pendaftaran
