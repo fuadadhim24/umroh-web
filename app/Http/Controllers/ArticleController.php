@@ -19,4 +19,14 @@ class ArticleController extends Controller
 
         return view('welcome', compact('firstArticle', 'secondArticle', 'thirdArticle', 'pakets')); 
     }
+
+    public function indexArticle(){
+        $articles = Artikel::latest()->get();
+        return view('main.artikel', compact('articles'));	
+    }
+    public function indexDetail($id){
+        $articles = Artikel::where('id', '!=', $id)->latest()->get(); 
+        $article = Artikel::find($id);
+        return view('main.detail-artikel', compact('article','articles'));	
+    }
 }

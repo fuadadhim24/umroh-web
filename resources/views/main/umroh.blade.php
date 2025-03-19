@@ -155,45 +155,53 @@
             </div>
         </section>
         @if ($umroh->isNotEmpty())
-                @php
-                    // Filter data yang memiliki visibility == 1
-                    $visibleUmroh = $umroh->filter(fn($item) => $item->visibility == 1);
-                @endphp
+                        @php
+                            // Filter data yang memiliki visibility == 1
+                            $visibleUmroh = $umroh->filter(fn($item) => $item->visibility == 1);
+                            dd();
+                        @endphp
 
-                @if ($visibleUmroh->isNotEmpty())
-                    <section class="px-4 md:px-12 py-6">
-                        <div class="flex flex-col lg:flex-row lg:justify-between items-center mb-8">
-                            <h1 class="text-3xl md:text-5xl text-black font-bold text-center md:text-start mb-4">
-                                Paket<br>Umroh
-                            </h1>
-                            <a href="{{ route('daftar-umroh') }}">
-                                <div class="bg-red-primary py-2 px-4 rounded-full">
-                                    <h3 class="font-bold text-white">Selengkapnya</h3>
+                            @if ($visibleUmroh->isNotEmpty())
+                                <section class="px-4 md:px-12 py-6">
+                                    <div class="flex flex-col lg:flex-row lg:justify-between items-center mb-8">
+                                        <h1 class="text-3xl md:text-5xl text-black font-bold text-center md:text-start mb-4">
+                                            Paket<br>Umroh
+                                        </h1>
+                                        <a href="{{ route('daftar-umroh') }}">
+                                            <div class="bg-red-primary py-2 px-4 rounded-full">
+                                                <h3 class="font-bold text-white">Selengkapnya</h3>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
+                                        @foreach ($visibleUmroh as $umroh_item)
+                                            <div>
+                                                <a href="{{ route('detail-umroh', ['id' => $umroh_item->id]) }}"
+                                                    class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
+                                                    <img src="{{ asset('storage/' . $umroh_item->image[0]) }}" loading="lazy" alt="Photo by Austin Wade"
+                                                        class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+                                                </a>
+                                                <h2 class="text-center font-semibold text-xl mt-4">Paket {{ $umroh_item->title }}</h2>
+                                                <h2 class="text-center font-semibold text-sm">Harga Rp. {{ $umroh_item->price }}</h2>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </section>
+                            @else
+                                <div class="text-center h-80 justify-center text-gray-500 flex flex-col items-center">
+                                    <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">
+                                        Mohon Maaf
+                                    </h2>
+                                    <p>Tidak ada paket yang tersedia saat ini.</p>
                                 </div>
-                            </a>
-                        </div>
-                        <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-                            @foreach ($visibleUmroh as $umroh_item)
-                                <div>
-                                    <a href="{{ route('detail-umroh', ['id' => $umroh_item->id]) }}"
-                                        class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-                                        <img src="{{ asset('storage/' . $umroh_item->image[0]) }}" loading="lazy" alt="Photo by Austin Wade"
-                                            class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-                                    </a>
-                                    <h2 class="text-center font-semibold text-xl mt-4">Paket {{ $umroh_item->title }}</h2>
-                                    <h2 class="text-center font-semibold text-sm">Harga Rp. {{ $umroh_item->price }}</h2>
-                                </div>
-                            @endforeach
-                        </div>
-                    </section>
-                @else
-                    <div class="text-center h-80 justify-center text-gray-500 flex flex-col items-center">
-                        <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">
-                            Mohon Maaf
-                        </h2>
-                        <p>Tidak ada paket yang tersedia saat ini.</p>
-                    </div>
-                @endif
+                            @endif
+        @else
+            <div class="text-center h-80 justify-center text-gray-500 flex flex-col items-center">
+                <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">
+                    Mohon Maaf
+                </h2>
+                <p>Tidak ada paket yang tersedia saat ini.</p>
+            </div>
         @endif
     
     

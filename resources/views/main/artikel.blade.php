@@ -67,129 +67,121 @@
         </div>
     </nav>
 
-    <section class="h-screen pt-24 px-16 pb-4">
+    <section class="min-h-screen pt-24 px-4 md:px-16 pb-4">
         <div class="h-full w-full flex flex-col">
-            <h1 class="text-2xl font-extrabold">Artikel Terbaru</h1>
-            <div class="mt-4  shadow-xl rounded-2xl flex-grow p-4">
-                <div class="w-full h-full flex flex-col ">
-                    <div class=" rounded-3xl flex-grow"
-                        style="background-image: url('{{ asset('resources/images/lp-main/artikel/bg-1.png') }}">
+            <h1 class="text-2xl font-extrabold  md:text-left">Artikel Terbaru</h1>
+            <div class="mt-4 shadow-xl rounded-2xl flex-grow p-4">
+                <div class="w-full h-full flex flex-col">
+                    <!-- Gambar Artikel -->
+                    <div class="rounded-3xl flex-grow h-64 md:h-auto"
+                        style="background-image: url('{{ asset('storage/' . $articles[0]->image) }}');  
+                                                       background-size: cover; 
+                                                       background-position: center; 
+                                                       background-repeat: no-repeat;">
                     </div>
-                    <div class="my-2 mt-8 mx-14 flex justify-center">
-                        <div class=" w-2/3 mr-2">
+                    <!-- Konten Artikel -->
+                    <div class="my-2 mt-8 md:mx-14 flex flex-col md:flex-row">
+                        <div class="w-full md:w-full md:mr-2 text-start md:text-left mr-4 font-weight-bold">
                             <p
-                                class="mb-4 inline-flex items-center px-12 py-1 text-sm font-medium text-center text-white bg-yellow-primary rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300">
-                                Edukasi</p>
-                            <h2 class="text-2xl font-semibold mb-3 text-    gray-700 dark:text-gray-400">Panduan
-                                Lengkap Manasik Umroh: Langkah-Langkah Penting Sebelum Berangkat ke Tanah Suci.</h2>
-                            <p class="mb-3 font-light text-gray-700 dark:text-gray-400">Tanggal: 01 Desember 2025</p>
-
+                                class="mb-4 inline-flex items-center px-6 md:px-12 py-1 text-sm font-medium text-center 
+                                                          text-white bg-yellow-primary rounded-full">
+                                {{ $articles[0]->category }}
+                            </p>
+                            <h2 class=" font-bold text-2xl md:text-3xl text-black  mb-3 ">
+                                {{ $articles[0]->title }}
+                            </h2>
+                            <p class="mb-3 font-semibold text-sm md:text-md text-gray-800">
+                                Tanggal:
+                                {{ \Carbon\Carbon::parse($articles[0]->created_at)->translatedFormat('d F Y') }}
+                            </p>
                         </div>
-                        <div class=" flex-grow ml-2 flex flex-col items-center justify-center  h-full">
-                            <a href="">
+                        <!-- Tombol Aksi -->
+                        <div class="w-full md:w-1/3 flex flex-col items-center justify-center h-full space-y-1">
+                            <a href="{{ route('detail-artikel', ['id' => $articles[0]->id]) }}" class="w-full ">
                                 <p
-                                    class="mb-4 inline-flex items-center px-24 py-6 text-sm font-medium text-center text-black shadow-lg border  border-black rounded-3xl focus:ring-4 focus:outline-none focus:ring-blue-300 w-full ">
+                                    class="mb-4 inline-flex items-center justify-center px-10 py-8 text-sm font-medium text-center 
+                                              text-black shadow-lg border border-black rounded-3xl w-full">
                                     <img src="{{ asset('resources/images/lp-main/artikel/ic-1.png') }}"
-                                        class="mr-4"></img> Baca Sekarang
+                                        class="mr-2 w-6 h-6">
+                                    Baca Sekarang
                                 </p>
                             </a>
-                            <a href="">
+                            <a href="javascript:void(0);" onclick="shareArticle('{{ $articles[0]->title }}', '{{ $articles[0]->url }}')" class="w-full">
                                 <p
-                                    class="mb-4 inline-flex items-center px-24 py-6 text-sm font-medium text-center text-white shadow-lg bg-blue-primary  rounded-3xl focus:ring-4 focus:outline-none focus:ring-blue-300 w-full">
+                                    class="mb-4 inline-flex items-center px-10 py-8 justify-center text-sm font-medium text-center 
+                                                                      text-white shadow-lg bg-blue-primary rounded-3xl w-full">
                                     <img src="{{ asset('resources/images/lp-main/artikel/ic-2.png') }}"
-                                        class="mr-2"></img>Bagikan Artikel
+                                        class="mr-2 w-6 h-6">
+                                    Bagikan Artikel
                                 </p>
                             </a>
                         </div>
-
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
-    <section class=" mx-16">
-        <a href="http://" target="_blank" rel="noopener noreferrer">
-            <div class="mt-8 h-72 flex items-center shadow-xl rounded-2xl">
-                <div class="h-full w-2/3 rounded-2xl"
-                    style="background-image: url('{{ asset('resources/images/lp-main/artikel/bg-2.png') }}');background-size: cover; backgound-position: center; background-repeat: no-repeat;">
-                </div>
-                <div class="flex-grow mx-10">
-                    <div class="flex justify-between w-full">
-                        <h1 class="font-bold text-2xl text-gray-800">Edukasi</h1>
-                        <h2 class="font-semibold text-md text-gray-800">Tanggal: 22 Desember 2024</h2>
+    <section class=" mx-16 border-l-orange-200">
+        @if (count($articles) > 1)
+            @foreach ($articles->skip(1) as $article)
+                {{-- <div class="grid grid-cols-3 gap-4 bg-red-primary my-4">
+                    <div class="...">01</div>
+                    <div class="...">02</div>
+                    <div class="col-span-2 ...">04</div>
+                    <div class="...">05</div>
+                    <div class="...">06</div>
+                    <div class="col-span-2 ...">07</div>
+                </div> --}}
+                {{-- <div class="grid md:grid-flow-col grid-cols-3  grid-rows-3 bg-red-primary my-4 ">
+                    <div class="row-span-3 bg-white"
+                        style="background-image: url('{{ asset('storage/' . $article->image) }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                        01</div>
+                    <div class="col-span-2 row-span-2">
+                        <div class="flex justify-between">
+                            <h1 class="font-bold text-2xl text-gray-800">{{ $article->category }}</h1>
+                            <h2 class="font-semibold text-md text-gray-800">Tanggal:
+                                {{ \Carbon\Carbon::parse($article->created_at)->translatedFormat('d F Y') }}
+                            </h2>
+                        </div>
+                        <h1 class="mt-4 font-bold text-3xl text-black break-words">
+                            {{ $article->title }}
+                        </h1>
+                        <div class="ml-4">
+                            <p class="mt-4 text-gray-800">{{ $article->short_description }}</p>
+                        </div>
                     </div>
-                    <h1 class="mt-4 font-bold text-3xl text-black">Tips Memilih Paket Umroh yang Tepat: Jangan Sampai
-                        Salah Pilih!</h1>
-                    <div class="w-11/12 ml-4">
-                        <p class="mt-4 text-gray-800 ">Memilih paket Umroh yang tepat adalah keputusan penting yang akan
-                            mempengaruhi kenyamanan dan kelancaran ibadah Anda. Berikut adalah beberapa tips yang dapat
-                            membantu Anda dalam memilih paket Umroh yang sesuai:</p>
+                </div> --}}
+
+
+                <a href="{{ route('detail-artikel' , ['id' => $article->id]) }}">
+                    <div
+                        class="mt-8 h-auto md:h-72 flex flex-col md:flex-row items-center bg-amber-700 shadow-xl rounded-2xl p-4">
+                        <!-- Gambar -->
+                        <img src="{{ asset('storage/' . $article->image) }}"
+                            class="w-[180px] md:w-1/3 h-48 md:h-full object-cover rounded-2xl">
+
+                        <!-- Konten -->
+                        <div class="md:mx-10 w-full md:w-2/3 p-4 ">
+                            <div class="flex flex-col md:flex-row justify-between w-full">
+                                <h1 class="font-bold text-xl md:text-2xl text-gray-800">{{ $article->category }}</h1>
+                                <h2 class="font-semibold text-sm md:text-md text-gray-800">Tanggal:
+                                    {{ \Carbon\Carbon::parse($article->created_at)->translatedFormat('d F Y') }}
+                                </h2>
+                            </div>
+                            <h1 class="mt-4 font-bold text-2xl md:text-3xl text-black">{{ $article->title }}</h1>
+                            <div class="w-full md:w-11/12 mt-4 ml-4">
+                                <p class="text-gray-800 text-sm md:text-base">{{ $article->short_description }}</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </a>
+            @endforeach
+        @else
+            <div class="text-center text-gray-500 flex flex-col items-center">
+                <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Mohon Maaf</h2>
+                <p>Tidak belum ada artikel yang tersedia saat ini.</p>
             </div>
-        </a>
-        <a href="http://" target="_blank" rel="noopener noreferrer">
-            <div class="mt-8 h-72 flex items-center shadow-xl rounded-2xl">
-                <div class="h-full w-2/3 rounded-2xl"
-                    style="background-image: url('{{ asset('resources/images/lp-main/artikel/bg-2.png') }}');background-size: cover; backgound-position: center; background-repeat: no-repeat;">
-                </div>
-                <div class="flex-grow mx-10">
-                    <div class="flex justify-between w-full">
-                        <h1 class="font-bold text-2xl text-gray-800">Edukasi</h1>
-                        <h2 class="font-semibold text-md text-gray-800">Tanggal: 22 Desember 2024</h2>
-                    </div>
-                    <h1 class="mt-4 font-bold text-3xl text-black">Tips Memilih Paket Umroh yang Tepat: Jangan Sampai
-                        Salah Pilih!</h1>
-                    <div class="w-11/12 ml-4">
-                        <p class="mt-4 text-gray-800 ">Memilih paket Umroh yang tepat adalah keputusan penting yang akan
-                            mempengaruhi kenyamanan dan kelancaran ibadah Anda. Berikut adalah beberapa tips yang dapat
-                            membantu Anda dalam memilih paket Umroh yang sesuai:</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-        <a href="http://" target="_blank" rel="noopener noreferrer">
-            <div class="mt-8 h-72 flex items-center shadow-xl rounded-2xl">
-                <div class="h-full w-2/3 rounded-2xl"
-                    style="background-image: url('{{ asset('resources/images/lp-main/artikel/bg-2.png') }}');background-size: cover; backgound-position: center; background-repeat: no-repeat;">
-                </div>
-                <div class="flex-grow mx-10">
-                    <div class="flex justify-between w-full">
-                        <h1 class="font-bold text-2xl text-gray-800">Edukasi</h1>
-                        <h2 class="font-semibold text-md text-gray-800">Tanggal: 22 Desember 2024</h2>
-                    </div>
-                    <h1 class="mt-4 font-bold text-3xl text-black">Tips Memilih Paket Umroh yang Tepat: Jangan Sampai
-                        Salah Pilih!</h1>
-                    <div class="w-11/12 ml-4">
-                        <p class="mt-4 text-gray-800 ">Memilih paket Umroh yang tepat adalah keputusan penting yang akan
-                            mempengaruhi kenyamanan dan kelancaran ibadah Anda. Berikut adalah beberapa tips yang dapat
-                            membantu Anda dalam memilih paket Umroh yang sesuai:</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-        <a href="http://" target="_blank" rel="noopener noreferrer">
-            <div class="mt-8 h-72 flex items-center shadow-xl rounded-2xl">
-                <div class="h-full w-2/3 rounded-2xl"
-                    style="background-image: url('{{ asset('resources/images/lp-main/artikel/bg-2.png') }}');background-size: cover; backgound-position: center; background-repeat: no-repeat;">
-                </div>
-                <div class="flex-grow mx-10">
-                    <div class="flex justify-between w-full">
-                        <h1 class="font-bold text-2xl text-gray-800">Edukasi</h1>
-                        <h2 class="font-semibold text-md text-gray-800">Tanggal: 22 Desember 2024</h2>
-                    </div>
-                    <h1 class="mt-4 font-bold text-3xl text-black">Tips Memilih Paket Umroh yang Tepat: Jangan Sampai
-                        Salah Pilih!</h1>
-                    <div class="w-11/12 ml-4">
-                        <p class="mt-4 text-gray-800 ">Memilih paket Umroh yang tepat adalah keputusan penting yang akan
-                            mempengaruhi kenyamanan dan kelancaran ibadah Anda. Berikut adalah beberapa tips yang dapat
-                            membantu Anda dalam memilih paket Umroh yang sesuai:</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-        
+        @endif
     </section>
 
 
@@ -208,8 +200,8 @@
                     <a href="http://wa.me/6282141297588" target="_blank" rel="noopener noreferrer">
                         <button type="button"
                             class="text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-4 py-4 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary flex justify-between items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                                class="bi bi-whatsapp" viewBox="0 0 16 16">
                                 <path
                                     d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
                             </svg>
@@ -268,4 +260,21 @@
         <p class="text-center sm:text-start text-sm font-extrabold text-white md:text-sm">Copyright @El-AqshoGroup
         </p>
     </section>
+    <script>
+        function shareArticle(title, url) {
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    url: url
+                }).then(() => {
+                    console.log('Artikel berhasil dibagikan');
+                }).catch((error) => {
+                    console.error('Error sharing:', error);
+                });
+            } else {
+                const shareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+                window.open(shareLink, '_blank');
+            }
+        }
+    </script>
 </body>
