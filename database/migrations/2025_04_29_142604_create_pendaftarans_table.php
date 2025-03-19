@@ -45,6 +45,13 @@ return new class extends Migration
 
             $table->unsignedBigInteger('id_paket')->nullable();
             $table->foreign('id_paket')->references('id')->on('pakets')->onDelete('set null');
+
+            $table->unsignedBigInteger('id_haji')->nullable();
+            $table->foreign('id_haji')->references('id')->on('hajis')->onDelete('set null');
+
+            $table->unsignedBigInteger('id_badal')->nullable();
+            $table->foreign('id_badal')->references('id')->on('badals')->onDelete('set null');
+
             $table->timestamps();
         });
     }
@@ -54,9 +61,15 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('pendaftaran', function (Blueprint $table) {
+        Schema::table('pendaftarans', function (Blueprint $table) {
             $table->dropForeign(['id_paket']);
             $table->dropColumn('id_paket');
+
+            $table->dropForeign(['id_haji']);
+            $table->dropColumn('id_haji');
+
+            $table->dropForeign(['id_badal']);
+            $table->dropColumn('id_badal');
         });
     }
 };

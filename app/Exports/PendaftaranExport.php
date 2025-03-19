@@ -66,7 +66,7 @@ class PendaftaranExport implements FromCollection, WithHeadings, WithStyles, Wit
                     'district' => $pendaftaran->district ?? '-',
                     'sub_district_village' => $pendaftaran->sub_district_village ?? '-',
                     'email' => $pendaftaran->email ?? '-',
-                    'passport_status' => $pendaftaran->passport_status ?? '-',
+                    'passport_status' => isset($pendaftaran->passport_status) ? ($pendaftaran->passport_status == '1' ? 'Aktif' : 'Tidak Aktif') : '-',
                     'meningitis_vaccine_status' => $pendaftaran->meningitis_vaccine_status ?? '-',
                     'nama_sesuai_paspor' => $pendaftaran->nama_sesuai_paspor ?? '-',
                     'nomor_paspor' => $pendaftaran->nomor_paspor ?? '-',

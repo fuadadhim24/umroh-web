@@ -18,6 +18,8 @@ use Carbon\Carbon;
 use Filament\Notifications\Notification;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Paket;
+use App\Models\Haji;
+use App\Models\Badal;
 
 class PendaftaranResource extends Resource
 {
@@ -39,10 +41,8 @@ class PendaftaranResource extends Resource
             Forms\Components\TextInput::make('full_name')->label('Nama Lengkap')->required(),
             Forms\Components\TextInput::make('phone_number')->label('Nomor Telepon')->required(),
             Forms\Components\DatePicker::make('date_of_birth')->label('Tanggal Lahir')->required(),
-            Forms\Components\TextInput::make('national_id_number')->label('Nomor KTP')->numeric()
-            ->required(),
-            Forms\Components\TextInput::make('family_id_number')->label('Nomor KK')->numeric()
-            ->required(),
+            Forms\Components\TextInput::make('national_id_number')->label('Nomor KTP')->numeric()->required(),
+            Forms\Components\TextInput::make('family_id_number')->label('Nomor KK')->numeric()->required(),
             Forms\Components\Select::make('gender')
                 ->label('Jenis Kelamin')
                 ->options([
@@ -102,7 +102,7 @@ class PendaftaranResource extends Resource
                 ->searchable()
                 ->live()
                 ->required(),
-                Forms\Components\TextInput::make('agent_number')
+            Forms\Components\TextInput::make('agent_number')
                 ->label('Nomor Agen')
                 ->visible(fn($get) => $get('source_of_information') === 'agen')
                 ->live() // Menandakan bahwa ini adalah input live
@@ -113,12 +113,34 @@ class PendaftaranResource extends Resource
                 }),
             Forms\Components\FileUpload::make('image')->label('Foto Pendaftar')->required()->disk('public')->directory('images/artikel')->helperText('Ukuran file maksimal 2MB')->preserveFilenames()->visibility('public'),
 
-            Select::make('id_paket')
-                ->label('Pilih Paket')
-                ->options(Paket::all()->pluck('title', 'id')->prepend('Tidak Memilih', null))
+            Forms\Components\Select::make('category')
+                ->label('Kategori')
+                ->options([
+                    'badal' => 'Badal',
+                    'haji' => 'Haji',
+                    'paket' => 'Umroh',
+                ])
+                ->live()
+                ->required(),
+
+            Forms\Components\Select::make('id_badal')
+                ->label('Pilih Paket Badal')
+                ->options(Badal::latest()->get()->pluck('title', 'id'))
                 ->searchable()
-                // ->required()
-                ->placeholder('Pilih Paket'),
+                ->visible(fn($get) => $get('category') === 'badal'),
+
+            Forms\Components\Select::make('id_haji')
+                ->label('Pilih Paket Haji')
+                ->options(Haji::latest()->get()->pluck('title', 'id'))
+                ->searchable()
+                ->visible(fn($get) => $get('category') === 'haji'),
+
+            Forms\Components\Select::make('id_paket')
+                ->label('Pilih Paket Umroh')
+                ->options(Paket::latest()->get()->pluck('title', 'id')->prepend('Tidak Memilih', null))
+                ->searchable()
+                ->visible(fn($get) => $get('category') === 'paket'),
+
             Forms\Components\Textarea::make('notes')->label('Catatan')->nullable(),
         ]);
     }
@@ -226,17 +248,7 @@ class PendaftaranResource extends Resource
 
                         Forms\Components\TextInput::make('tahun')->label('Pilih Tahun')->type('number')->hidden(fn($get) => $get('filter_by') !== 'tahun' && $get('filter_by') !== 'bulan')->required(),
                     ])
-                    ->action(fn(array $data) => 
-                    $data['filter_by'] === 'semua' 
-                        ? Excel::download(new PendaftaranExport('semua', null, null, null), 'pendaftaran.xlsx') 
-                        : ($data['filter_by'] === 'bulan' 
-                            ? Excel::download(new PendaftaranExport('bulan', null, $data['bulan'], $data['tahun']), 'pendaftaran.xlsx') 
-                            : ($data['filter_by'] === 'tahun' 
-                                ? Excel::download(new PendaftaranExport('tahun', null, null, $data['tahun']), 'pendaftaran.xlsx') 
-                                : Excel::download(new PendaftaranExport('tanggal', Carbon::parse($data['tanggal'])->format('Y-m-d'), null, null), 'pendaftaran.xlsx')
-                            )
-                        )
-                    )
+                    ->action(fn(array $data) => $data['filter_by'] === 'semua' ? Excel::download(new PendaftaranExport('semua', null, null, null), 'pendaftaran.xlsx') : ($data['filter_by'] === 'bulan' ? Excel::download(new PendaftaranExport('bulan', null, $data['bulan'], $data['tahun']), 'pendaftaran.xlsx') : ($data['filter_by'] === 'tahun' ? Excel::download(new PendaftaranExport('tahun', null, null, $data['tahun']), 'pendaftaran.xlsx') : Excel::download(new PendaftaranExport('tanggal', Carbon::parse($data['tanggal'])->format('Y-m-d'), null, null), 'pendaftaran.xlsx')))),
             ]);
     }
 

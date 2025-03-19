@@ -38,10 +38,20 @@ class Pendaftaran extends Model
         'agent_number',
         'image',
         'id_paket', 
+        'id_haji', 
+        'id_badal', 
     ];
 
     public function paket()
     {
         return $this->belongsTo(Paket::class, 'id_paket');
+    }
+    public function haji()
+    {
+        return $this->belongsTo(Haji::class, 'id_haji');
+    }
+    public function badal()
+    {
+        return $this->belongsTo(Badal::class, 'id_badal');
     }
 }
