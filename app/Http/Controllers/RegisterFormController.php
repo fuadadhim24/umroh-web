@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Paket;
+use App\Models\Haji;
+use App\Models\Badal;
 use App\Models\Pendaftaran;
 use Carbon\Carbon;
 
@@ -11,8 +13,10 @@ class RegisterFormController extends Controller
 {
     public function index()
     {
-        $paket = Paket::all();
-        return view('form.register-form', compact('paket'));
+        $paket = Paket::latest()->get();
+        $haji = Haji::latest()->get();
+        $badal = Badal::latest()->get();
+        return view('form.register-form', compact('paket', 'haji', 'badal'));
     }
 
     public function store(Request $request)
@@ -44,24 +48,49 @@ class RegisterFormController extends Controller
             'source_of_information' => 'required|string',
             'agent_number' => 'nullable|string',
             'image' => 'nullable|image|max:2048',
-            'id_paket' => 'required|exists:pakets,id',
+            'id_haji' => 'nullable|exists:hajis,id',
+            'id_badal' => 'nullable|exists:badals,id',
+            'id_paket' => 'nullable|exists:pakets,id',
         ]);
+
+        $pendaftaran = new Pendaftaran($request->all());
+
+        $selectedPaket = $request->input('selected_paket');
+
+        if ($selectedPaket === 'haji') {
+            $pendaftaran->id_haji = $request->input('id_haji');
+            $pendaftaran->id_badal = null;
+            $pendaftaran->id_paket = null;
+        } elseif ($selectedPaket === 'badal') {
+            $pendaftaran->id_haji = null;
+            $pendaftaran->id_badal = $request->input('id_badal');
+            $pendaftaran->id_paket = null;
+        } elseif ($selectedPaket === 'paket') {
+            $pendaftaran->id_haji = null;
+            $pendaftaran->id_badal = null;
+            $pendaftaran->id_paket = $request->input('id_paket');
+        } else {
+            return redirect()
+                ->back()
+                ->withErrors(['selected_paket' => 'Please select a valid program.']);
+        }
 
         $memberId = $this->generateMemberId($request->input('agent_number'));
 
         $pendaftaran = new Pendaftaran($request->all());
         $pendaftaran->member_id = $memberId;
 
-        // Store the image path if the image is uploaded
         if ($request->hasFile('image')) {
             $pendaftaran->image = $request->file('image')->store('images/artikel', 'public');
         }
 
+        // dd($pendaftaran);
+
         $pendaftaran->save();
 
-        return redirect()->route('register-form')->with('message', 'Pendaftaran berhasil dilakukan!');
+        return redirect()->route('dashboard')->with('message', 'Pendaftaran berhasil dilakukan!');
     }
-    
+
     private function generateMemberId(?string $agent_number = null): string
     {
         $currentYear = Carbon::now()->format('y');

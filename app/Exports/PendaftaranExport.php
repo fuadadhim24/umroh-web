@@ -50,7 +50,7 @@ class PendaftaranExport implements FromCollection, WithHeadings, WithStyles, Wit
                 return [
                     'member_id' => $pendaftaran->member_id ?? '-',
                     'full_name' => $pendaftaran->full_name ?? '-',
-                    'paket_title' => $pendaftaran->paket->title ?? '-',
+                    'paket_title' => $pendaftaran->id_paket ? $pendaftaran->paket->title ?? '-' : ($pendaftaran->id_badal ? $pendaftaran->badal->title ?? '-' : ($pendaftaran->id_haji ? $pendaftaran->haji->title ?? '-' : '-')),
                     'created_at' => $pendaftaran->created_at ?? '-',
                     'phone_number' => $pendaftaran->phone_number ?? '-',
                     'date_of_birth' => $pendaftaran->date_of_birth ?? '-',

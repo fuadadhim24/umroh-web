@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
     <link rel="icon" href="{{ asset('resources/images/lp-main/al-aqsha.png') }}" type="image/icon type">
@@ -77,35 +77,35 @@
             );
             let allFilled = true;
 
-            // currentTabInputs.forEach(input => {
-            //     const inputContainer = input.closest("div");
-            //     console.log(inputContainer);
-            //     const isHidden = inputContainer && getComputedStyle(inputContainer).display === "none";
+            currentTabInputs.forEach(input => {
+                const inputContainer = input.closest("div");
+                console.log(inputContainer);
+                const isHidden = inputContainer && getComputedStyle(inputContainer).display === "none";
 
-            //     console.log(isHidden);
+                console.log(isHidden);
 
-            //     if (!isHidden) {
-            //         if (!input.value) {
-            //             console.log(input);
-            //             allFilled = false;
-            //             input.classList.add('border-red-500');
-            //         } else {
-            //             input.classList.remove('border-red-500');
-            //         }
-            //     }
-            // });
+                if (!isHidden) {
+                    if (!input.value) {
+                        console.log(input);
+                        allFilled = false;
+                        input.classList.add('border-red-500');
+                    } else {
+                        input.classList.remove('border-red-500');
+                    }
+                }
+            });
 
-            // if (!allFilled) {
-            //     alert('Silakan isi semua field yang diperlukan sebelum melanjutkan.');
-            //     return;
-            // }
+            if (!allFilled) {
+                alert('Silakan isi semua field yang diperlukan sebelum melanjutkan.');
+                return;
+            }
 
             if (tabIndex < 3) {
                 currentTab = tabIndex;
                 showTab(currentTab);
                 updateStepper(currentTab);
             } else {
-                // alert('Form submitted!');
+                alert('Form submitted!');
                 document.querySelector('form').submit();
             }
         }
@@ -162,7 +162,29 @@
                 }
             }
 
-        
+                            function toggleProgram() {
+                                const programChoice = document.getElementById('program_choice').value;
+                                const paketSelect = document.getElementById('paket_select');
+                                const hajiSelect = document.getElementById('haji_select');
+                                const badalSelect = document.getElementById('badal_select');
+
+
+                                if (programChoice === 'haji') {
+                                    hajiSelect.style.display = 'block';
+                                    badalSelect.style.display = 'none';
+                                    paketSelect.style.display = 'none';
+                                } else if (programChoice === 'badal') {
+                                    badalSelect.style.display = 'block';
+                                    hajiSelect.style.display = 'none';
+                                    paketSelect.style.display = 'none';
+                                } else if (programChoice === 'paket') {
+                                    paketSelect.style.display = 'block';
+                                    hajiSelect.style.display = 'none';
+                                    badalSelect.style.display = 'none';
+                                }
+                            }
+
+
 
         showTab(currentTab);
         updateStepper(currentTab);
@@ -171,7 +193,7 @@
 
 <body>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+                            document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('passport_status').addEventListener('change', togglePassportFields);
             document.getElementById('source_of_information').addEventListener('change', toggleAgen);
             const requiredInputs = document.querySelectorAll('input[required], select[required]');
@@ -182,28 +204,44 @@
                     }
                 });
             });
+                            document.getElementById('program_choice').addEventListener('change', toggleProgram);
 
-            const paketSelect = document.getElementById('id_paket');
+                            const hajiSelect = document.getElementById('haji_list');
+                            const umrohSelect = document.getElementById('paket_list');
+                            const badalSelect = document.getElementById('badal_list');
             const paketDescription = document.getElementById('paket_description');
             const paketPrice = document.getElementById('paket_price');
 
-            paketSelect.addEventListener('change', function () {
-
-                const selectedOption = paketSelect.options[paketSelect.selectedIndex];
+                            // Function to update the package description and price
+                            function updatePackageInfo(selectElement) {
+                                const selectedOption = selectElement.options[selectElement.selectedIndex];
                 const description = selectedOption.getAttribute('data-description');
-                const price = selectedOption.getAttribute('data-price');
-                // alert(description);
+                            const price = selectedOption.getAttribute('data-price');
 
                 if (selectedOption.value) {
                     paketDescription.textContent = description;
-                    paketPrice.textContent = price;
+                    paketPrice.textContent = 'Harga Paket: ' + price;
                     paketDescription.classList.remove('hidden');
                     paketPrice.classList.remove('hidden');
                 } else {
                     paketDescription.classList.add('hidden');
                     paketPrice.classList.add('hidden');
                 }
+                            }
+
+                            // Add change event listeners for all package selects
+                            hajiSelect.addEventListener('change', function () {
+                                updatePackageInfo(hajiSelect);
             });
+
+                            umrohSelect.addEventListener('change', function () {
+                                updatePackageInfo(umrohSelect);
+                            });
+
+                            badalSelect.addEventListener('change', function () {
+                                updatePackageInfo(badalSelect);
+                            });
+
         });
     </script>
     <section class=" w-screen bg-gray-200 p-8 pr-10">
@@ -334,26 +372,25 @@
                                     <input type="text" name="family_id_number" id="no_kk"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-red-primary focus:border-red-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-primary dark:focus:border-red-primary"
                                         placeholder="cth: 35128225661777" required="">
-                                    </div>
-                                    <div class="mb-4">
-                                        <label for="gender" class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
-                                                class="text-red-600">*</span>Jenis Kelamin</label>
-                                        <select name="gender" id="gender"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-red-primary focus:border-red-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-primary dark:focus:border-red-primary"
-                                            required>
-                                            <option value="Laki-laki">Laki-laki</option>
-                                            <option value="Perempuan">Perempuan</option>
-                                        </select>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="gender" class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
+                                            class="text-red-600">*</span>Jenis Kelamin</label>
+                                    <select name="gender" id="gender"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-red-primary focus:border-red-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-primary dark:focus:border-red-primary"
+                                        required>
+                                        <option value="Laki-laki">Laki-laki</option>
+                                        <option value="Perempuan">Perempuan</option>
+                                    </select>
                                     </div>
                                     {{-- <div>
-                                    <label for="confirm-password"
-                                        class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
-                                            class="text-red-600">*</span>Nomer Kartu
-                                        Keluarga (NKK)</label>
-                                    <input type="text" name="nkk" id="confirm-password"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-red-primary focus:border-red-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-primary dark:focus:border-red-primary"
-                                        placeholder="cth: 351622912321131" required="">
-                                </div> --}}
+                                        <label for="confirm-password" class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
+                                                class="text-red-600">*</span>Nomer Kartu
+                                            Keluarga (NKK)</label>
+                                        <input type="text" name="nkk" id="confirm-password"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-red-primary focus:border-red-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-primary dark:focus:border-red-primary"
+                                            placeholder="cth: 351622912321131" required="">
+                                        </div> --}}
                                 <div class="mb-4">
                                     <label for="marital_status"
                                         class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
@@ -376,23 +413,22 @@
                                         placeholder="cth: Belum Menikah" required="">
                                 </div>
                                 {{-- <div>
-                                    <label for="confirm-password"
-                                        class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
-                                            class="text-red-600">*</span>Jenis
-                                        Kelamin</label>
-                                    <div class="flex items-center space-x-4">
-                                        <label class="flex items-center">
-                                            <input type="radio" name="jenis-kelamin" value="Laki-laki"
-                                                class="w-4 h-4 text-red-primary border-gray-300 focus:ring-red-primary">
-                                            <span class="ml-2 text-sm text-gray-900 dark:text-white">Laki-laki</span>
-                                        </label>
-                                        <label class="flex items-center">
-                                            <input type="radio" name="jenis-kelamin" value="Perempuan"
-                                                class="w-4 h-4 text-red-primary border-gray-300 focus:ring-red-primary">
-                                            <span class="ml-2 text-sm text-gray-900 dark:text-white">Perempuan</span>
-                                        </label>
-                                    </div>
-                                </div> --}}
+                                        <label for="confirm-password" class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
+                                                class="text-red-600">*</span>Jenis
+                                            Kelamin</label>
+                                        <div class="flex items-center space-x-4">
+                                            <label class="flex items-center">
+                                                <input type="radio" name="jenis-kelamin" value="Laki-laki"
+                                                    class="w-4 h-4 text-red-primary border-gray-300 focus:ring-red-primary">
+                                                <span class="ml-2 text-sm text-gray-900 dark:text-white">Laki-laki</span>
+                                            </label>
+                                            <label class="flex items-center">
+                                                <input type="radio" name="jenis-kelamin" value="Perempuan"
+                                                    class="w-4 h-4 text-red-primary border-gray-300 focus:ring-red-primary">
+                                                <span class="ml-2 text-sm text-gray-900 dark:text-white">Perempuan</span>
+                                            </label>
+                                        </div>
+                                        </div> --}}
                                 <div>
                                     <label for="password"
                                         class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
@@ -402,14 +438,13 @@
                                         placeholder="cth: Buruh Tani" required="">
                                 </div>
                                 {{-- <div>
-                                    <label for="confirm-password"
-                                        class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
-                                            class="text-red-600">*</span>Riwayat
-                                        Pendidikan</label>
-                                    <input type="text" name="confirm-password" id="confirm-password"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-offset-yellow-primary focus:border-yellow-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-primary dark:focus:border-yellow-primary"
-                                        placeholder="cth: SMA/SLTA Sederajat" required="">
-                                </div> --}}
+                                        <label for="confirm-password" class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
+                                                class="text-red-600">*</span>Riwayat
+                                            Pendidikan</label>
+                                        <input type="text" name="confirm-password" id="confirm-password"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-offset-yellow-primary focus:border-yellow-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-primary dark:focus:border-yellow-primary"
+                                            placeholder="cth: SMA/SLTA Sederajat" required="">
+                                        </div> --}}
                                 <div>
                                     <label for="confirm-password"
                                         class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
@@ -490,23 +525,21 @@
                         <div id="tab-2" hidden>
                             <h3 class="mb-4 font-bold text-sm  leading-none text-gray-900 dark:text-white">Program</h3>
                             {{-- <div class="mb-4">
-                                <label for="username"
-                                    class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
-                                        class="text-red-600">*</span>Nama Sesuai
-                                    KTP</label>
-                                <input type="text" name="username" id="username"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-red-primary focus:border-red-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-primary dark:focus:border-red-primary"
-                                    placeholder="Masukkan Nama Lengkap Anda" required="">
-                            </div> --}}
+                                    <label for="username" class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
+                                            class="text-red-600">*</span>Nama Sesuai
+                                        KTP</label>
+                                    <input type="text" name="username" id="username"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-red-primary focus:border-red-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-primary dark:focus:border-red-primary"
+                                        placeholder="Masukkan Nama Lengkap Anda" required="">
+                                    </div> --}}
                             {{-- <div class="mb-4">
-                                <label for="username"
-                                    class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
-                                        class="text-red-600">*</span>No
-                                    HP Aktif </label>
-                                <input type="text" name="username" id="username"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-red-primary focus:border-red-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-primary dark:focus:border-red-primary"
-                                    placeholder="cth: 6287840122213" required="">
-                            </div> --}}
+                                    <label for="username" class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
+                                            class="text-red-600">*</span>No
+                                        HP Aktif </label>
+                                    <input type="text" name="username" id="username"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-red-primary focus:border-red-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-primary dark:focus:border-red-primary"
+                                        placeholder="cth: 6287840122213" required="">
+                                    </div> --}}
                             <div class="grid gap-4 mb-4 sm:grid-cols-2">
                                 <div class="mb-4">
                                     <label for="passport_status" class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
@@ -608,13 +641,13 @@
                                     <label for="image" class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
                                             class="text-red-600">*</span>Foto
                                         Pendaftar</label>
-                                
+
                                     <input
                                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-full cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                                         name="image" id="file_input" type="file">
-                                
+
                                 </div>
-                                <div class="mb-4">
+                                {{-- <div class="mb-4">
                                     <label for="id_paket" class="block mb-2 text-xs font-bold text-gray-900 dark:text-white">Pilih
                                         Paket</label>
                                     <select name="id_paket" id="id_paket"
@@ -624,15 +657,81 @@
                                         @foreach ($paket as $item)
                                             <option value="{{ $item->id }}"
                                                 data-description="{{ $item->short_description }}"
-                                                data-price="{{ number_format($item->price, 2) }}"
-                                                >{{ $item->title }}
+                                                data-price="{{ number_format($item->price, 2) }}">{{ $item->title }}
                                             </option>
-                                        @endforeach
-                                    </select>
-                                    {{-- <h2 id="paket_price" class="hidden text-lg text-gray-700 font-bold mt-2"> --}}
-                                        <p id="paket_description" class="hidden text-gray-700 font-bold text-sm mt-8"></p>
-                                        <h2 id="paket_price" class="hidden text-lg text-yellow-primary font-bold mt-2">
-                                    </h2>
+                                            @endforeach
+                                            </select>
+                                            {{-- <h2 id="paket_price" class="hidden text-lg text-gray-700 font-bold mt-2"> --}}
+                                {{-- <p id="paket_description" class="hidden text-gray-700 font-bold text-sm mt-8"></p>
+                                <h2 id="paket_price" class="hidden text-lg text-yellow-primary font-bold mt-2">
+                                </h2>
+                                    </div> --}}
+                                    <div class="mb-4">
+                                        <label for="program_choice" class="block mb-2 text-xs font-bold text-gray-900 dark:text-white">
+                                            <span class="text-red-600">*</span>Pilih Program
+                                        </label>
+                                        <select id="program_choice" name="selected_paket"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-red-primary focus:border-red-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-primary dark:focus:border-red-primary"
+                                            required>
+                                            <option value="">Pilih Program</option>
+                                            <option value="haji">Haji</option>
+                                            <option value="badal">Badal</option>
+                                            <option value="paket">Umroh</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div id="haji_select" class="hidden">
+                                        <label for="haji_list" class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
+                                                class="text-red-600">*</span>Pilih
+                                            Haji</label>
+                                        <select id="haji_list" name="id_haji"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-red-primary focus:border-red-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-primary dark:focus:border-red-primary"
+                                            required>
+                                            <option value="">Pilih Paket Haji</option>
+                                            @forelse ($haji as $haji_item)
+                                                <option value="{{ $haji_item->id }}" data-description="{{ $haji_item->subtitle }}"
+                                                    data-price="Rp. {{ number_format($haji_item->harga_paket, 0, ',', '.') }}">
+                                                    {{ $haji_item->title }}
+                                                </option>
+                                            @empty
+                                                <option value="">Belum ada paket haji yang tersedia</option>
+                                            @endforelse
+                                        </select>
+                                    </div>
+                                    
+                                    <div id="badal_select" class="hidden">
+                                        <label for="badal_list" class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
+                                                class="text-red-600">*</span>Pilih
+                                            Badal</label>
+                                        <select id="badal_list" name="id_badal"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-red-primary focus:border-red-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-primary dark:focus:border-red-primary"
+                                            required>
+                                            <option value="">Pilih Paket Badal</option>
+                                            @forelse ($badal as $badal_item)
+                                                <option value="{{ $badal_item->id }}" data-description="{{ $badal_item->subtitle }}"
+                                                    data-price="Rp. {{ number_format($badal_item->harga_paket, 0, ',', '.') }}">{{ $badal_item->title }}
+                                                </option>
+                                            @empty
+                                                <option value="">Belum ada paket badal yang tersedia</option>
+                                            @endforelse
+                                        </select>
+                                    </div>
+                                    
+                                    <div id="paket_select" class="hidden">
+                                        <label for="paket_list" class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
+                                                class="text-red-600">*</span>Pilih
+                                            Umroh</label>
+                                        <select id="paket_list" name="id_paket"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-red-primary focus:border-red-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-primary dark:focus:border-red-primary"
+                                            required>
+                                            <option value="">Pilih Paket Umroh</option>
+                                            @forelse ($paket as $paket_item)
+                                                <option value="{{ $paket_item->id }}" data-description="{{ $paket_item->short_description }}"
+                                                    data-price="Rp. {{ number_format($paket_item->price, 0, ',', '.') }}">{{ $paket_item->title }}</option>
+                                            @empty
+                                                <option value="">Belum ada paket umroh yang tersedia</option>
+                                            @endforelse
+                                        </select>
                                 </div>
                                 <div class="mb-4">
                                     <label for="notes" class="block mb-2 text-xs font-bold text-gray-900 dark:text-white">Catatan</label>
@@ -640,6 +739,10 @@
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-primary focus:border-red-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-primary dark:focus:border-red-primary"
                                         placeholder="Masukkan Catatan"></textarea>
                                 </div>
+                                <h2 id="paket_price" class="hidden text-lg text-gray-700 font-bold mt-2">
+                                    <p id="paket_description" class="hidden text-gray-700 font-bold text-sm mt-8"></p>
+                                    {{-- <h2 id="paket_price" class="hidden text-lg text-yellow-primary font-bold mt-2">
+                                    </h2> --}}
                             </div>
                             <div class="w-full">
                                 <h3 class="text-end font-bold text-gray-700">"Dengan mengucap
@@ -651,40 +754,93 @@
                                     class="mr-1 text-white bg-gray-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-red-primary dark:hover:bg-red-primary dark:focus:ring-blue-800">
                                     kembali
                                 </button>
-                                <button data-modal-target="default-modal" data-modal-toggle="default-modal" type="button" id="nextButton"
+                                {{-- <button data-modal-target="default-modal" data-modal-toggle="default-modal" type="button" id="nextButton"
                                     class="text-white bg-yellow-primary hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-red-primary dark:hover:bg-red-primary dark:focus:ring-blue-800">
                                     Daftar Sekarang
-                                </button>
-
+                                </button> --}}
+                                
+                                
+                                <!-- Modal toggle -->
+                                <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+                                    class="text-white bg-yellow-primary hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-red-primary dark:hover:bg-red-primary dark:focus:ring-blue-800"
+                                    type="button">
+                                    Daftar Sekarang
+</button>
                             </div>
                         </div>
                     </div>
                     <!-- Main modal -->
                     <div id="default-modal" tabindex="-1" aria-hidden="true"
-                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                        class="hidden rounded-3xl overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                         <div class="relative p-4 w-full max-w-2xl max-h-full">
                             <!-- Modal content -->
                             <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
                                 <!-- Modal header -->
                                 <div
-                                    class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
-                                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                        Terms of Service
-                                    </h3>
-                                    <button type="button"
+                                    class="flex items-center justify-center p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+                                    <div class="px-8 py-2 bg-yellow-primary rounded-full">
+                                        <h3 class="text-xl font-semibold text-center text-white dark:text-white">
+                                            Syarat & Ketentuan 
+                                        </h3>
+                                    </div>
+                                    {{-- <button type="button"
                                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
                                         data-modal-hide="default-modal">
-                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                            viewBox="0 0 14 14">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                                         </svg>
                                         <span class="sr-only">Close modal</span>
-                                    </button>
+                                    </button> --}}
                                 </div>
                                 <!-- Modal body -->
-                                <div class="p-4 md:p-5 space-y-4">
-                                    <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                                <div class="p-4 md:p-5 space-y-4 flex flex-col items-center">
+                                    <ol class="list-decimal px-6 text-gray-700 space-y-1 font-semibold">
+                                        <li>1. Jamaah dilarang menerima atau menitipkan uang pembayaran DP/pelunasan tanpa kwitansi pembayaran. Kerugian
+                                            yang terjadi akibat hal tersebut bukan menjadi tanggung jawab perusahaan.</li>
+                                        <li>2. DP minimal Rp 3.500.000. Pelunasan pembayaran maksimal dilakukan 1 bulan sebelum keberangkatan. Jika
+                                            jamaah belum melunasi 100% dari tenggat waktu yang ditentukan, keberangkatan akan ditunda secara otomatis.
+                                        </li>
+                                        <li>3. Semua pembayaran yang masuk ke perusahaan dapat dipindahtangankan (sesuai ahli waris) atau ditarik
+                                            kembali sesuai ketentuan jadwal keberangkatan lebih dari 40 hari.</li>
+                                        <li>4. Penarikan keuangan dapat dicairkan 100%, kecuali jika DP harus digantikan dengan jamaah baru.</li>
+                                        <li>5. Pembayaran melalui metode transfer harus disertai bukti pembayaran yang dikirim ke WhatsApp admin di
+                                            nomor: <strong>082141297588</strong>.</li>
+                                        <li>6. Jika jamaah melakukan pembatalan sepihak:
+                                            <ul class="list-disc px-8">
+                                                <li>1 bulan sebelum keberangkatan: akan dikenai potongan sebesar 25% dari harga paket.</li>
+                                                <li>15 hari sebelum keberangkatan: dikenai potongan sebesar 50% dari harga paket.</li>
+                                                <li>10 hari sebelum keberangkatan: dikenai potongan 100% dari harga paket.</li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                    <div class="rounded-3xl shadow-2xl md:h-36 w-96 border border-4 border-black">
+                                        <div class="flex justify-center items-center py-2 bg-gray-700 rounded-3xl">
+                                            <h3 class="text-xl font-semibold text-center text-white dark:text-white">
+                                                Pembayaran Hanya Melalui Transfer
+                                            </h3>
+                                        </div>
+                                        <div class="flex flex-col md:flex-row justify-center items-center my-4">
+                                            <div class=" flex-1  flex flex-col justify-center ">
+                                                <img src="{{ asset('resources/images/lp-main/pendaftaran/ic_bri.png') }}" class="h-8 object-contain"
+                                                    alt="">
+                                                <p class="text-center fontweight-semibold text-sm">001301001800569</p>
+                                            </div>
+                                            <div class=" flex-1  flex flex-col justify-center ">
+                                                <img src="{{ asset('resources/images/lp-main/pendaftaran/ic_bca.png') }}" class="h-8 object-contain"
+                                                    alt="">
+                                                <p class="text-center fontweight-semibold text-sm">1200887278</p>
+                                            </div>
+                                            <div class=" flex-1  flex flex-col justify-center ">
+                                                <img src="{{ asset('resources/images/lp-main/pendaftaran/ic_mandiri.png') }}" class="h-8 object-contain"
+                                                    alt="">
+                                                <p class="text-center fontweight-semibold text-sm">1430030254591</p>
+                                            </div>
+                                
+                                        </div>
+                                    </div>
+                                
+                                    {{-- <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
                                         With less than a month to go before the European Union enacts new consumer
                                         privacy laws for its citizens, companies around the world are updating their
                                         terms of service agreements to comply.
@@ -694,25 +850,27 @@
                                         effect on May 25 and is meant to ensure a common set of data rights in the
                                         European Union. It requires organizations to notify users as soon as possible of
                                         high-risk data breaches that could personally affect them.
-                                    </p>
+                                    </p> --}}
                                 </div>
                                 <!-- Modal footer -->
-                                <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                                    <button data-modal-hide="default-modal" onclick="nextTab(event, 3)" type="submit"
-                                        class="text-white bg-red-primary hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-primary dark:hover:bg-red-primary dark:focus:ring-blue-800">I
-                                        accept</button>
+                                <div class="flex items-center justify-end p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
                                     <button data-modal-hide="default-modal" type="button"
-                                        class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-red-primary focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Decline</button>
+                                    class=" bg-gray-400 py-2.5 px-5 text-sm font-medium text-white focus:outline-non rounded-full border border-gray-200 hover:bg-gray-100 hover:text-red-primary focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Tidak</button>
+                            
+                                <button id="nextButton" onclick="nextTab(event, 3)"
+                                class="ml-2 text-white bg-yellow-primary hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-red-primary dark:hover:bg-red-primary dark:focus:ring-blue-800">
+                                Setuju
+                            </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </form>
 
             </div>
         </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 
 </body>
 

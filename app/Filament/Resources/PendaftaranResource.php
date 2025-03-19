@@ -150,8 +150,22 @@ class PendaftaranResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('member_id')->label('ID Member')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('full_name')->label('Nama Lengkap')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('paket.title')->label('Paket')->default('Tidak Memilih')->sortable(),
+                Tables\Columns\TextColumn::make('full_name')->label('Nama Lengkap')->sortable()->searchable(),Tables\Columns\TextColumn::make('paket.title')
+                ->label('Paket')
+                ->default('Tidak Memilih')
+                ->sortable()
+                ->formatStateUsing(function ($record) {
+                    if ($record->id_paket) {
+                        return $record->paket->title ?? 'Tidak Memilih';
+                    }
+                    elseif ($record->id_badal) {
+                        return $record->badal->title ?? 'Tidak Memilih';
+                    }
+                    elseif ($record->id_haji) {
+                        return $record->haji->title ?? 'Tidak Memilih';
+                    }
+                    return 'Tidak Memilih';
+                }),
                 Tables\Columns\TextColumn::make('created_at')->label('Terdaftar Pada')->dateTime(),
                 Tables\Columns\TextColumn::make('phone_number')->label('Nomor Telepon')->sortable(),
                 Tables\Columns\TextColumn::make('date_of_birth')->label('Tanggal Lahir')->date(),

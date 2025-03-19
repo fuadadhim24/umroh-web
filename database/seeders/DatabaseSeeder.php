@@ -17,10 +17,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             UserSeeder::class,
-            BadalSeeder::class,
-            HajiSeeder::class,
-            ArtikelSeeder::class,
-            UmrohSeeder::class,
+            // BadalSeeder::class,
+            // HajiSeeder::class,
+            // ArtikelSeeder::class,
+            // UmrohSeeder::class,
         ]);
     }
 }
