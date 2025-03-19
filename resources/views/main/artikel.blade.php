@@ -6,19 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="icon" href="{{ asset('resources/images/lp-main/al-aqsha.png') }}" type="image/icon type">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const toggleButton = document.querySelector("[data-collapse-toggle]");
+            const navMenu = document.getElementById("navbar-sticky");
+
+            toggleButton.addEventListener("click", function() {
+                navMenu.classList.toggle("hidden");
+            });
+        });
+    </script>
 </head>
 
 <body>
     <nav
-        class="bg-white dark:bg-gray-900 fixed rounded-full shadow-2xl mt-4 mb-4 inset-x-0 xl:mx-56 sm:mx-24 md:mx-36 mx-4 z-50">
+        class="bg-white dark:bg-gray-900 fixed rounded-3xl shadow-2xl mt-4 mb-4 inset-x-0 xl:mx-56 sm:mx-24 md:mx-36 mx-4 z-50">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-1 lg:p-4">
-            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="https://elaqsho.co.id" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="{{ asset('resources/images/lp-main/al-aqsha-horizontal.png') }}" class="lg:h-8 h-6 ml-4"
                     alt="Flowbite Logo">
                 {{-- <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-                --}}
+                    --}}
             </a>
-            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                 <a href="{{ route('register-form') }}"><button type="button"
                         class="text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4  px-1 py-1 lg:px-2 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Daftar
                         Sekarang</button></a>
@@ -75,16 +85,16 @@
                     <!-- Gambar Artikel -->
                     <div class="rounded-3xl flex-grow h-64 md:h-auto"
                         style="background-image: url('{{ asset('storage/' . $articles[0]->image) }}');  
-                                                       background-size: cover; 
-                                                       background-position: center; 
-                                                       background-repeat: no-repeat;">
+                                                           background-size: cover; 
+                                                           background-position: center; 
+                                                           background-repeat: no-repeat;">
                     </div>
                     <!-- Konten Artikel -->
                     <div class="my-2 mt-8 md:mx-14 flex flex-col md:flex-row">
                         <div class="w-full md:w-full md:mr-2 text-start md:text-left mr-4 font-weight-bold">
                             <p
                                 class="mb-4 inline-flex items-center px-6 md:px-12 py-1 text-sm font-medium text-center 
-                                                          text-white bg-yellow-primary rounded-full">
+                                                              text-white bg-yellow-primary rounded-full">
                                 {{ $articles[0]->category }}
                             </p>
                             <h2 class=" font-bold text-2xl md:text-3xl text-black  mb-3 ">
@@ -100,16 +110,18 @@
                             <a href="{{ route('detail-artikel', ['id' => $articles[0]->id]) }}" class="w-full ">
                                 <p
                                     class="mb-4 inline-flex items-center justify-center px-10 py-8 text-sm font-medium text-center 
-                                              text-black shadow-lg border border-black rounded-3xl w-full">
+                                                  text-black shadow-lg border border-black rounded-3xl w-full">
                                     <img src="{{ asset('resources/images/lp-main/artikel/ic-1.png') }}"
                                         class="mr-2 w-6 h-6">
                                     Baca Sekarang
                                 </p>
                             </a>
-                            <a href="javascript:void(0);" onclick="shareArticle('{{ $articles[0]->title }}', '{{ $articles[0]->url }}')" class="w-full">
+                            <a href="javascript:void(0);"
+                                onclick="shareArticle('{{ $articles[0]->title }}', '{{ $articles[0]->url }}')"
+                                class="w-full">
                                 <p
                                     class="mb-4 inline-flex items-center px-10 py-8 justify-center text-sm font-medium text-center 
-                                                                      text-white shadow-lg bg-blue-primary rounded-3xl w-full">
+                                                                          text-white shadow-lg bg-blue-primary rounded-3xl w-full">
                                     <img src="{{ asset('resources/images/lp-main/artikel/ic-2.png') }}"
                                         class="mr-2 w-6 h-6">
                                     Bagikan Artikel
@@ -125,35 +137,35 @@
         @if (count($articles) > 1)
             @foreach ($articles->skip(1) as $article)
                 {{-- <div class="grid grid-cols-3 gap-4 bg-red-primary my-4">
-                    <div class="...">01</div>
-                    <div class="...">02</div>
-                    <div class="col-span-2 ...">04</div>
-                    <div class="...">05</div>
-                    <div class="...">06</div>
-                    <div class="col-span-2 ...">07</div>
-                </div> --}}
+                        <div class="...">01</div>
+                        <div class="...">02</div>
+                        <div class="col-span-2 ...">04</div>
+                        <div class="...">05</div>
+                        <div class="...">06</div>
+                        <div class="col-span-2 ...">07</div>
+                    </div> --}}
                 {{-- <div class="grid md:grid-flow-col grid-cols-3  grid-rows-3 bg-red-primary my-4 ">
-                    <div class="row-span-3 bg-white"
-                        style="background-image: url('{{ asset('storage/' . $article->image) }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-                        01</div>
-                    <div class="col-span-2 row-span-2">
-                        <div class="flex justify-between">
-                            <h1 class="font-bold text-2xl text-gray-800">{{ $article->category }}</h1>
-                            <h2 class="font-semibold text-md text-gray-800">Tanggal:
-                                {{ \Carbon\Carbon::parse($article->created_at)->translatedFormat('d F Y') }}
-                            </h2>
+                        <div class="row-span-3 bg-white"
+                            style="background-image: url('{{ asset('storage/' . $article->image) }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                            01</div>
+                        <div class="col-span-2 row-span-2">
+                            <div class="flex justify-between">
+                                <h1 class="font-bold text-2xl text-gray-800">{{ $article->category }}</h1>
+                                <h2 class="font-semibold text-md text-gray-800">Tanggal:
+                                    {{ \Carbon\Carbon::parse($article->created_at)->translatedFormat('d F Y') }}
+                                </h2>
+                            </div>
+                            <h1 class="mt-4 font-bold text-3xl text-black break-words">
+                                {{ $article->title }}
+                            </h1>
+                            <div class="ml-4">
+                                <p class="mt-4 text-gray-800">{{ $article->short_description }}</p>
+                            </div>
                         </div>
-                        <h1 class="mt-4 font-bold text-3xl text-black break-words">
-                            {{ $article->title }}
-                        </h1>
-                        <div class="ml-4">
-                            <p class="mt-4 text-gray-800">{{ $article->short_description }}</p>
-                        </div>
-                    </div>
-                </div> --}}
+                    </div> --}}
 
 
-                <a href="{{ route('detail-artikel' , ['id' => $article->id]) }}">
+                <a href="{{ route('detail-artikel', ['id' => $article->id]) }}">
                     <div
                         class="mt-8 h-auto md:h-72 flex flex-col md:flex-row items-center bg-amber-700 shadow-xl rounded-2xl p-4">
                         <!-- Gambar -->
@@ -179,7 +191,7 @@
         @else
             <div class="text-center text-gray-500 flex flex-col items-center">
                 <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Mohon Maaf</h2>
-                <p>Tidak belum ada artikel yang tersedia saat ini.</p>
+                <p>Belum ada artikel yang tersedia saat ini.</p>
             </div>
         @endif
     </section>
@@ -209,8 +221,8 @@
                         </button>
                     </a>
                 </div>
+                </di5v>
             </div>
-        </div>
     </section>
 
     <section class="justify-center flex">
