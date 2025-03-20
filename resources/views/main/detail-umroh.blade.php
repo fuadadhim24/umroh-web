@@ -59,12 +59,12 @@
                     </li>
                     <li>
                         <a href="{{ route('haji') }}"
-                            class="block py-2 px-3 text-white bg-red-primary rounded-sm md:bg-transparent md:text-red-primary md:p-0 md:dark:text-red-primary"
+                            class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-primary md:p-0 md:dark:hover:text-red-primary dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                             aria-current="page">Haji</a>
                     </li>
                     <li>
                         <a href="{{ route('umroh') }}"
-                            class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-primary md:p-0 md:dark:hover:text-red-primary dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Umroh</a>
+                            class="block py-2 px-3 text-white bg-red-primary rounded-sm md:bg-transparent md:text-red-primary md:p-0 md:dark:text-red-primary">Umroh</a>
                     </li>
                     <li>
                         <a href="{{ route('badal') }}"
@@ -344,7 +344,7 @@
                 alt="Flowbite Logo">
             <h2 class="mt-4 text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Ikuti Kami
             </h2>
-            <div class="flex justify-evenly gap-4 mt-8">
+            <div class="flex justify-evenly gap-4 mt-8 w-full flex-wrap px-4">
                 <a href="https://www.facebook.com/share/1F9cb4zLLn/" target="_blank" rel="noopener noreferrer">
                     <div
                         class="shadow-xl border-2 border-red-primary rounded-xl w-24 h-24 flex justify-center items-center">

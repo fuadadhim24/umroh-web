@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->json('image');
+            $table->boolean('visibility');
             $table->string('subtitle');
             $table->bigInteger('harga_paket');
             $table->json('facilities');

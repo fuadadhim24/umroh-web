@@ -134,7 +134,7 @@
                 alt="Flowbite Logo">
             <h2 class="mt-4 text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Ikuti Kami
             </h2>
-            <div class="flex justify-evenly gap-4 mt-8">
+            <div class="flex justify-evenly gap-4 mt-8 w-full flex-wrap px-4">
                 <a href="https://www.facebook.com/share/1F9cb4zLLn/" target="_blank" rel="noopener noreferrer">
                     <div
                         class="shadow-xl border-2 border-red-primary rounded-xl w-24 h-24 flex justify-center items-center">

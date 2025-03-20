@@ -31,12 +31,12 @@ class BadalResource extends Resource
         return $count < 2;
     }
 
-
     public static function form(Form $form): Form
     {
         return $form->schema([
             TextInput::make('title')->label('Judul')->required(),
             Forms\Components\FileUpload::make('image')->multiple()->disk('public')->directory('images/badal')->preserveFilenames()->visibility('public')->label('Gambar')->helperText('Ukuran file maksimal 2MB')->required(),
+            Forms\Components\Toggle::make('visibility')->label('Ditampilkan'),
             TextInput::make('subtitle')->label('Deskripsi Singkat')->required(),
             TextInput::make('harga_paket')->label('Harga Paket')->required()->numeric(),
             Repeater::make('facilities')
@@ -49,8 +49,17 @@ class BadalResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([TextColumn::make('title')->label('Judul'), TextColumn::make('subtitle')->label('Deskripsi Singkat'), TextColumn::make('harga_paket')->label('Harga Paket')->formatStateUsing(fn($state) => 'Rp ' . number_format($state, 0, ',', '.')), 
-            // Tables\Columns\ImageColumn::make('image')->label('Gambar')->disk('public')->url(fn($record) => asset('storage/' . $record->image)), TextColumn::make('updated_at')->label('Terakhir Diperbarui')
+            ->columns([
+                TextColumn::make('title')->label('Judul'),
+                TextColumn::make('subtitle')->label('Deskripsi Singkat'),
+                TextColumn::make('harga_paket')
+                    ->label('Harga Paket')
+                    ->formatStateUsing(fn($state) => 'Rp ' . number_format($state, 0, ',', '.') ),
+                Tables\Columns\BooleanColumn::make('visibility')->label('Ditampilkan'),
+                
+                Tables\Columns\TextColumn::make('updated_at')->label('Terakhir Diperbarui'),
+
+                // Tables\Columns\ImageColumn::make('image')->label('Gambar')->disk('public')->url(fn($record) => asset('storage/' . $record->image)), TextColumn::make('updated_at')->label('Terakhir Diperbarui')
             ])
             ->filters([
                 //

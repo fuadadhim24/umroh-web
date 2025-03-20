@@ -49,6 +49,6 @@ class PaketController extends Controller
             $umroh->bonuses = json_decode($umroh->bonuses, true);
         }
 
-        return view('main.detail-umroh', compact('haji'));
+        return view('main.detail-umroh', compact('umroh'));
     }
 }

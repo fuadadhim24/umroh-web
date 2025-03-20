@@ -13,6 +13,7 @@ Route::get('/detail-haji/{id}',[HajiController::class, 'show'])->name('detail-ha
 Route::get('/detail-badal/{id}',[BadalController::class, 'show'])->name('detail-badal');
 Route::get('/umroh',[PaketController::class, 'index'])->name('umroh');
 Route::get('/detail-umroh/{id}',[PaketController::class, 'show'])->name('detail-umroh');
+Route::get('/daftar-umroh',[PaketController::class, 'indexDaftar'])->name('daftar-umroh');
 Route::get('/badal', [BadalController::class, 'index'])->name('badal');
 Route::get('/artikel', [ArticleController::class,'indexArticle'])->name('artikel');
 Route::get('/detail-artikel/{id}', [ArticleController::class,'indexDetail'])->name('detail-artikel');

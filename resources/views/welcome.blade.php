@@ -62,7 +62,7 @@
                     </li>
                     <li>
                         <a href="{{ route('umroh') }}"
-                            class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-primary md:p-0 md:dark:hover:text-red-primary dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Umrah</a>
+                            class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-primary md:p-0 md:dark:hover:text-red-primary dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Umroh</a>
                     </li>
                     <li>
                         <a href="{{ route('badal') }}"
@@ -135,9 +135,9 @@
                             <!-- Paket - start -->
                             @if ($paket->visibility == 1)
                                 <div class="flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-                                    <a href="#"
+                                    <a href="{{ route('detail-umroh', ['id' => $paket->id ]) }}"
                                         class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
-                                        <img src="{{ asset('storage/' . $paket->image) }}" loading="lazy"
+                                        <img src="{{ asset('storage/' . $paket->image[0]) }}" loading="lazy"
                                             alt="{{ $paket->title }}"
                                             class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
 
@@ -280,7 +280,7 @@
             <p>Belum ada artikel yang tersedia saat ini.</p>
         </div>
     @endif
-    <section class="justify-center flex mt-14   ">
+    {{-- <section class="justify-center flex mt-14   ">
         <div class="mx-auto max-w-screen-2xl items-center md:mx-8 px-4 lg:mx-20 md:px-8">
             <h2 class="text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Testimoni Jama'ah
             </h2>
@@ -354,7 +354,7 @@
             </div>
         </div>
 
-    </section>
+    </section> --}}
 
     <section class="bg-cover bg-center h-80 mt-14"
         style="background-image: url('{{ asset('resources/images/lp-main/section-hero.png') }}')">
@@ -390,7 +390,7 @@
                 alt="Flowbite Logo">
             <h2 class="mt-4 text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Ikuti Kami
             </h2>
-            <div class="flex justify-evenly gap-4 mt-8">
+            <div class="flex justify-evenly gap-4 mt-8 w-full flex-wrap px-4">
                 <a href="https://www.facebook.com/share/1F9cb4zLLn/" target="_blank" rel="noopener noreferrer">
                     <div
                         class="shadow-xl border-2 border-red-primary rounded-xl w-24 h-24 flex justify-center items-center">

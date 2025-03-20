@@ -10,6 +10,7 @@ class Badal extends Model
         'title', 
         'subtitle',
         'image',  
+        'visibility', 
         'harga_paket',  
         'facilities'
     ];

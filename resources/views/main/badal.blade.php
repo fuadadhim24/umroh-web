@@ -348,7 +348,7 @@
                     <div class="grid sm:grid-cols-2 gap-2 xl:gap-6 lg:grid-cols-2 xl:grid-cols-2">
                         <!-- product - start -->
                         @if (!empty($badal[0]) && $badal[0]->visibility == 1)
-                            <a href="#">
+                            <a href="{{ route('detail-badal', ['id' => $badal[0]->id ])  }}">
                                 <div
                                     class="px-4 py-8 bg-gradient-to-br hover:from-dark-red-second hover:to-dark-red-primary from-dark-red-primary to-dark-red-second rounded-xl flex gap-2 xl:gap-4 justify-center items-center">
                                     <div>
@@ -437,7 +437,7 @@
                 alt="Flowbite Logo">
             <h2 class="mt-4 text-center sm:text-start text-4xl font-extrabold text-gray-800 md:text-3xl">Ikuti Kami
             </h2>
-            <div class="flex justify-evenly gap-4 mt-8">
+            <div class="flex justify-evenly gap-4 mt-8 w-full flex-wrap px-4">
                 <a href="https://www.facebook.com/share/1F9cb4zLLn/" target="_blank" rel="noopener noreferrer">
                     <div
                         class="shadow-xl border-2 border-red-primary rounded-xl w-24 h-24 flex justify-center items-center">
