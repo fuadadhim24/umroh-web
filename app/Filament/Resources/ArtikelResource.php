@@ -38,7 +38,7 @@ class ArtikelResource extends Resource
                     ->helperText('Ukuran file maksimal 2MB')
                     ->preserveFilenames()
                     ->visibility('public'),
-                Forms\Components\Textarea::make('content')
+                Forms\Components\RichEditor::make('content')
                     ->label('Konten')
                     ->required(),
                 Forms\Components\TextInput::make('category')
