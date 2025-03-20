@@ -403,15 +403,6 @@
                                         <option value="Belum Menikah">Belum Menikah</option>
                                     </select>
                                 </div>
-                                <div>
-                                    <label for="password"
-                                        class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
-                                            class="text-red-600">*</span>Status
-                                        Pernikahan</label>
-                                    <input type="text" name="marital_status" id="password"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-red-primary focus:border-red-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-primary dark:focus:border-red-primary"
-                                        placeholder="cth: Belum Menikah" required="">
-                                </div>
                                 {{-- <div>
                                         <label for="confirm-password" class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
                                                 class="text-red-600">*</span>Jenis
