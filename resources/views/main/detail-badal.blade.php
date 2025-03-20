@@ -178,27 +178,13 @@
 
 
         <div class="gap-4 hidden xl:flex justify-around items-center flex-row">
-            <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl" onclick="openModal('image1')">
-                <img class="rounded-xl"
-                    src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}"
-                    alt="">
+            @foreach ($badal->image as $image_item)
+            <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl"
+                onclick="openModal('image-{{ $image_item }}')">
+                <img class="rounded-xl" src="{{ asset('storage/' . $image_item) }}" alt="Gambar Badal">
             </div>
-            {{-- <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl" onclick="openModal('image2')">
-                <img class="rounded-xl" src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}" alt="">
-            </div>
-            <div class="w-72 bg-white rounded-xl p-2 mt-16 shadow-2xl" onclick="openModal('image3')">
-                <img class="rounded-xl" src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}" alt="">
-            </div> --}}
-            <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl" onclick="openModal('image4')">
-                <img class="rounded-xl"
-                    src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}"
-                    alt="">
-            </div>
-            <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl" onclick="openModal('image5')">
-                <img class="rounded-xl"
-                    src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}"
-                    alt="">
-            </div>
+        @endforeach
+            
         </div>
 
         <!-- Modal -->

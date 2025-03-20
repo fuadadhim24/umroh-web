@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             const toggleButton = document.querySelector("[data-collapse-toggle]");
             const navMenu = document.getElementById("navbar-sticky");
 
-            toggleButton.addEventListener("click", function () {
+            toggleButton.addEventListener("click", function() {
                 navMenu.classList.toggle("hidden");
             });
         });
@@ -178,27 +178,23 @@
 
 
         <div class="gap-4 hidden xl:flex justify-around items-center flex-row">
-            <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl" onclick="openModal('image1')">
+            @foreach ($umroh->image as $image_item)
+                <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl"
+                    onclick="openModal('image-{{ $image_item }}')">
+                    <img class="rounded-xl" src="{{ asset('storage/' . $image_item) }}" alt="Gambar Umroh">
+                </div>
+            @endforeach
+            {{-- <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl" onclick="openModal('image1')">
                 <img class="rounded-xl"
                     src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}"
                     alt="">
-            </div>
+            </div> --}}
             {{-- <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl" onclick="openModal('image2')">
                 <img class="rounded-xl" src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}" alt="">
             </div>
             <div class="w-72 bg-white rounded-xl p-2 mt-16 shadow-2xl" onclick="openModal('image3')">
                 <img class="rounded-xl" src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}" alt="">
             </div> --}}
-            <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl" onclick="openModal('image4')">
-                <img class="rounded-xl"
-                    src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}"
-                    alt="">
-            </div>
-            <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl" onclick="openModal('image5')">
-                <img class="rounded-xl"
-                    src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}"
-                    alt="">
-            </div>
         </div>
 
         <!-- Modal -->
@@ -206,84 +202,95 @@
             <span class="close" onclick="closeModal()">&times;</span>
             <img class="modal-content" id="modalImage">
         </div>
-        <h1 class="mt-8 text-center text-2xl md:text-5xl font-extrabold text-dark-red-primary mb-12">Umroh Spesial Bulan<br>Syawwal 1446 H</h1>
-    </section>
-
-
-    <section class="h-2/3 px-8 md:px-24 lg:px-48 xl:px-72 flex items-center">
-        <h4 class="text-center font-semibold">Bersama El-Aqsho Group, nikmati perjalanan Umroh yang penuh berkah di bulan Syawwal. Kami menghadirkan paket eksklusif dengan layanan terbaik selama 16 hari untuk pengalaman ibadah yang nyaman dan berkesan.</h4>
-    </section>
-    <section class="px-2 mt-8 md:mt-22 py-12 md:px-24 md:py-4">
-        <h1
-            class="mt-4 text-center md:text-start text-2xl md:text-5xl  font-extrabold text-dark-red-primary mb-12 md:mb-4 mx-2">
-            Keunggulan Program Kami
+        <h1 class="mt-8 text-center text-2xl md:text-5xl font-extrabold text-dark-red-primary mb-12">Paket
+            {!! str_replace('(', '<br>(', $umroh->title) !!}
         </h1>
-        <p class="px-12 font-bold">Keunggulan Program Umroh Syawwal Kami:</p>
-        <ul class="list-disc list-outside px-16 font-semibold">
-            
-            <li class="pb-2 md:pb-0 pt-2">Tanpa Antrian Panjang: Dengan Visa Furodha, Anda langsung berangkat tanpa harus menunggu
-                antrean
-                reguler.</li>
-            <li class="pb-2">Pendampingan Profesional: Dibimbing oleh Muthawwif berpengalaman yang akan membantu
-                kelancaran ibadah
-                Anda.</li>
-            <li class="pb-2">Perjalanan Nyaman: Akomodasi premium, fasilitas modern, dan layanan yang dirancang
-                khusus
-                untuk
-                kenyamanan Anda.</li>
-        </ul>
     </section>
-    <section class="px-8 md:px-24">
+
+
+    <section class="h-2/3 px-8 md:px-24 lg:px-48 xl:px-72 flex items-center justify-center">
+        <h4 class="text-center font-semibold">{{ $umroh->short_description }}</h4>
+    </section>
+    @if ($umroh->keunggulan)
+        <section class="px-2 mt-8 md:mt-22 py-12 md:px-20 md:py-4">
+            <h1
+                class="mt-4 text-center md:text-start text-2xl md:text-5xl font-extrabold text-dark-red-primary mb-12 md:mb-4 mx-2">
+                Keunggulan Program Kami
+            </h1>
+            <p class="px-12 font-bold">Keunggulan {{ $umroh->title }} kami:</p>
+
+            <ul class="list-disc list-outside px-16 font-semibold">
+                @foreach ($umroh->advantages as $advantages_item)
+                    <li class="pb-2 md:pb-0 pt-2">{{ $advantages_item['advantages_item'] }}</li>
+                @endforeach
+            </ul>
+        </section>
+    @endif
+    <section class="px-8 md:px-24 mt-16">
         <div class="flex flex-col justify-between items-center md:items-start md:flex-row md:">
             <div class="">
                 <h1
                     class="mt-4 text-center md:text-start text-2xl md:text-5xl  font-extrabold text-dark-red-primary mb-12 md:mb-4">
-                    Harga Paket:<br>20.000 USD
+                    Harga Paket:<br>Rp. {{ number_format($umroh->price, 0, ',', '.') }}
                 </h1>
                 <h3 class="md:px-12 px-2 font-bold">Sudah Termasuk</h3>
-                <ul class="list-disc list-outside px-16 md:px-12 font-semibold">
-                    <li class="pb-2 md:pb-0 pt-2">Tiket pesawat PP (Indonesia - Saudi Arabia).</li>
-                    <li class="pb-2">Visa Furodha tanpa antrean.</li>
-                    <li class="pb-2">Maktab Furodha untuk kenyamanan ibadah.</li>
-                </ul>
+                @if ($umroh->facilities)
+                    <ul class="list-disc list-outside px-6 md:px-16 font-semibold">
+                        @foreach ($umroh->facilities as $facility_item)
+                            <li class="pb-2 md:pb-0 pt-2">{{ $facility_item['facility'] }}</li>
+                        @endforeach
+                    </ul>
+                @endif
             </div>
             <div class="flex flex-col">
+                
+                @if ($umroh->additional_services)
                 <div>
+                    
                     <h1
                         class="mt-4 md:text-start text-center text-2xl md:text-5xl font-extrabold text-dark-red-primary mb-8 md:mb-4 mx-2">
                         Akomodasi Hotel Premium
                     </h1>
                     <ul class="list-disc list-outside px-16 font-semibold">
-                        <li class="pb-4 md:pb-2">Mekah: Elaf Masyaher atau setara.</li>
-                        <li class="pb-4 md:pb-2">Madinah: Al-Saha atau setara.</li>
+
+                        @foreach ($umroh->additional_services as $akomodasi_item)
+                            <li class="pb-4 md:pb-2">{{ $akomodasi_item['service'] }}</li>
+                        @endforeach
                     </ul>
                 </div>
+                @endif
+                @if ($umroh->bonuses)
+                    
                 <div>
                     <h1
                         class="mt-4 text-center md:text-start text-2xl md:text-5xl  font-extrabold text-dark-red-primary mb-8 mx-2 md:mb-4">
                         Gratis:
                     </h1>
+
                     <ul class="list-disc list-outside px-16 font-semibold">
-                        <li class="pb-4 md:pb-2">Pembuatan Paspor Umroh.</li>
-                        <li class="pb-4 md:pb-2">Vaksin meningitis.</li>
-                        <li class="pb-4 md:pb-2">City Tour ke Thaif.</li>
-                        <li class="pb-4 md:pb-2">Perjalanan dengan kereta cepat yang modern.</li>
+                        @foreach ($umroh->bonuses as $gratis_item)
+                        <li class="pb-4 md:pb-2">{{ $gratis_item['bonus'] }}</li>
+                    @endforeach
                     </ul>
                 </div>
+                @endif
             </div>
 
         </div>
+        @if ($umroh->exclusions)
         <div>
             <h1
                 class="mt-4 text-center md:text-start text-2xl md:text-5xl  font-extrabold text-dark-red-primary mb-8 mx-2 md:mt-2 md:mb-4">
                 Tidak Termasuk:
             </h1>
             <ul class="list-disc list-outside px-16 font-semibold">
-                <li class="pb-4 md:pb-2">Medical check-up sebelum keberangkatan.</li>
-                <li class="pb-4 md:pb-2">Kelebihan bagasi.</li>
-                <li class="pb-4 md:pb-2">Keperluan pribadi selama perjalanan.</li>
+                @foreach ($umroh->exclusions as $exclusion_item)
+                <li class="pb-4 md:pb-2">{{ $exclusion_item['exclusion'] }}</li>
+            @endforeach
             </ul>
         </div>
+        @endif
+       
     </section>
     <section class="h-screen p-4 py-12 sm:p-24">
         <div class="bg-black rounded-xl h-full w-full">
@@ -297,8 +304,8 @@
                     </p>
                     <a href="{{ route('register-form') }}">
                         <button type="button"
-                        class="mt-4 text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-2 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Jadwalkan
-                        Sekarang</button>
+                            class="mt-4 text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-2 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Jadwalkan
+                            Sekarang</button>
                     </a>
                 </div>
                 <div class="mt-12 sm:mt-0 mb-4 rounded-2xl w-full sm:w-5/6 lg:w-1/3 sm:h-5/6 sm:mx-2 lg:mx-14 flex-grow"
@@ -368,7 +375,8 @@
                     </div>
                 </a>
 
-                <a href="https://www.tiktok.com/@elaqshogroup?_t=ZS-8upUzdWhtg2&_r=1" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.tiktok.com/@elaqshogroup?_t=ZS-8upUzdWhtg2&_r=1" target="_blank"
+                    rel="noopener noreferrer">
                     <div
                         class="shadow-xl border-2 border-red-primary rounded-xl w-24 h-24 flex justify-center items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
@@ -379,9 +387,10 @@
                     </div>
                 </a>
                 <a href="http://wa.me/6282141297588" target="_blank" rel="noopener noreferrer">
-                    <div class="shadow-xl border-2 border-red-primary rounded-xl w-24 h-24 flex justify-center items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-whatsapp"
-                            viewBox="0 0 16 16">
+                    <div
+                        class="shadow-xl border-2 border-red-primary rounded-xl w-24 h-24 flex justify-center items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                            class="bi bi-whatsapp" viewBox="0 0 16 16">
                             <path
                                 d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
                         </svg>

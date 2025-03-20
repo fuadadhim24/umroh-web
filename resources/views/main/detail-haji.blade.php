@@ -197,7 +197,7 @@
         @if ($haji->images)
             <div class="gap-4 hidden xl:flex justify-around items-center flex-row">
                 @foreach ($haji->images as $image_item)
-                    <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl" onclick="openModal('image1')">
+                    <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl" onclick="openModal('image-{{ $image_item }}')">
                         <img class="rounded-xl w-full h-full object-cover"
                             src="{{ asset('storage/' . $image_item) }}" alt="Gambar Haji">
                     </div>
@@ -248,7 +248,7 @@
             <div class="">
                 <h1
                     class="mt-4 text-center md:text-start text-2xl md:text-5xl  font-extrabold text-dark-red-primary mb-12 md:mb-4">
-                    Harga Paket:<br>Rp. {{ $haji->harga_paket }}
+                    Harga Paket:<br>Rp. {{ number_format($haji->harga_paket, 0, ',', '.') }}
                 </h1>
                 <h3 class="md:px-12 px-2 font-bold">Sudah Termasuk</h3>
                 @if ($haji->facilities)
