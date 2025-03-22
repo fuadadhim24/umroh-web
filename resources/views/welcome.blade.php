@@ -7,11 +7,11 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="icon" href="{{ asset('resources/images/lp-main/al-aqsha.png') }}" type="image/icon type">
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             const toggleButton = document.querySelector("[data-collapse-toggle]");
             const navMenu = document.getElementById("navbar-sticky");
 
-            toggleButton.addEventListener("click", function () {
+            toggleButton.addEventListener("click", function() {
                 navMenu.classList.toggle("hidden");
             });
         });
@@ -135,7 +135,7 @@
                             <!-- Paket - start -->
                             @if ($paket->visibility == 1)
                                 <div class="flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-                                    <a href="{{ route('detail-umroh', ['id' => $paket->id ]) }}"
+                                    <a href="{{ route('detail-umroh', ['id' => $paket->id]) }}"
                                         class="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg">
                                         <img src="{{ asset('storage/' . $paket->image[0]) }}" loading="lazy"
                                             alt="{{ $paket->title }}"
@@ -164,7 +164,7 @@
             </div>
         </div>
     </section>
-    @if ($thirdArticle)
+    @if ($secondArticle)
         <section class="flex py-10 md:py-20 justify-center">
             <div class="mx-auto w-full max-w-screen-2xl px-4 md:px-8 ">
                 <div class="flex flex-col md:flex-row md:justify-between items-center mb-6 md:mb-8">
@@ -244,31 +244,84 @@
                         </div>
 
                         <!-- Artikel 3 -->
-                        <div class="rounded-3xl shadow-custom hover:shadow-lg transition-transform duration-300">
-                            <div class="mt-4 mx-4 rounded-2xl shadow-custom">
+                        @if ($thirdArticle)
+                            <div class="rounded-3xl shadow-custom hover:shadow-lg transition-transform duration-300">
+                                <div class="mt-4 mx-4 rounded-2xl shadow-custom">
 
-                                <div class="rounded-t-lg w-full h-32 md:h-24 rounded-2xl bg-cover bg-center"
-                                    style="background-image: url('{{ asset('storage/' . $thirdArticle->image) }}');">
+                                    <div class="rounded-t-lg w-full h-32 md:h-24 rounded-2xl bg-cover bg-center"
+                                        style="background-image: url('{{ asset('storage/' . $thirdArticle->image) }}');">
+                                    </div>
+
                                 </div>
-
+                                <div class="p-4">
+                                    <p
+                                        class="mb-1 inline-block px-3 py-1 text-sm font-medium text-white bg-yellow-primary rounded-full">
+                                        {{ $thirdArticle->category }}
+                                    </p>
+                                    <a href="#">
+                                        <h5 class="line-clamp-2 text-lg font-bold text-gray-900">
+                                            {{ $thirdArticle->title }}
+                                        </h5>
+                                    </a>
+                                    <p class="line-clamp-3 text-sm text-gray-700">
+                                        {{ $thirdArticle->short_description }}
+                                    </p>
+                                    <p class="text-xs text-gray-700 mt-2">Tanggal:
+                                        {{ \Carbon\Carbon::parse($thirdArticle->created_at)->translatedFormat('d F Y') }}
+                                    </p>
+                                </div>
                             </div>
-                            <div class="p-4">
-                                <p
-                                    class="mb-1 inline-block px-3 py-1 text-sm font-medium text-white bg-yellow-primary rounded-full">
-                                    {{ $thirdArticle->category }}
-                                </p>
-                                <a href="#">
-                                    <h5 class="line-clamp-2 text-lg font-bold text-gray-900">
-                                        {{ $thirdArticle->title }}
-                                    </h5>
-                                </a>
-                                <p class="line-clamp-3 text-sm text-gray-700">
-                                    {{ $thirdArticle->short_description }}
-                                </p>
-                                <p class="text-xs text-gray-700 mt-2">Tanggal:
-                                    {{ \Carbon\Carbon::parse($thirdArticle->created_at)->translatedFormat('d F Y') }}
-                                </p>
-                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </section>
+    @elseif($firstArticle)
+        <section class="flex py-10 md:py-20 justify-center">
+            <div class="mx-auto w-full max-w-screen-2xl px-4 md:px-8 ">
+                <div class="flex flex-col md:flex-row md:justify-between items-center mb-6 md:mb-8">
+                    <h2 class="text-center md:text-start text-3xl md:text-4xl font-extrabold text-gray-800">
+                        Artikel Terbaru
+                    </h2>
+                    <a href="{{ route('artikel') }}">
+                        <button type="button"
+                            class="hidden sm:flex text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none font-medium rounded-full text-xs sm:text-sm px-4 py-3">
+                            Selengkapnya
+                        </button>
+                    </a>
+                </div>
+                <div class="grid grid-cols-1 w-full">
+                    <!-- Artikel 1 (Besar di kiri) -->
+                    <div class=" rounded-3xl shadow-custom hover:shadow-lg transition-transform duration-300">
+                        <div class="mt-4 mx-4 rounded-2xl shadow-custom">
+                            <img class="rounded-t-lg object-cover w-full h-auto md:h-96 rounded-2xl"
+                                src="{{ asset('storage/' . $firstArticle->image) }}"
+                                alt="{{ $firstArticle->title }}" />
+                        </div>
+                        <div class="p-4">
+                            <p
+                                class="mb-3 inline-block px-3 py-1 text-sm font-medium text-white bg-yellow-primary rounded-full">
+                                {{ $firstArticle->category }}
+                            </p>
+                            <a href="#">
+                                <h5 class="line-clamp-2 text-xl md:text-2xl font-bold text-gray-900">
+                                    {{ $firstArticle->title }}
+                                </h5>
+                            </a>
+                            <p class="line-clamp-5 text-sm md:text-base text-gray-700">
+                                {{ $firstArticle->short_description }}
+                            </p>
+                            <p class="text-xs md:text-sm text-gray-700 mt-2">Tanggal:
+                                {{ \Carbon\Carbon::parse($firstArticle->created_at)->translatedFormat('d F Y') }}
+                            </p>
+                            <a href="#"
+                                class="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-primary rounded-lg hover:bg-blue-800">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z" />
+                                </svg>&nbsp;Bagikan
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -414,7 +467,8 @@
                     </div>
                 </a>
 
-                <a href="https://www.tiktok.com/@elaqshogroup?_t=ZS-8upUzdWhtg2&_r=1" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.tiktok.com/@elaqshogroup?_t=ZS-8upUzdWhtg2&_r=1" target="_blank"
+                    rel="noopener noreferrer">
                     <div
                         class="shadow-xl border-2 border-red-primary rounded-xl w-24 h-24 flex justify-center items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
@@ -425,9 +479,10 @@
                     </div>
                 </a>
                 <a href="http://wa.me/6282141297588" target="_blank" rel="noopener noreferrer">
-                    <div class="shadow-xl border-2 border-red-primary rounded-xl w-24 h-24 flex justify-center items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-whatsapp"
-                            viewBox="0 0 16 16">
+                    <div
+                        class="shadow-xl border-2 border-red-primary rounded-xl w-24 h-24 flex justify-center items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                            class="bi bi-whatsapp" viewBox="0 0 16 16">
                             <path
                                 d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
                         </svg>

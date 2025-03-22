@@ -13,9 +13,9 @@ class RegisterFormController extends Controller
 {
     public function index()
     {
-        $paket = Paket::latest()->get();
-        $haji = Haji::latest()->get();
-        $badal = Badal::latest()->get();
+        $paket = Paket::where('visibility', 1)->latest()->get();
+        $haji = Haji::where('visibility', 1)->latest()->get();
+        $badal = Badal::where('visibility', 1)->latest()->get();
         return view('form.register-form', compact('paket', 'haji', 'badal'));
     }
 

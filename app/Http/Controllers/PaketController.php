@@ -9,7 +9,7 @@ class PaketController extends Controller
 {
     public function index()
     {
-        $umroh = Paket::all();
+        $umroh = Paket::latest()->get();
         foreach ($umroh as $umroh_item) {
             $umroh_item->price = number_format($umroh_item->price, 0, ',', '.');
         }
@@ -17,7 +17,7 @@ class PaketController extends Controller
     }
 
     public function indexDaftar(){
-        $umroh = Paket::all();
+        $umroh = Paket::latest()->get();
         foreach ($umroh as $umroh_item) {
             $umroh_item->price = number_format($umroh_item->price, 0, ',', '.');
         }
