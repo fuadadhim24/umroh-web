@@ -169,7 +169,7 @@
                                         class="mb-1 inline-block px-3 py-1 text-sm font-medium text-white bg-yellow-primary rounded-full">
                                         {{ $article_item->category }}
                                     </p>
-                                    <a href="#">
+                                    <a href="{{ route('detail-artikel', ['id' => $article_item->id]) }}">
                                         <h5 class="line-clamp-2 text-lg font-bold text-gray-900">
                                             {{ $article_item->title }}
                                         </h5>

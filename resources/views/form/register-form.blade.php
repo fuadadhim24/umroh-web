@@ -74,7 +74,7 @@
             const passportReq = document.getElementById('paspor_permintaan');
 
             const currentTabInputs = document.querySelectorAll(
-                `#tab-${currentTab} input[required]:not(#email):not(#notes):not(#paket), #tab-${currentTab} select[required]`
+                `#tab-${currentTab} input[required]:not(#email):not(#notes):not(#paket), #tab-${currentTab} select[required]:not(#program_choice)`
             );
             let allFilled = true;
 
@@ -144,12 +144,13 @@
                             `;
 
                             const encodedMessage = encodeURIComponent(message);
-                            const whatsappUrl = `https://wa.me/6282141297588?text=${encodedMessage}`;
+                            const whatsappUrl = `https://wa.me/6285157482088?text=${encodedMessage}`;
 
 
                             Swal.fire({
                                 title: "Sukses!",
                                 icon: "success",
+                                allowOutsideClick: false,
                                 html: `
                                     <b>Alhamdulillah anda berhasil terdaftar!</b> Anda akan segera dihubungi bergabung dengan grup keberangkatan atau bisa konfirmasi langsung melalui nomor berikut <br>
                                     <a style="color: #24d265; text-decoration: none;" href="${whatsappUrl}" target="_blank" rel="noopener noreferrer">
@@ -171,10 +172,18 @@
                             });
                         } else if (data.message == 'The POST data is too large' || data.message ==
                             'The image failed to upload.') {
+                            console.log(data.message);
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Oops...',
                                 html: `Terjadi kesalahan saat menyimpan data! Foto terlalu besar<br> Silakan unggah kembali foto berukuran maksimal 2MB. <br> Apabila masih mengalami masalah, mohon hubungi ke  
+                                    <a class="text-red-primary" href="http://wa.me/6282141297588" target="_blank" rel="noopener noreferrer">CS El-Aqsho</a> berikut`,
+                            });
+                        } else if (data.message == 'Anda belum mengunggah foto! Silakan unggah foto terlebih dahulu.') {
+                            Swal.fire({
+                                icon: 'warning',
+                                title: 'Oops...',
+                                html: `${data.message}<br> Apabila masih mengalami masalah, mohon hubungi ke
                                     <a class="text-red-primary" href="http://wa.me/6282141297588" target="_blank" rel="noopener noreferrer">CS El-Aqsho</a> berikut`,
                             });
                         } else {
@@ -256,6 +265,9 @@
             const paketSelect = document.getElementById('paket_select');
             const hajiSelect = document.getElementById('haji_select');
             const badalSelect = document.getElementById('badal_select');
+            const paketPrice = document.getElementById('paket_price');
+
+            paketPrice.classList.add('hidden');
 
 
             if (programChoice === 'haji') {
@@ -268,6 +280,10 @@
                 paketSelect.style.display = 'none';
             } else if (programChoice === 'paket') {
                 paketSelect.style.display = 'block';
+                hajiSelect.style.display = 'none';
+                badalSelect.style.display = 'none';
+            } else {
+                paketSelect.style.display = 'none';
                 hajiSelect.style.display = 'none';
                 badalSelect.style.display = 'none';
             }
@@ -459,9 +475,9 @@
                                         class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
                                             class="text-red-600">*</span>Tanggal
                                         Lahir</label>
-                                    <input type="date" name="date_of_birth" id="email"
+                                    <input type="date" name="date_of_birth" id="date_of_birth"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-red-primary focus:border-red-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-primary dark:focus:border-red-primary"
-                                        required="">
+                                        required>
                                 </div>
                                 <div>
                                     <label for="nik"
@@ -534,7 +550,7 @@
                                             class="text-red-600">*</span>Pekerjaan</label>
                                     <input type="text" name="occupation" id="password"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-red-primary focus:border-red-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-primary dark:focus:border-red-primary"
-                                        placeholder="cth: Buruh Tani" required="">
+                                        placeholder="cth: Pegawai" required="">
                                 </div>
                                 {{-- <div>
                                         <label for="confirm-password" class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
@@ -783,13 +799,13 @@
                                     </div> --}}
                                 <div class="mb-4">
                                     <label for="program_choice"
-                                        class="block mb-2 text-xs font-bold text-gray-900 dark:text-white">
-                                        <span class="text-red-600">*</span>Pilih Program
+                                        class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
+                                        class="text-red-600">*</span>
+                                        Pilih Program
                                     </label>
                                     <select id="program_choice" name="selected_paket"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-red-primary focus:border-red-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-primary dark:focus:border-red-primary"
-                                        required>
-                                        <option value="">Pilih Program</option>
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-red-primary focus:border-red-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-primary dark:focus:border-red-primary" required>
+                                        <option value="">DP</option>
                                         <option value="haji">Haji</option>
                                         <option value="badal">Badal</option>
                                         <option value="paket">Umroh</option>
@@ -799,7 +815,7 @@
                                 <div id="haji_select" class="hidden">
                                     <label for="haji_list"
                                         class="block mb-2 text-xs font-bold text-gray-900 dark:text-white"><span
-                                            class="text-red-600">*</span>Pilih
+                                        class="text-red-600">*</span>Pilih
                                         Haji</label>
                                     <select id="haji_list" name="id_haji"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-red-primary focus:border-red-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-primary dark:focus:border-red-primary"
@@ -937,7 +953,7 @@
                                             dengan jamaah baru.</li>
                                         <li>5. Pembayaran melalui metode transfer harus disertai bukti pembayaran yang
                                             dikirim ke WhatsApp admin di
-                                            nomor: <strong>082141297588</strong>.</li>
+                                            nomor: <strong>085157482088</strong>.</li>
                                         <li>6. Jika jamaah melakukan pembatalan sepihak:
                                             <ul class="list-disc px-8">
                                                 <li>1 bulan sebelum keberangkatan: akan dikenai potongan sebesar 25%
@@ -969,7 +985,7 @@
                                             <div class=" flex-1  flex flex-col justify-center ">
                                                 <img src="{{ asset('resources/images/lp-main/pendaftaran/ic_mandiri.png') }}"
                                                     class="h-8 object-contain" alt="">
-                                                <p class="text-center fontweight-semibold text-sm">1430030254591</p>
+                                                <p class="text-center fontweight-semibold text-sm">1430077777926</p>
                                             </div>
 
                                         </div>

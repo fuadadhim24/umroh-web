@@ -180,97 +180,104 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
                     <!-- Artikel 1 (Besar di kiri) -->
-                    <div
-                        class="md:col-span-2 rounded-3xl shadow-custom hover:shadow-lg transition-transform duration-300">
-                        <div class="mt-4 mx-4 rounded-2xl shadow-custom">
-                            <img class="rounded-t-lg object-cover w-full h-auto md:h-96 rounded-2xl"
-                                src="{{ asset('storage/' . $firstArticle->image) }}"
-                                alt="{{ $firstArticle->title }}" />
+                    <a href="{{ route('detail-artikel', ['id' => $firstArticle->id]) }}">
+                        <div
+                            class="md:col-span-2 rounded-3xl shadow-custom hover:shadow-lg transition-transform duration-300">
+                            <div class="mt-4 mx-4 rounded-2xl shadow-custom">
+                                <img class="rounded-t-lg object-cover w-full h-auto md:h-96 rounded-2xl"
+                                    src="{{ asset('storage/' . $firstArticle->image) }}"
+                                    alt="{{ $firstArticle->title }}" />
+                            </div>
+                            <div class="p-4">
+                                <p
+                                    class="mb-3 inline-block px-3 py-1 text-sm font-medium text-white bg-yellow-primary rounded-full">
+                                    {{ $firstArticle->category }}
+                                </p>
+                                <a href="{{ route('detail-artikel', ['id' => $firstArticle->id]) }}">
+                                    <h5 class="line-clamp-2 text-xl md:text-2xl font-bold text-gray-900">
+                                        {{ $firstArticle->title }}
+                                    </h5>
+                                </a>
+                                <p class="line-clamp-5 text-sm md:text-base text-gray-700">
+                                    {{ $firstArticle->short_description }}
+                                </p>
+                                <p class="text-xs md:text-sm text-gray-700 mt-2">Tanggal:
+                                    {{ \Carbon\Carbon::parse($firstArticle->created_at)->translatedFormat('d F Y') }}
+                                </p>
+                                <a href="{{ route('detail-artikel', ['id' => $firstArticle->id]) }}"
+                                    class="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-primary rounded-lg hover:bg-blue-800">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z" />
+                                    </svg>&nbsp;Bagikan
+                                </a>
+                            </div>
                         </div>
-                        <div class="p-4">
-                            <p
-                                class="mb-3 inline-block px-3 py-1 text-sm font-medium text-white bg-yellow-primary rounded-full">
-                                {{ $firstArticle->category }}
-                            </p>
-                            <a href="#">
-                                <h5 class="line-clamp-2 text-xl md:text-2xl font-bold text-gray-900">
-                                    {{ $firstArticle->title }}
-                                </h5>
-                            </a>
-                            <p class="line-clamp-5 text-sm md:text-base text-gray-700">
-                                {{ $firstArticle->short_description }}
-                            </p>
-                            <p class="text-xs md:text-sm text-gray-700 mt-2">Tanggal:
-                                {{ \Carbon\Carbon::parse($firstArticle->created_at)->translatedFormat('d F Y') }}
-                            </p>
-                            <a href="#"
-                                class="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-primary rounded-lg hover:bg-blue-800">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                    fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z" />
-                                </svg>&nbsp;Bagikan
-                            </a>
-                        </div>
-                    </div>
+                    </a>
 
                     <!-- Container untuk Artikel 2 dan 3 di kanan -->
                     <div class="md:col-span-1 flex flex-col gap-4">
                         <!-- Artikel 2 -->
-                        <div class="rounded-3xl shadow-custom hover:shadow-lg transition-transform duration-300">
-                            <div class="mt-4 mx-4 rounded-2xl shadow-custom">
-
-                                <div class="rounded-t-lg w-full h-32 md:h-24 rounded-2xl bg-cover bg-center"
-                                    style="background-image: url('{{ asset('storage/' . $secondArticle->image) }}');">
-                                </div>
-                            </div>
-                            <div class="p-4">
-                                <p
-                                    class="mb-1 inline-block px-3 py-1 text-sm font-medium text-white bg-yellow-primary rounded-full">
-                                    {{ $secondArticle->category }}
-                                </p>
-                                <a href="#">
-                                    <h5 class="line-clamp-2 text-lg font-bold text-gray-900">
-                                        {{ $secondArticle->title }}
-                                    </h5>
-                                </a>
-                                <p class="line-clamp-3 text-sm text-gray-700">
-                                    {{ $secondArticle->short_description }}
-                                </p>
-                                <p class="text-xs text-gray-700 mt-2">Tanggal:
-                                    {{ \Carbon\Carbon::parse($secondArticle->created_at)->translatedFormat('d F Y') }}
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Artikel 3 -->
-                        @if ($thirdArticle)
+                        <a href="{{ route('detail-artikel', ['id' => $secondArticle->id]) }}">
                             <div class="rounded-3xl shadow-custom hover:shadow-lg transition-transform duration-300">
                                 <div class="mt-4 mx-4 rounded-2xl shadow-custom">
 
                                     <div class="rounded-t-lg w-full h-32 md:h-24 rounded-2xl bg-cover bg-center"
-                                        style="background-image: url('{{ asset('storage/' . $thirdArticle->image) }}');">
+                                        style="background-image: url('{{ asset('storage/' . $secondArticle->image) }}');">
                                     </div>
-
                                 </div>
                                 <div class="p-4">
                                     <p
                                         class="mb-1 inline-block px-3 py-1 text-sm font-medium text-white bg-yellow-primary rounded-full">
-                                        {{ $thirdArticle->category }}
+                                        {{ $secondArticle->category }}
                                     </p>
-                                    <a href="#">
+                                    <a href="{{ route('detail-artikel', ['id' => $secondArticle->id]) }}">
                                         <h5 class="line-clamp-2 text-lg font-bold text-gray-900">
-                                            {{ $thirdArticle->title }}
+                                            {{ $secondArticle->title }}
                                         </h5>
                                     </a>
                                     <p class="line-clamp-3 text-sm text-gray-700">
-                                        {{ $thirdArticle->short_description }}
+                                        {{ $secondArticle->short_description }}
                                     </p>
                                     <p class="text-xs text-gray-700 mt-2">Tanggal:
-                                        {{ \Carbon\Carbon::parse($thirdArticle->created_at)->translatedFormat('d F Y') }}
+                                        {{ \Carbon\Carbon::parse($secondArticle->created_at)->translatedFormat('d F Y') }}
                                     </p>
                                 </div>
                             </div>
+                        </a>
+
+                        <!-- Artikel 3 -->
+                        @if ($thirdArticle)
+                            <a href="{{ route('detail-artikel', ['id' => $thirdArticle->id]) }}">
+                                <div
+                                    class="rounded-3xl shadow-custom hover:shadow-lg transition-transform duration-300">
+                                    <div class="mt-4 mx-4 rounded-2xl shadow-custom">
+
+                                        <div class="rounded-t-lg w-full h-32 md:h-24 rounded-2xl bg-cover bg-center"
+                                            style="background-image: url('{{ asset('storage/' . $thirdArticle->image) }}');">
+                                        </div>
+
+                                    </div>
+                                    <div class="p-4">
+                                        <p
+                                            class="mb-1 inline-block px-3 py-1 text-sm font-medium text-white bg-yellow-primary rounded-full">
+                                            {{ $thirdArticle->category }}
+                                        </p>
+                                        <a href="{{ route('detail-artikel', ['id' => $thirdArticle->id]) }}">
+                                            <h5 class="line-clamp-2 text-lg font-bold text-gray-900">
+                                                {{ $thirdArticle->title }}
+                                            </h5>
+                                        </a>
+                                        <p class="line-clamp-3 text-sm text-gray-700">
+                                            {{ $thirdArticle->short_description }}
+                                        </p>
+                                        <p class="text-xs text-gray-700 mt-2">Tanggal:
+                                            {{ \Carbon\Carbon::parse($thirdArticle->created_at)->translatedFormat('d F Y') }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
                         @endif
                     </div>
                 </div>

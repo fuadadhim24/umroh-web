@@ -347,7 +347,7 @@
                         <div class="mx-2">
                             <h2 class="mb-16 text-3xl font-bold text-white text-center items-center">Telah Menangani
                                 Lebih
-                                dari<br>+2500 Jamaah</h2>
+                                dari<br>+350 Jamaah</h2>
                             <div class="w-full h-20 bg-white rounded-2xl flex items-center justify-center font-bold">
                                 <h3>Angka Keberhasilan</h3>
                             </div>
@@ -356,13 +356,13 @@
                     <div class="sm:w-1/5 px-14 sm:px-0 to-blue-800 flex flex-col justify-center h-96">
                         <div class="mb-12 w-full h-28 rounded-xl bg-black flex justify-center items-center">
                             <h2 class="text-2xl font-bold text-white text-center justify-center ">
-                                +2500<br>
+                                +350<br>
                                 Jama’ah</h2>
                         </div>
                         <div class="w-full h-28 rounded-xl bg-black flex justify-center items-center">
                             <h2 class="text-2xl font-bold text-white text-center justify-center ">
-                                +2500<br>
-                                Jama’ah</h2>
+                                +2 Tahun<br>
+                                Berdiri</h2>
                         </div>
                     </div>
                     <div class="sm:w-1/4  h-96 rounded-xl flex items-end justify-center p-4"

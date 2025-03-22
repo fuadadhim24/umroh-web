@@ -11,6 +11,7 @@ use Carbon\Carbon;
 
 class RegisterFormController extends Controller
 {
+
     public function index()
     {
         $paket = Paket::where('visibility', 1)->latest()->get();
@@ -69,10 +70,8 @@ class RegisterFormController extends Controller
             $pendaftaran->id_haji = null;
             $pendaftaran->id_badal = null;
             $pendaftaran->id_paket = $request->input('id_paket');
-        } else {
-            return redirect()
-                ->back()
-                ->withErrors(['selected_paket' => 'Please select a valid program.']);
+        } else{
+            
         }
 
         $memberId = $this->generateMemberId($request->input('agent_number'));
@@ -82,9 +81,9 @@ class RegisterFormController extends Controller
 
         if ($request->hasFile('image')) {
             $pendaftaran->image = $request->file('image')->store('images/pendaftar', 'public');
+        }else{
+            return response()->json(['message' => 'Anda belum mengunggah foto! Silakan unggah foto terlebih dahulu.']);
         }
-
-        // dd($pendaftaran);
 
         $pendaftaran->save();
 
