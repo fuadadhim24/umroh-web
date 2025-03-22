@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="icon" href="{{ asset('resources/images/lp-main/al-aqsha.png') }}" type="image/icon type">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const toggleButton = document.querySelector("[data-collapse-toggle]");
@@ -79,131 +80,38 @@
         </div>
     </nav>
     <section class="xl:h-screen 2xl:h-96 flex flex-col justify-center items-center w-screen">
-        <div id="indicators-carousel" class="relative w-full xl:hidden" data-carousel="static">
-            <div class="flex w-full h-96 overflow-hidden rounded-lg ">
-                <!-- Item 1 -->
-                <div class="hidden duration-700 ease-in-out w-full" data-carousel-item="active">
-                    <div class="h-full flex items-center justify-center ">
-                        <div class="h-full p-4 bg-white shadow-xl rounded-xl">
-                            <img src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}"
-                                class="h-full rounded-xl" alt="...">
-
-                        </div>
+        @if ($umroh->image)
+            <div class="carousel carousel-center mt-16 rounded-box max-w-md space-x-4 p-4 xl:hidden md:mt-20">
+                @foreach ($umroh->image as $image_item)
+                    <div class="carousel-item">
+                        <img src="{{ asset('storage/' . $image_item) }}" class="rounded-box w-70 md:w-96 md:mt-8" />
                     </div>
-                </div>
-                <!-- Item 2 -->
-                <div class="hidden duration-700 ease-in-out w-full" data-carousel-item>
-                    <div class="h-full flex items-center justify-center ">
-                        <div class="h-full p-4 bg-white shadow-xl rounded-xl">
-                            <img src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}"
-                                class="h-full rounded-xl" alt="...">
-
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 3 -->
-                <div class="hidden duration-700 ease-in-out w-full" data-carousel-item>
-                    <div class="h-full flex items-center justify-center ">
-                        <div class="h-full p-4 bg-white shadow-xl rounded-xl">
-                            <img src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}"
-                                class="h-full rounded-xl" alt="...">
-
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 4 -->
-                <div class="hidden duration-700 ease-in-out w-full" data-carousel-item>
-                    <div class="h-full flex items-center justify-center ">
-                        <div class="h-full p-4 bg-white shadow-xl rounded-xl">
-                            <img src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}"
-                                class="h-full rounded-xl" alt="...">
-
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 5 -->
-                <div class="hidden duration-700 ease-in-out w-full" data-carousel-item>
-                    <div class="h-full flex items-center justify-center ">
-                        <div class="h-full p-4 bg-white shadow-xl rounded-xl">
-                            <img src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}"
-                                class="h-full rounded-xl" alt="...">
-
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
-            <!-- Slider indicators -->
-            <div class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
-                    data-carousel-slide-to="0"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
-                    data-carousel-slide-to="1"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
-                    data-carousel-slide-to="2"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4"
-                    data-carousel-slide-to="3"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5"
-                    data-carousel-slide-to="4"></button>
+        @endif
+
+
+        @if ($umroh->image)
+            <div class="gap-4 hidden xl:flex justify-around items-center flex-row">
+                @foreach ($umroh->image as $image_item)
+                    <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl"
+                        onclick="openModal('image-{{ $image_item }}')">
+                        <img class="rounded-xl w-full h-full object-cover" src="{{ asset('storage/' . $image_item) }}"
+                            alt="Gambar Haji">
+                    </div>
+                @endforeach
+
             </div>
-            <!-- Slider controls -->
-            <button type="button"
-                class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                data-carousel-prev>
-                <span
-                    class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-red-primary dark:bg-red-primary group-hover:bg-red-500 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5 1 1 5l4 4" />
-                    </svg>
-                    <span class="sr-only">Previous</span>
-                </span>
-            </button>
-            <button type="button"
-                class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                data-carousel-next>
-                <span
-                    class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-red-primary dark:red-primary group-hover:bg-red-500 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m1 9 4-4-4-4" />
-                    </svg>
-                    <span class="sr-only">Next</span>
-                </span>
-            </button>
-        </div>
 
-        </div>
-
-
-        <div class="gap-4 hidden xl:flex justify-around items-center flex-row">
-            @foreach ($umroh->image as $image_item)
-                <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl"
-                    onclick="openModal('image-{{ $image_item }}')">
-                    <img class="rounded-xl" src="{{ asset('storage/' . $image_item) }}" alt="Gambar Umroh">
-                </div>
-            @endforeach
-            {{-- <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl" onclick="openModal('image1')">
-                <img class="rounded-xl"
-                    src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}"
-                    alt="">
-            </div> --}}
-            {{-- <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl" onclick="openModal('image2')">
-                <img class="rounded-xl" src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}" alt="">
-            </div>
-            <div class="w-72 bg-white rounded-xl p-2 mt-16 shadow-2xl" onclick="openModal('image3')">
-                <img class="rounded-xl" src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}" alt="">
-            </div> --}}
-        </div>
+        @endif
 
         <!-- Modal -->
         <div id="imageModal" class="modal hidden">
             <span class="close" onclick="closeModal()">&times;</span>
             <img class="modal-content" id="modalImage">
         </div>
-        <h1 class="mt-8 text-center text-2xl md:text-5xl font-extrabold text-dark-red-primary mb-12">Paket
-            {!! str_replace('(', '<br>(', $umroh->title) !!}
+        <h1 class="mt-8 text-center text-2xl md:text-5xl font-extrabold text-dark-red-primary mb-12">
+            Paket {!! str_replace('(', '<br>(', $umroh->title) !!}
         </h1>
     </section>
 
@@ -243,54 +151,54 @@
                 @endif
             </div>
             <div class="flex flex-col">
-                
-                @if ($umroh->additional_services)
-                <div>
-                    
-                    <h1
-                        class="mt-4 md:text-start text-center text-2xl md:text-5xl font-extrabold text-dark-red-primary mb-8 md:mb-4 mx-2">
-                        Akomodasi Hotel Premium
-                    </h1>
-                    <ul class="list-disc list-outside px-16 font-semibold">
 
-                        @foreach ($umroh->additional_services as $akomodasi_item)
-                            <li class="pb-4 md:pb-2">{{ $akomodasi_item['service'] }}</li>
-                        @endforeach
-                    </ul>
-                </div>
+                @if ($umroh->additional_services)
+                    <div>
+
+                        <h1
+                            class="mt-4 md:text-start text-center text-2xl md:text-5xl font-extrabold text-dark-red-primary mb-8 md:mb-4 mx-2">
+                            Akomodasi Hotel Premium
+                        </h1>
+                        <ul class="list-disc list-outside px-16 font-semibold">
+
+                            @foreach ($umroh->additional_services as $akomodasi_item)
+                                <li class="pb-4 md:pb-2">{{ $akomodasi_item['service'] }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
                 @endif
                 @if ($umroh->bonuses)
-                    
-                <div>
-                    <h1
-                        class="mt-4 text-center md:text-start text-2xl md:text-5xl  font-extrabold text-dark-red-primary mb-8 mx-2 md:mb-4">
-                        Gratis:
-                    </h1>
 
-                    <ul class="list-disc list-outside px-16 font-semibold">
-                        @foreach ($umroh->bonuses as $gratis_item)
-                        <li class="pb-4 md:pb-2">{{ $gratis_item['bonus'] }}</li>
-                    @endforeach
-                    </ul>
-                </div>
+                    <div>
+                        <h1
+                            class="mt-4 text-center md:text-start text-2xl md:text-5xl  font-extrabold text-dark-red-primary mb-8 mx-2 md:mb-4">
+                            Gratis:
+                        </h1>
+
+                        <ul class="list-disc list-outside px-16 font-semibold">
+                            @foreach ($umroh->bonuses as $gratis_item)
+                                <li class="pb-4 md:pb-2">{{ $gratis_item['bonus'] }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
                 @endif
             </div>
 
         </div>
         @if ($umroh->exclusions)
-        <div>
-            <h1
-                class="mt-4 text-center md:text-start text-2xl md:text-5xl  font-extrabold text-dark-red-primary mb-8 mx-2 md:mt-2 md:mb-4">
-                Tidak Termasuk:
-            </h1>
-            <ul class="list-disc list-outside px-16 font-semibold">
-                @foreach ($umroh->exclusions as $exclusion_item)
-                <li class="pb-4 md:pb-2">{{ $exclusion_item['exclusion'] }}</li>
-            @endforeach
-            </ul>
-        </div>
+            <div>
+                <h1
+                    class="mt-4 text-center md:text-start text-2xl md:text-5xl  font-extrabold text-dark-red-primary mb-8 mx-2 md:mt-2 md:mb-4">
+                    Tidak Termasuk:
+                </h1>
+                <ul class="list-disc list-outside px-16 font-semibold">
+                    @foreach ($umroh->exclusions as $exclusion_item)
+                        <li class="pb-4 md:pb-2">{{ $exclusion_item['exclusion'] }}</li>
+                    @endforeach
+                </ul>
+            </div>
         @endif
-       
+
     </section>
     <section class="h-screen p-4 py-12 sm:p-24">
         <div class="bg-black rounded-xl h-full w-full">

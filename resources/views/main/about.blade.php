@@ -75,7 +75,7 @@
             </div>
         </div>
     </nav>
-    <section class="h-screen 2xl:h-4/5 py-14  flex justify-center items-center">
+    <section class="h-screen py-14  flex justify-center items-center">
         <div class="w-full h-full md:mx-12 mt-16 rounded-3xl mx-2"
             style="background-image: url('{{ asset('resources/images/lp-main/about/section-hero.png') }}'); background-size: cover; background-position: center;">
             <div class="flex items-center justify-center h-full">

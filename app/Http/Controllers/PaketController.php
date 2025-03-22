@@ -13,7 +13,6 @@ class PaketController extends Controller
         foreach ($umroh as $umroh_item) {
             $umroh_item->price = number_format($umroh_item->price, 0, ',', '.');
         }
-        // dd($umroh);
         return view('main.umroh', compact('umroh'));
     }
 

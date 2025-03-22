@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="icon" href="{{ asset('resources/images/lp-main/al-aqsha.png') }}" type="image/icon type">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             const toggleButton = document.querySelector("[data-collapse-toggle]");
             const navMenu = document.getElementById("navbar-sticky");
 
-            toggleButton.addEventListener("click", function () {
+            toggleButton.addEventListener("click", function() {
                 navMenu.classList.toggle("hidden");
             });
         });
@@ -79,121 +79,38 @@
         </div>
     </nav>
     <section class="xl:h-screen 2xl:h-96 flex flex-col justify-center items-center w-screen">
-        <div id="indicators-carousel" class="relative w-full xl:hidden" data-carousel="static">
-            <div class="flex w-full h-96 overflow-hidden rounded-lg ">
-                <!-- Item 1 -->
-                <div class="hidden duration-700 ease-in-out w-full" data-carousel-item="active">
-                    <div class="h-full flex items-center justify-center ">
-                        <div class="h-full p-4 bg-white shadow-xl rounded-xl">
-                            <img src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}"
-                                class="h-full rounded-xl" alt="...">
-
-                        </div>
+        @if ($badal->image)
+            <div class="carousel carousel-center mt-16 rounded-box max-w-md space-x-4 p-4 xl:hidden md:mt-20">
+                @foreach ($badal->image as $image_item)
+                    <div class="carousel-item">
+                        <img src="{{ asset('storage/' . $image_item) }}" class="rounded-box w-70 md:w-96 md:mt-8" />
                     </div>
-                </div>
-                <!-- Item 2 -->
-                <div class="hidden duration-700 ease-in-out w-full" data-carousel-item>
-                    <div class="h-full flex items-center justify-center ">
-                        <div class="h-full p-4 bg-white shadow-xl rounded-xl">
-                            <img src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}"
-                                class="h-full rounded-xl" alt="...">
-
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 3 -->
-                <div class="hidden duration-700 ease-in-out w-full" data-carousel-item>
-                    <div class="h-full flex items-center justify-center ">
-                        <div class="h-full p-4 bg-white shadow-xl rounded-xl">
-                            <img src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}"
-                                class="h-full rounded-xl" alt="...">
-
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 4 -->
-                <div class="hidden duration-700 ease-in-out w-full" data-carousel-item>
-                    <div class="h-full flex items-center justify-center ">
-                        <div class="h-full p-4 bg-white shadow-xl rounded-xl">
-                            <img src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}"
-                                class="h-full rounded-xl" alt="...">
-
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 5 -->
-                <div class="hidden duration-700 ease-in-out w-full" data-carousel-item>
-                    <div class="h-full flex items-center justify-center ">
-                        <div class="h-full p-4 bg-white shadow-xl rounded-xl">
-                            <img src="{{ asset('resources/images/lp-main/haji/detail-catalog-dummy-1.png') }}"
-                                class="h-full rounded-xl" alt="...">
-
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
-            <!-- Slider indicators -->
-            <div class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
-                    data-carousel-slide-to="0"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
-                    data-carousel-slide-to="1"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
-                    data-carousel-slide-to="2"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4"
-                    data-carousel-slide-to="3"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5"
-                    data-carousel-slide-to="4"></button>
+        @endif
+
+
+        @if ($badal->image)
+            <div class="gap-4 hidden xl:flex justify-around items-center flex-row">
+                @foreach ($badal->image as $image_item)
+                    <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl"
+                        onclick="openModal('image-{{ $image_item }}')">
+                        <img class="rounded-xl w-full h-full object-cover" src="{{ asset('storage/' . $image_item) }}"
+                            alt="Gambar Haji">
+                    </div>
+                @endforeach
+
             </div>
-            <!-- Slider controls -->
-            <button type="button"
-                class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                data-carousel-prev>
-                <span
-                    class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-red-primary dark:bg-red-primary group-hover:bg-red-500 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5 1 1 5l4 4" />
-                    </svg>
-                    <span class="sr-only">Previous</span>
-                </span>
-            </button>
-            <button type="button"
-                class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                data-carousel-next>
-                <span
-                    class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-red-primary dark:red-primary group-hover:bg-red-500 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m1 9 4-4-4-4" />
-                    </svg>
-                    <span class="sr-only">Next</span>
-                </span>
-            </button>
-        </div>
 
-        </div>
-
-
-        <div class="gap-4 hidden xl:flex justify-around items-center flex-row">
-            @foreach ($badal->image as $image_item)
-            <div class="w-64 h-96 bg-white rounded-xl p-2 mt-16 shadow-2xl"
-                onclick="openModal('image-{{ $image_item }}')">
-                <img class="rounded-xl" src="{{ asset('storage/' . $image_item) }}" alt="Gambar Badal">
-            </div>
-        @endforeach
-            
-        </div>
+        @endif
 
         <!-- Modal -->
         <div id="imageModal" class="modal hidden">
             <span class="close" onclick="closeModal()">&times;</span>
             <img class="modal-content" id="modalImage">
         </div>
-        <h1 class="mt-8 text-center text-2xl md:text-5xl font-extrabold text-dark-red-primary mb-12">Paket
-            {!! str_replace('(', '<br>(', $badal->title) !!}
+        <h1 class="mt-8 text-center text-2xl md:text-5xl font-extrabold text-dark-red-primary mb-12">
+            Paket {!! str_replace('(', '<br>(', $badal->title) !!}
         </h1>
     </section>
 
@@ -212,7 +129,7 @@
                 @foreach ($badal->facilities as $facilities_item)
                     <li class="pb-2 md:pb-0 pt-2">{{ $facilities_item['facilities_item'] }}</li>
                 @endforeach
-                </ul>
+            </ul>
         @endif
 
     </section>
@@ -229,8 +146,8 @@
                     </p>
                     <a href="{{ route('register-form') }}">
                         <button type="button"
-                        class="mt-4 text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-2 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Jadwalkan
-                        Sekarang</button>
+                            class="mt-4 text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-3 py-2 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary">Jadwalkan
+                            Sekarang</button>
                     </a>
 
                 </div>
@@ -258,8 +175,8 @@
                     <a href="http://wa.me/6282141297588" target="_blank" rel="noopener noreferrer">
                         <button type="button"
                             class="text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-4 py-4 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary flex justify-between items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                                class="bi bi-whatsapp" viewBox="0 0 16 16">
                                 <path
                                     d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
                             </svg>
@@ -301,7 +218,8 @@
                     </div>
                 </a>
 
-                <a href="https://www.tiktok.com/@elaqshogroup?_t=ZS-8upUzdWhtg2&_r=1" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.tiktok.com/@elaqshogroup?_t=ZS-8upUzdWhtg2&_r=1" target="_blank"
+                    rel="noopener noreferrer">
                     <div
                         class="shadow-xl border-2 border-red-primary rounded-xl w-24 h-24 flex justify-center items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
@@ -312,9 +230,10 @@
                     </div>
                 </a>
                 <a href="http://wa.me/6282141297588" target="_blank" rel="noopener noreferrer">
-                    <div class="shadow-xl border-2 border-red-primary rounded-xl w-24 h-24 flex justify-center items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-whatsapp"
-                            viewBox="0 0 16 16">
+                    <div
+                        class="shadow-xl border-2 border-red-primary rounded-xl w-24 h-24 flex justify-center items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                            class="bi bi-whatsapp" viewBox="0 0 16 16">
                             <path
                                 d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
                         </svg>
