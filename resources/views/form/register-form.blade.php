@@ -278,6 +278,17 @@
         showTab(currentTab);
         updateStepper(currentTab);
     </script>
+    <style>
+        .responsive-margin {
+            margin-right: 24px; /* Default margin */
+        }
+    
+        @media (max-width: 768px) {
+            .responsive-margin {
+                margin-right:04px; /* Margin for screens smaller than 768px */
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -333,25 +344,26 @@
 
         });
     </script>
-    <section class=" w-screen bg-gray-200 p-8 pr-10">
+    <section class=" w-screen bg-gray-200 p-8 pr-0 md:pr-10">
         <div class="bg-white w-full h-full rounded-xl shadow-2xl">
-            <div class="flex justify-between p-4 relative">
-                <img src="{{ asset('resources/images/lp-main/al-aqsha-horizontal.png') }}" class="h-8 lg:h-12 "
+            <div class="flex flex-col md:flex-row justify-center md:justify-between p-4 relative md:pr-4">
+                <img src="{{ asset('resources/images/lp-main/al-aqsha-horizontal.png') }}" class="h-8 lg:h-12 w-20 md:w-auto "
                     alt="El-Aqsho Logo">
 
-                <h1 class="text-xl font-bold text-center absolute left-1/2 -translate-x-2/4">Formulir<Br> Pendaftaran
-                </h1>
-                <p></p>
+                    <h1 class="text-xl font-bold text-center">Formulir<Br>
+                        Pendaftaran
+                    </h1>
+                    <p class="w-24 mr-2 md:mr-4 responsive-margin"></p>
 
             </div>
             <div class="flex flex-col items-center justify-center mt-4">
-                <ol class="flex items-center justify-center w-96 mb-4 sm:mb-5">
+                <ol class="flex items-center justify-center w-80 mb-4 sm:mb-5">
                     <!-- Langkah Pertama -->
                     <li class="flex flex-col w-full items-center text-red-primary dark:text-red-primary relative">
                         <div class="flex">
                             <div
-                                class="z-20 flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-blue-800 shrink-0">
-                                <svg id='ic_0' class="w-4 h-4 text-yellow-primary lg:w-6 lg:h-6 dark:text-blue-300"
+                                class="z-20 flex items-center justify-center w-6 md:w-10 h-6 md:h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-blue-800 shrink-0">
+                                <svg id='ic_0' class="w-2 h-2 text-yellow-primary md:w-4 md:h-4 lg:w-6 lg:h-6 dark:text-blue-300"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 20 16">
                                     <path
@@ -361,7 +373,7 @@
                             <span id="step-0"
                                 class="z-10 absolute top-1/3 right-0 w-1/2 h-1 bg-gray-100 dark:bg-yellow-primary -translate-y-1/2"></span>
                         </div>
-                        <p class="mt-2 text-xs font-bold text-center text-gray-700 dark:text-gray-300">Data Diri Jama’ah
+                        <p class="hidden md:block mt-2 text-xs font-bold text-center text-gray-700 dark:text-gray-300">Data Diri Jama’ah
                         </p>
                     </li>
 
@@ -371,8 +383,8 @@
                             <span id="step-1"
                                 class="z-10 absolute top-1/3 left-0 w-1/2 h-1 bg-gray-100 text-gray-700 dark:text-gray-300 -translate-y-1/2"></span>
                             <div
-                                class="z-20 flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
-                                <svg id='ic_1' class="w-4 h-4 text-red-primary lg:w-6 lg:h-6 dark:text-blue-300"
+                                class="z-20 flex items-center justify-center w-6 md:w-10 h-6 md:h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
+                                <svg id='ic_1' class="w-2 h-2 text-red-primary md:w-4 md:h-4 lg:w-6 lg:h-6 dark:text-blue-300"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 20 14">
                                     <path
@@ -384,7 +396,7 @@
                             <span id="step-2"
                                 class="z-10 absolute top-1/3 right-0 w-1/2 h-1 bg-gray-100 text-gray-700 dark:text-gray-300 -translate-y-1/2"></span>
                         </div>
-                        <p class="mt-2 text-xs font-bold text-center text-gray-700 dark:text-gray-300">Alamat Domisli
+                        <p class="hidden md:block mt-2 text-xs font-bold text-center text-gray-700 dark:text-gray-300">Alamat Domisli
                         </p>
                     </li>
 
@@ -394,8 +406,8 @@
                             <span id="step-3"
                                 class="z-10 absolute top-1/3 left-0 w-1/2 h-1 text-gray-700 bg-gray-100 dark:text-gray-300 -translate-y-1/2"></span>
                             <div
-                                class="z-20 flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
-                                <svg id='ic_2' class="w-4 h-4 text-red-primary lg:w-6 lg:h-6 dark:text-blue-300"
+                                class="z-20 flex items-center justify-center w-6 md:w-10 h-6 md:h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
+                                <svg id='ic_2' class="w-2 h-2 text-red-primary md:w-4 md:h-4 lg:w-6 lg:h-6 dark:text-blue-300"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 18 20">
                                     <path
@@ -403,14 +415,14 @@
                                 </svg>
                             </div>
                         </div>
-                        <p class="mt-2 text-xs font-bold text-center text-gray-700 dark:text-gray-300">Pilih Paket</p>
+                        <p class="hidden md:block mt-2 text-xs font-bold text-center text-gray-700 dark:text-gray-300">Pilih Paket</p>
                     </li>
                 </ol>
 
-                <form class="mt-8 w-full" action="{{ route('pendaftaran-store') }}" method="POST"
+                <form class="mt-8 w-full px-6 md:px-14" action="{{ route('pendaftaran-store') }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
-                    <div class="mx-14">
+                    <div class=" md:mx-14 lg:mx-24">
                         <div id="tab-0">
                             <h3 class="mb-4 font-bold text-sm  leading-none text-gray-900 dark:text-white">Identitas
                                 Jama’ah</h3>
