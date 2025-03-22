@@ -111,7 +111,7 @@ class PendaftaranResource extends Resource
                     // Update member_id secara langsung ketika agent_number diubah
                     $set('member_id', self::generateMemberId($state));
                 }),
-            Forms\Components\FileUpload::make('image')->label('Foto Pendaftar')->required()->disk('public')->directory('images/artikel')->helperText('Ukuran file maksimal 2MB')->preserveFilenames()->visibility('public'),
+            Forms\Components\FileUpload::make('image')->label('Foto Pendaftar')->required()->disk('public')->directory('images/pendaftar')->helperText('Ukuran file maksimal 2MB')->preserveFilenames()->visibility('public'),
 
             Forms\Components\Select::make('category')
                 ->label('Kategori')

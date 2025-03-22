@@ -81,14 +81,14 @@ class RegisterFormController extends Controller
         $pendaftaran->member_id = $memberId;
 
         if ($request->hasFile('image')) {
-            $pendaftaran->image = $request->file('image')->store('images/artikel', 'public');
+            $pendaftaran->image = $request->file('image')->store('images/pendaftar', 'public');
         }
 
         // dd($pendaftaran);
 
         $pendaftaran->save();
 
-        return redirect()->route('dashboard')->with('message', 'Pendaftaran berhasil dilakukan!');
+        return response()->json(['message' => 'Pendaftaran berhasil dilakukan!']);
     }
 
     private function generateMemberId(?string $agent_number = null): string
