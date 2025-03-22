@@ -192,7 +192,7 @@
                                     class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
                             </a>
                             <h2 class="text-center font-semibold text-xl mt-4">Paket {{ $umroh_item->title }}</h2>
-                            <h2 class="text-center font-semibold text-sm">Harga Rp. {{ $umroh_item->price }}</h2>
+                            <h2 class="text-center font-semibold text-sm">Harga Rp. {{ number_format($umroh_item->price, 0, ',', '.') }}</h2>
                         </div>
                     @endforeach
                 </div>

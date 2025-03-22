@@ -356,8 +356,7 @@
                                             {{ $badal[0]->title }}
                                         </h1>
                                         <h3 class="font-semibold text-white md:text-xl lg:text-xl">Harga</h3>
-                                        <h3 class="font-semibold text-white md:text-xl lg:text-xl">Rp.
-                                            {{ $badal[0]->harga_paket }} </h3>
+                                        <h3 class="font-semibold text-white md:text-xl lg:text-xl">Rp. {{ number_format($badal[0]->harga_paket, 0, ',', '.') }} </h3>
                                     </div>
                                     <img class="xl:h-72 h-48" src="{{ asset('storage/' . $badal[0]->image[0]) }}"
                                         alt="">
@@ -376,7 +375,7 @@
                                             {{ $badal[1]->title }}
                                         </h1>
                                         <h3 class="font-semibold text-white md:text-xl lg:text-xl">Harga</h3>
-                                        <h3 class="font-semibold text-white md:text-xl lg:text-xl">Rp.
+                                        <h3 class="font-semibold text-white md:text-xl lg:text-xl">Rp. {{ number_format($badal[1]->harga_paket, 0, ',', '.') }}
                                             {{ $badal[1]->harga_paket }}</h3>
                                     </div>
                                     <img class="xl:h-72 h-48" src="{{ asset('storage/' . $badal[1]->image[0]) }}"

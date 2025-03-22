@@ -191,7 +191,7 @@
                                 Paket {{ $haji->title }}
                             </h1>
                             <h3 class="font-semibold text-white md:text-xl lg:text-3xl">Harga</h3>
-                            <h3 class="font-semibold text-white md:text-xl lg:text-3xl">Rp. {{ $haji->harga_paket }}
+                            <h3 class="font-semibold text-white md:text-xl lg:text-3xl">Rp. {{ number_format($haji->harga_paket, 0, ',', '.') }}
                             </h3>
                         </div>
                     </div>
