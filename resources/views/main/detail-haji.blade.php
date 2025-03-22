@@ -132,7 +132,7 @@
     </section>
 
 
-    <section class="h-2/3 px-8 md:px-24 lg:px-48 xl:px-72 flex items-center justify-center">
+    <section class="h-2/3 px-8 md:px-24 lg:px-48 xl:px-72 flex items-center justify-center  xl:mt-24">
         <h4 class="text-center font-semibold">{{ $haji->subtitle }}</h4>
     </section>
     @if ($haji->keunggulan)

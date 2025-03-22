@@ -115,7 +115,7 @@
     </section>
 
 
-    <section class="h-2/3 px-8 md:px-24 lg:px-48 xl:px-72 flex items-center justify-center">
+    <section class="h-2/3 px-8 md:px-24 lg:px-48 xl:px-72 flex items-center justify-center xl:mt-24">
         <h4 class="text-center font-semibold">{{ $badal->subtitle }}</h4>
     </section>
     <section class="px-2 mt-8 md:mt-22 py-12 md:px-24 md:py-4">
