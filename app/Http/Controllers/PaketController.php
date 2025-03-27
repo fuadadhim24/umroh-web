@@ -10,17 +10,11 @@ class PaketController extends Controller
     public function index()
     {
         $umroh = Paket::latest()->get();
-        foreach ($umroh as $umroh_item) {
-            $umroh_item->price = number_format($umroh_item->price, 0, ',', '.');
-        }
         return view('main.umroh', compact('umroh'));
     }
 
     public function indexDaftar(){
         $umroh = Paket::latest()->get();
-        foreach ($umroh as $umroh_item) {
-            $umroh_item->price = number_format($umroh_item->price, 0, ',', '.');
-        }
         
         return view('main.daftar-umroh', compact('umroh'));
     }

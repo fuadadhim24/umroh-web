@@ -10,9 +10,6 @@ class BadalController extends Controller
     public function index()
     {
         $badal = Badal::all();
-        foreach ($badal as $badal_item) {
-            $badal_item->price = number_format($badal_item->price, 0, ',', '.');
-        }
         // dd($badal);
         return view('main.badal', compact('badal'));
     }
