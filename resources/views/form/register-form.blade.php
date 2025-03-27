@@ -965,27 +965,35 @@
                                             </ul>
                                         </li>
                                     </ol>
-                                    <div class="rounded-3xl shadow-2xl md:h-36 w-96 border border-4 border-black">
-                                        <div class="flex justify-center items-center py-2 bg-gray-700 rounded-3xl">
+                                    <div class="rounded-3xl shadow-2xl md:h-36 px-4 md:px-14 border-4 border-black">
+                                        <div class="flex justify-center items-center px-4 py-2 bg-gray-700 rounded-3xl">
                                             <h3 class="text-xl font-semibold text-center text-white dark:text-white">
                                                 Pembayaran Hanya Melalui Transfer
                                             </h3>
                                         </div>
-                                        <div class="flex flex-col md:flex-row justify-center items-center my-4">
-                                            <div class=" flex-1  flex flex-col justify-center ">
-                                                <img src="{{ asset('resources/images/lp-main/pendaftaran/ic_bri.png') }}"
-                                                    class="h-8 object-contain" alt="">
-                                                <p class="text-center fontweight-semibold text-sm">001301001800569</p>
+                                        <div class="flex flex-col justify-center items-center my-4 gap-2 md:gap-1">
+                                            <div class="flex flex-row md:flex-col items-center justify-center gap-2">
+                                                <img src="{{ asset('resources/images/lp-main/pendaftaran/ic_bri.png') }}" 
+                                                class="w-9 md:hidden object-contain"
+                                                    alt="">
+                                                <img src="{{ asset('resources/images/lp-main/pendaftaran/ic_bri.png') }}" 
+                                                class="w-14 md:block hidden object-contain"
+                                                    alt="">
+                                                <p class="text-center font-bold text-sm">001301001800569</p>
                                             </div>
-                                            <div class=" flex-1  flex flex-col justify-center ">
+                                            <div class="flex flex-row md:flex-col items-center justify-center gap-1">
                                                 <img src="{{ asset('resources/images/lp-main/pendaftaran/ic_bca.png') }}"
-                                                    class="h-8 object-contain" alt="">
-                                                <p class="text-center fontweight-semibold text-sm">1200887278</p>
+                                                    class="w-10 md:hidden object-contain" alt="">
+                                                <img src="{{ asset('resources/images/lp-main/pendaftaran/ic_bca.png') }}"
+                                                    class="hidden w-16 md:block object-contain mr-1" alt="">
+                                                <p class="text-center fontweight-bold text-sm"><strong>1200887278</strong></p>
                                             </div>
-                                            <div class=" flex-1  flex flex-col justify-center ">
+                                            <div class="flex flex-row md:flex-col items-center justify-center gap-1 mt-2">
                                                 <img src="{{ asset('resources/images/lp-main/pendaftaran/ic_mandiri.png') }}"
-                                                    class="h-8 object-contain" alt="">
-                                                <p class="text-center fontweight-semibold text-sm">1430077777926</p>
+                                                    class="w-10 md:hidden object-contain" alt="">
+                                                <img src="{{ asset('resources/images/lp-main/pendaftaran/ic_mandiri.png') }}"
+                                                    class="w-16 hidden md:block object-contain mr-1" alt="">
+                                                <p class="text-center fontweight-bold text-sm"><strong>1430077777926</strong></p>
                                             </div>
 
                                         </div>
