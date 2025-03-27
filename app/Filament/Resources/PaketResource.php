@@ -37,11 +37,11 @@ class PaketResource extends Resource
                 ->schema([Forms\Components\TextInput::make('facility')->required()])
                 ->required(),
             Forms\Components\Repeater::make('additional_services')
-                ->label('Gratis')
+                ->label('Akomodasi Hotel')
                 ->schema([Forms\Components\TextInput::make('service')->required()])
                 ->required(),
             Forms\Components\Repeater::make('bonuses')
-                ->label('Bonus Eksklusif')
+                ->label('Gratis')
                 ->schema([Forms\Components\TextInput::make('bonus')->required()])
                 ->required(),
             Forms\Components\Repeater::make('exclusions')

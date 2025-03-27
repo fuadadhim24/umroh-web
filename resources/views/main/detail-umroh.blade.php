@@ -157,7 +157,7 @@
 
                         <h1
                             class="mt-4 md:text-start text-center text-2xl md:text-5xl font-extrabold text-dark-red-primary mb-8 md:mb-4 mx-2">
-                            Akomodasi Hotel Premium
+                            Akomodasi Hotel
                         </h1>
                         <ul class="list-disc list-outside px-16 font-semibold">
 
