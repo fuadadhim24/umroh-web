@@ -16,6 +16,17 @@
             });
         });
     </script>
+    <style>
+        .article-content ol {
+            list-style-type: decimal;
+            padding-left: 1.5rem;
+        }
+    
+        .article-content ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -147,7 +158,9 @@
                         </div>
 
                     </div>
-                    {!! $article->content !!}
+                    <div class="article-content">
+                        {!! $article->content !!}
+                        </div>
                 </div>
 
                 <!-- Container untuk Artikel 2 dan 3 di kanan -->
@@ -314,45 +327,6 @@
         <p class="text-center sm:text-start text-sm font-extrabold text-white md:text-sm">Copyright @El-AqshoGroup
         </p>
     </section>
-
-
-    <script>
-        const carouselElement = document.getElementById('carousel-example');
-
-        const items = [{
-                position: 0,
-                el: document.getElementById('carousel-item-1')
-            },
-            {
-                position: 1,
-                el: document.getElementById('carousel-item-2')
-            },
-            {
-                position: 2,
-                el: document.getElementById('carousel-item-3')
-            },
-            {
-                position: 3,
-                el: document.getElementById('carousel-item-4')
-            },
-            {
-                position: 4,
-                el: document.getElementById('carousel-item-5')
-            },
-        ];
-
-        const options = {
-            defaultPosition: 0,
-            interval: 3000,
-            indicators: true,
-        };
-
-        const carousel = new Carousel(carouselElement, items, options);
-
-        // Event listeners for controls
-        document.querySelector('[data-carousel-prev]').addEventListener('click', () => carousel.prev());
-        document.querySelector('[data-carousel-next]').addEventListener('click', () => carousel.next());
-    </script>
 
     <script>
         function saveToFavorite(articleId, articleTitle) {
