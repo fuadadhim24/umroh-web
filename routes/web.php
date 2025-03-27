@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',  [ArticleController::class,'index'])->name('dashboard');
 Route::get('/tentang-kami', function () {return view('main.about');})->name('about');
-Route::get('/haji', [HajiController::class,'index'])->name('haji');
-Route::get('/detail-haji/{id}',[HajiController::class, 'show'])->name('detail-haji');
+// Route::get('/haji', [HajiController::class,'index'])->name('haji');
+// Route::get('/detail-haji/{id}',[HajiController::class, 'show'])->name('detail-haji');
 Route::get('/detail-badal/{id}',[BadalController::class, 'show'])->name('detail-badal');
 Route::get('/umroh',[PaketController::class, 'index'])->name('umroh');
 Route::get('/detail-umroh/{id}',[PaketController::class, 'show'])->name('detail-umroh');

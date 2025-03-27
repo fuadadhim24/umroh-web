@@ -7,11 +7,11 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="icon" href="{{ asset('resources/images/lp-main/al-aqsha.png') }}" type="image/icon type">
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             const toggleButton = document.querySelector("[data-collapse-toggle]");
             const navMenu = document.getElementById("navbar-sticky");
 
-            toggleButton.addEventListener("click", function () {
+            toggleButton.addEventListener("click", function() {
                 navMenu.classList.toggle("hidden");
             });
         });
@@ -56,10 +56,10 @@
                             class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-primary md:p-0 md:dark:hover:text-red-primary dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Tentang
                             Kami</a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="{{ route('haji') }}"
                             class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-primary md:p-0 md:dark:hover:text-red-primary dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Haji</a>
-                    </li>
+                    </li> --}}
                     <li>
                         <a href="{{ route('umroh') }}"
                             class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-primary md:p-0 md:dark:hover:text-red-primary dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Umroh</a>
@@ -92,20 +92,22 @@
                         {{ $article->category }} News
                     </h2>
                     <div class="rounded-3xl shadow-custom hover:shadow-lg transition-transform duration-300 pt-4 mb-4">
-                        <div class="rounded-3xl flex-grow mx-4" style="background-image: url('{{ asset('storage/' . $article->image) }}');  
+                        <div class="rounded-3xl flex-grow mx-4"
+                            style="background-image: url('{{ asset('storage/' . $article->image) }}');  
                             background-size: cover; 
                             background-position: center; 
                             background-repeat: no-repeat; 
                             height: auto; /* Menghapus tinggi tetap */
                             padding-top: 56.25%; /* Menggunakan rasio 16:9 */
                             position: relative;">
-<img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}" 
-class="absolute inset-0 w-full h-full object-cover rounded-3xl" style="opacity: 0;">
-</div>
+                            <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}"
+                                class="absolute inset-0 w-full h-full object-cover rounded-3xl" style="opacity: 0;">
+                        </div>
                         <!-- Konten Artikel -->
                         <div class="my-2 md:mx-14 flex flex-col md:flex-row p-4">
                             <div class="w-full md:w-full md:mr-2 text-start md:text-left">
-                                <p class="mb-4 inline-flex items-center px-6 md:px-12 py-1 text-sm font-medium text-center 
+                                <p
+                                    class="mb-4 inline-flex items-center px-6 md:px-12 py-1 text-sm font-medium text-center 
                                                           text-white bg-yellow-primary rounded-full">
                                     {{ $article->category }}
                                 </p>
@@ -122,7 +124,8 @@ class="absolute inset-0 w-full h-full object-cover rounded-3xl" style="opacity: 
                                 <a href="javascript:void(0);"
                                     onclick="saveToFavorite('{{ $article->id }}', '{{ $article->title }}')"
                                     class="w-full ">
-                                    <p class="mb-4 inline-flex items-center justify-center px-10 py-4 text-sm font-medium text-center 
+                                    <p
+                                        class="mb-4 inline-flex items-center justify-center px-10 py-4 text-sm font-medium text-center 
                                               text-black shadow-lg border border-black rounded-3xl w-full">
                                         <img src="{{ asset('resources/images/lp-main/artikel/ic-1.png') }}"
                                             class="mr-2 w-6 h-6">
@@ -162,7 +165,8 @@ class="absolute inset-0 w-full h-full object-cover rounded-3xl" style="opacity: 
                     </div>
                     @forelse ($articles as $article_item)
                         <a href="{{ route('detail-artikel', ['id' => $article_item->id]) }}">
-                            <div class="rounded-3xl shadow-custom hover:shadow-lg transition-transform duration-300 mb-4">
+                            <div
+                                class="rounded-3xl shadow-custom hover:shadow-lg transition-transform duration-300 mb-4">
                                 <div class="mt-4 mx-4 rounded-2xl shadow-custom">
 
                                     <div class="rounded-t-lg w-full h-48 md:h-24 rounded-2xl bg-cover bg-center"
@@ -218,8 +222,8 @@ class="absolute inset-0 w-full h-full object-cover rounded-3xl" style="opacity: 
                     <a href="http://wa.me/6282141297588" target="_blank" rel="noopener noreferrer">
                         <button type="button"
                             class="text-white bg-red-primary hover:bg-hover-red-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm sm:px-4 px-4 py-4 text-center dark:bg-hover-red-primary dark:hover:bg-hover-red-primary dark:focus:ring-red-primary flex justify-between items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
-                                class="bi bi-whatsapp" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
                                 <path
                                     d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
                             </svg>
@@ -240,7 +244,7 @@ class="absolute inset-0 w-full h-full object-cover rounded-3xl" style="opacity: 
             <div class="flex justify-evenly gap-4 mt-8 w-full flex-wrap px-4">
                 <a href="https://www.facebook.com/share/1F9cb4zLLn/" target="_blank" rel="noopener noreferrer">
                     <div
-                         class="shadow-xl border-2 border-red-primary rounded-xl p-3 md:p-5 flex justify-center items-center">
+                        class="shadow-xl border-2 border-red-primary rounded-xl p-3 md:p-5 flex justify-center items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                             class="bi bi-facebook md:hidden" viewBox="0 0 16 16">
                             <path
@@ -256,7 +260,7 @@ class="absolute inset-0 w-full h-full object-cover rounded-3xl" style="opacity: 
                 <a href="https://www.instagram.com/elaqshogroup/profilecard/?igsh=Zm05bGozemRtaXNj" target="_blank"
                     rel="noopener noreferrer">
                     <div
-                         class="shadow-xl border-2 border-red-primary rounded-xl p-3 md:p-5 flex justify-center items-center">
+                        class="shadow-xl border-2 border-red-primary rounded-xl p-3 md:p-5 flex justify-center items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                             class="bi bi-instagram md:hidden" viewBox="0 0 16 16">
                             <path
@@ -274,7 +278,7 @@ class="absolute inset-0 w-full h-full object-cover rounded-3xl" style="opacity: 
                 <a href="https://www.tiktok.com/@elaqshogroup?_t=ZS-8upUzdWhtg2&_r=1" target="_blank"
                     rel="noopener noreferrer">
                     <div
-                         class="shadow-xl border-2 border-red-primary rounded-xl p-3 md:p-5 flex justify-center items-center">
+                        class="shadow-xl border-2 border-red-primary rounded-xl p-3 md:p-5 flex justify-center items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                             class="bi bi-tiktok md:hidden" viewBox="0 0 16 16">
                             <path
@@ -289,7 +293,7 @@ class="absolute inset-0 w-full h-full object-cover rounded-3xl" style="opacity: 
                 </a>
                 <a href="http://wa.me/6282141297588" target="_blank" rel="noopener noreferrer">
                     <div
-                         class="shadow-xl border-2 border-red-primary rounded-xl p-3 md:p-5 flex justify-center items-center">
+                        class="shadow-xl border-2 border-red-primary rounded-xl p-3 md:p-5 flex justify-center items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor"
                             class="bi bi-whatsapp md:block hidden" viewBox="0 0 16 16">
                             <path
@@ -316,25 +320,25 @@ class="absolute inset-0 w-full h-full object-cover rounded-3xl" style="opacity: 
         const carouselElement = document.getElementById('carousel-example');
 
         const items = [{
-            position: 0,
-            el: document.getElementById('carousel-item-1')
-        },
-        {
-            position: 1,
-            el: document.getElementById('carousel-item-2')
-        },
-        {
-            position: 2,
-            el: document.getElementById('carousel-item-3')
-        },
-        {
-            position: 3,
-            el: document.getElementById('carousel-item-4')
-        },
-        {
-            position: 4,
-            el: document.getElementById('carousel-item-5')
-        },
+                position: 0,
+                el: document.getElementById('carousel-item-1')
+            },
+            {
+                position: 1,
+                el: document.getElementById('carousel-item-2')
+            },
+            {
+                position: 2,
+                el: document.getElementById('carousel-item-3')
+            },
+            {
+                position: 3,
+                el: document.getElementById('carousel-item-4')
+            },
+            {
+                position: 4,
+                el: document.getElementById('carousel-item-5')
+            },
         ];
 
         const options = {
@@ -355,7 +359,10 @@ class="absolute inset-0 w-full h-full object-cover rounded-3xl" style="opacity: 
             let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
             if (!favorites.some(favorite => favorite.id === articleId)) {
-                favorites.push({ id: articleId, title: articleTitle });
+                favorites.push({
+                    id: articleId,
+                    title: articleTitle
+                });
                 localStorage.setItem('favorites', JSON.stringify(favorites));
                 alert('Artikel "' + articleTitle + '" telah disimpan ke favorit.');
             } else {
