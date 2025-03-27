@@ -96,7 +96,7 @@
             </div>
         </div>
     </nav>
-    <section class="xl:h-screen 2xl:h-96 flex flex-col justify-center items-center w-screen">
+    <section class="xl:h-screen flex flex-col justify-center items-center w-screen">
         @if ($haji->images)
             <div class="carousel carousel-center mt-16 rounded-box max-w-md space-x-4 p-4 xl:hidden md:mt-20">
                 @foreach ($haji->images as $image_item)
