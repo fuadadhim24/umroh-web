@@ -806,7 +806,7 @@
                                     <select id="program_choice" name="selected_paket"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-red-primary focus:border-red-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-primary dark:focus:border-red-primary" required>
                                         <option value="">DP</option>
-                                        <option value="haji">Haji</option>
+                                        {{-- <option value="haji">Haji</option> --}}
                                         <option value="badal">Badal</option>
                                         <option value="paket">Umroh</option>
                                     </select>
