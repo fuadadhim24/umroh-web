@@ -48,7 +48,7 @@ class RegisterFormController extends Controller
             'notes' => 'nullable|string',
             'source_of_information' => 'required|string',
             'agent_number' => 'nullable|string',
-            'image' => 'nullable|image|max:2048',
+            'image' => 'nullable|image|max:10240',
             'id_haji' => 'nullable|exists:hajis,id',
             'id_badal' => 'nullable|exists:badals,id',
             'id_paket' => 'nullable|exists:pakets,id',
