@@ -133,15 +133,24 @@
                             const selectedPackage = document.querySelector('#paket_list option:checked')
                             .text;
                             const createdAt = new Date().toLocaleDateString();
-
                             const message = `
-                                Assalamu'alaikum saya,
-                                Nama: ${nama},
-                                Kategori Paket: ${programChoice},
-                                Paket yang dipilih: ${selectedPackage},
-                                Tanggal pemesanan: ${createdAt},
-                                telah mendaftar paket pada El-Aqsho mohon untuk dimasukkan grup🙏.
-                            `;
+                                Assalamu’alaikum Warahmatullahi Wabarakatuh,
+
+                                Dengan hormat,
+
+                                Saya, Nama: ${nama}, ingin mengonfirmasi bahwa saya telah menyelesaikan pendaftaran paket ${programChoice} di El - Aqsho dengan rincian sebagai berikut:
+
+                                Paket yang dipilih: ${selectedPackage}
+                                Tanggal pemesanan: ${createdAt}
+
+                                Mohon kiranya tim El - Aqsho dapat memverifikasi dan mengonfirmasi status pendaftaran ini.
+
+                                Terima kasih atas perhatian dan kerja samanya.
+
+                                Wassalamu’alaikum Warahmatullahi Wabarakatuh,
+                                `;
+
+
 
                             const encodedMessage = encodeURIComponent(message);
                             const whatsappUrl = `https://wa.me/6285157482088?text=${encodedMessage}`;
@@ -979,21 +988,21 @@
                                                 <img src="{{ asset('resources/images/lp-main/pendaftaran/ic_bri.png') }}" 
                                                 class="w-14 md:block hidden object-contain"
                                                     alt="">
-                                                <p class="text-center font-bold text-sm">001301001800569</p>
+                                                <p class="text-center font-bold text-lg md:text-xl">001301001800569</p>
                                             </div>
                                             <div class="flex flex-row md:flex-col items-center justify-center gap-1">
                                                 <img src="{{ asset('resources/images/lp-main/pendaftaran/ic_bca.png') }}"
                                                     class="w-10 md:hidden object-contain" alt="">
                                                 <img src="{{ asset('resources/images/lp-main/pendaftaran/ic_bca.png') }}"
                                                     class="hidden w-16 md:block object-contain mr-1" alt="">
-                                                <p class="text-center fontweight-bold text-sm"><strong>1200887278</strong></p>
+                                                <p class="text-center fontweight-bold text-lg md:text-xl"><strong>1200887278</strong></p>
                                             </div>
                                             <div class="flex flex-row md:flex-col items-center justify-center gap-1 mt-2">
                                                 <img src="{{ asset('resources/images/lp-main/pendaftaran/ic_mandiri.png') }}"
                                                     class="w-10 md:hidden object-contain" alt="">
                                                 <img src="{{ asset('resources/images/lp-main/pendaftaran/ic_mandiri.png') }}"
                                                     class="w-16 hidden md:block object-contain mr-1" alt="">
-                                                <p class="text-center fontweight-bold text-sm"><strong>1430077777926</strong></p>
+                                                <p class="text-center fontweight-bold text-lg md:text-xl"><strong>1430077777926</strong></p>
                                             </div>
 
                                         </div>

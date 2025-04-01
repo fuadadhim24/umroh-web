@@ -166,7 +166,7 @@ class PendaftaranResource extends Resource
                     }
                     return 'Tidak Memilih';
                 }),
-                Tables\Columns\TextColumn::make('created_at')->label('Terdaftar Pada')->dateTime(),
+                Tables\Columns\TextColumn::make('created_at')->label('Terdaftar Pada')->dateTime()->sortable(),
                 Tables\Columns\TextColumn::make('phone_number')->label('Nomor Telepon')->sortable(),
                 Tables\Columns\TextColumn::make('date_of_birth')->label('Tanggal Lahir')->date(),
                 Tables\Columns\TextColumn::make('national_id_number')->label('Nomor KTP'),
@@ -198,6 +198,7 @@ class PendaftaranResource extends Resource
                 Tables\Columns\TextColumn::make('agent_number')->label('Nomor Agen')->sortable(),
                 Tables\Columns\ImageColumn::make('image')->label('Gambar'),
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([
                 //
             ])
